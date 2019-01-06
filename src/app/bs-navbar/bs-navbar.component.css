@@ -44,34 +44,12 @@
         cursor: pointer;
         height: 50px;
     }
-    /* .number{
-        width: 33%;
-      }
-      .showHide{
-        width: 33%; 
-    }
+   
+}
+
+@media screen and (min-width:340px) and (max-width:575px){
     .top_right_header{
-        width: 46%; 
-    } */
-    .cartItem{
-        width: 46%;  
-    }
-    .readanimation{
-        height: 30%;
-       
-    }
-    .input-group{
-        width: 10%;
-    }
-    .numberandSearchbox{
-        width: 46%;
-    }
-    .logoAndemail{
-        width: 46%;
+        display: block;
     }
 }
 
-.readanimation{
-    height: 55px;
-    cursor: pointer;
-}
