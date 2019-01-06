@@ -1,5 +1,5 @@
 /* tabletes */
-@media sreen and(max-width:768px){
+@media screen and(max-width:768px){
     .mobilesize1{
         cursor: pointer;
         height: 40px;
@@ -33,13 +33,13 @@
 }
 
 /* mobile */
-@media sreen and(max-width:480px){
+@media screen and(max-width:480px){
     .mobilesize1{
         cursor: pointer;
         height: 40px;
     }
 }
-@media sreen and(max-width:481px){
+@media screen and(max-width:481px){
     .mobilesize1{
         cursor: pointer;
         height: 50px;
