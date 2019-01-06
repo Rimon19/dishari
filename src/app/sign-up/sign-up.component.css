@@ -1,0 +1,46 @@
+
+.mat-card
+{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+} 
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+ 
+  .container > * {
+    width: 100%;
+  }
+
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  .example-month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .example-month-picker .mat-calendar-arrow {
+    display: none;
+  }
+  .pointer 
+   { cursor: pointer; }

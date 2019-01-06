@@ -1,0 +1,13 @@
+<bs-navbar></bs-navbar>
+<div class="container"  @todosAnimation>
+<h1>Shipping</h1>
+<div class="row" *ngIf="cart$ | async as cart" @fade>
+  <div class="col-6">
+    <shipping-form [cart]="cart"></shipping-form>
+  </div>
+  <div class="col-6">
+    <shopping-cart-summary [cart]="cart"></shopping-cart-summary>
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

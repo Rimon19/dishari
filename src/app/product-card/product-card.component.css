@@ -1,0 +1,28 @@
+
+
+
+.card-footer {
+  padding: 2px;
+}
+
+.card-footer button {
+  cursor: pointer;
+}
+
+/* .card {
+  width: 200px;
+  height: 200px;
+  overflow: auto
+} */
+
+/* .card {
+  width: 210px;
+  height: 210px;
+  max-width: 100%;
+} */
+/* .card {
+  margin-top: 19px;
+  position: relative;
+  width: 210px;
+  height: 210px;
+} */

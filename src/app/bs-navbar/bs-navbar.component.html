@@ -1,0 +1,157 @@
+
+       <div class="header_top_area" style="padding-bottom: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 numberandSearchbox">
+                    <div class="top_header_left">
+                          <a routerLink="/" [queryParams]="{ category: 'allCategory' }"><img class="readanimation"  src="assets/img/icon/smiley-reading-book-animation-3.gif"  alt="" ></a>  
+                        <a  class="number" style="color: black;"><i class="fa fa-phone"></i> Call Us: <span>+01632079419</span></a>
+                        
+                        <div class="input-group fixtopbar" style="margin-top:20px">
+                           
+                            <input type="text" 
+                            class="form-control" #query (keyup)="filter(query.value)" 
+                            placeholder="Search" aria-label="Search">
+                           
+                            <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier"></i></button>
+                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-4 logoAndemail">
+                    <div class="top_header_middle">
+                        
+                        <a href="#" class="showHide"><i class="fa fa-envelope"></i> Email: <span>info@wings-soft.com</span></a>
+                        <div class="fixtopbar" style=" margin-top: 10px;">
+                           <img  src="assets/img/logo.png"  alt="" style=" height: 55px;cursor: pointer;">
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 fixtopbar" *ngIf="appUser; else anonymousUser" >
+                        <h6 style="margin-top:77px; margin-left: 45px">{{  appUser.name ||appUser.fullName}}</h6>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top_right_header" >
+                        <ul class="header_social showHide">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        </ul>
+
+                        <div class="fixtopbar">
+                            <ul class="top_right" >
+                                <li class="user dropdownd">
+                                    <a class="user-link" href="#" >
+                                    <i style="color:black" class="icon-user icons"></i></a>
+                                    <div class="dropdown-content"  *ngIf="appUser; else anonymousUser">
+                                            <a routerLink="/my/orders" style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Sell History</a>                                                                                             
+                                            <a routerLink="/marchand/products"  *ngIf="appUser.isMarchand" style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage Products</a>
+
+                                            <a routerLink="/admin/orders"  *ngIf="appUser.isAdmin" style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage Orders</a>
+                                            <a routerLink="/admin/adminCellRequest"  *ngIf="appUser.isAdmin" style="display:block;font-size: 14px;line-height: 40px; border: none; ">Sell Requests</a>
+                                            <a routerLink="/admin/products"  *ngIf="appUser.isAdmin" style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage Products</a>
+
+                                            <a (click)="logout()" routerLink="/login"  style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>
+                                           
+                                        
+                                    </div>
+                                    <ng-template #anonymousUser>
+                                        <div class="dropdown-content">
+                                                <a routerLink="/login" style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Login</a>
+                                                <a routerLink="/sign-up" style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">sign up</a>                    
+                                        </div>
+                                           
+                                   </ng-template>
+    
+                                </li>
+             
+                
+    
+                                <li class="cartItem" *ngIf="cart$ | async as cart" ><a routerLink="/shopping-cart"><i style="color:black" class="icon-handbag icons"></i><div class="cartItemTOp"><p style="margin-top: -13px;font-size: 14px;font-weight: 500;">{{ cart.totalItemsCount }}</p></div></a></li>
+                                <li class="h_price" style="padding: 15px 10px 7px 7px;     border: 1px solid #ccc9c9; margin-left: 8px;     font-size: 14px;
+                                font-weight: 600;">
+                                        <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="shop_header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: none;">
+                <a class="navbar-brand" href="/"><img class="mobilesize1" src="assets/img/logo.png" alt="" style=" height: 55px;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   
+                    <ul class="navbar-nav">
+                        <li class="nav-item active" style="margin-left: 1px;">
+                            <a class="nav-link" href="/" role="button" aria-haspopup="true" aria-expanded="false" >
+                            Home
+                            </a>
+                            
+                        </li>
+                        <li class="nav-item dropdown submenu">
+                            <a class="nav-link dropdown-toggle" 
+                            href="#"
+                             role="button" data-toggle="dropdown" 
+                             aria-haspopup="true" 
+                             aria-expanded="false">
+                            Categories <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                    <li class="nav-item"
+                                    [class.active]="category === 'allCategory'"
+                                    routerLink="/"
+                                    [queryParams]="{ category: 'allCategory' }">
+                                        <a class="nav-link">All Books</a>
+    
+                                    </li>   
+                                <li class="nav-item"*ngFor="let c of categories$ | async" 
+                                routerLink="/"
+                                [queryParams]="{ category: c.$key }"
+                                [class.active]="category === c.$key">
+                                    <a class="nav-link">{{ c.name }}</a>
+
+                                </li>   
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown submenu">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            What We Offer <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="#">Sell Used Books</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Earn Reward Points</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Gift Book</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Virtual Library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Become a Marchant</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Outside Dhaka Coverage</a></li>
+  
+                            </ul>
+                        </li>
+                        <li class="nav-item" routerLink="/sell-book"><a class="nav-link"  routerLink="/sell-book">Sell Book</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Publish Book</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">BestSeller</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Famous Writer</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="#">Dishari Exclusive</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>

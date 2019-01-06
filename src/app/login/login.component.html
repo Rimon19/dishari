@@ -1,0 +1,73 @@
+<bs-navbar></bs-navbar>
+<div class="row align-items-center justify-content-center">
+<mat-card class="mat-card" >
+   
+    <h2> Dishari Sign in ..</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid
+    && login(loginForm.value)" class="form">
+    
+    <div class="container"> 
+        <mat-form-field>
+          <input 
+          matInput 
+          placeholder="Enter your Email"
+            formControlName="email"            
+            autofocus
+            >
+          <mat-error *ngIf="email.touched&&email.invalid">Enter an <strong>email</strong></mat-error>
+        </mat-form-field>       
+      </div>
+      <div class="container"> 
+          <mat-form-field>
+            <input 
+            matInput 
+            placeholder="Enter your Password"
+              formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+               >
+               <!-- <mat-icon
+                     class="pointer"
+                       matSuffix 
+                       (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}
+                      </mat-icon> -->
+
+            <mat-error *ngIf="password.touched&&password.invalid">Enter a <strong>password</strong>.</mat-error>
+          </mat-form-field>       
+        </div>
+        <div class="container">
+            <button 
+            
+             type="submit"
+             [disabled]="!loginForm.valid"
+              class="oshop pointer"
+              
+              >Sign in </button>
+              <!-- <h2 _ngcontent-c7="" class="ng-tns-c7-2" style="text-align: center;margin-bottom: 30px;"> Sign in OR Register</h2> -->
+        </div>
+  <div class="modal-body row">
+    <div class="col-md-6">
+        <button 
+        class="loginBtn loginBtn--facebook pointer"
+        (click)="loginWithFacbook()"
+        >
+            Login with Facebook
+          </button>
+    </div>
+    <div class="col-md-6">
+        <button
+         class="loginBtn loginBtn--google pointer"
+         (click)="loginWithGoogle()"
+         >
+            Login with Google
+          </button>
+      </div>
+    
+  </div>
+              
+  
+    </form>
+   
+  </mat-card>
+
+</div>
+

@@ -1,0 +1,46 @@
+import { ShoppingCartService } from './shopping-cart.service';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Order } from './models/order';
+
+@Injectable()
+export class OrderService {
+
+  constructor(private db: AngularFireDatabase, private shoppingCartService: ShoppingCartService) { }
+
+  async placeOrder(order) {
+    let result = await this.db.list('/orders').push(order);
+    this.shoppingCartService.clearCart();
+    return result;
+  }
+
+  getOrders() { 
+    return this.db.list('/orders');
+  }
+  
+  getAllCellRequest() { 
+    return this.db.list('/cellRequest');
+  }
+  
+  getOrdersByUser(userId: string) {
+    return this.db.list('/orders', {
+      query: {
+        orderByChild: 'userId',
+        equalTo: userId        
+      }
+    });
+  }
+
+  getOrdersByDate(searchDate: string) {
+    return this.db.list('/orders', {
+      query: {
+        orderByChild: 'searchDate',
+        equalTo: searchDate        
+      }
+    });
+  }
+
+
+  
+}

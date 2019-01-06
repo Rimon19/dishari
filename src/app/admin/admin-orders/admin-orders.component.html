@@ -1,0 +1,56 @@
+<bs-navbar></bs-navbar>
+<div class="container">
+<h1>Orders</h1>
+<form [formGroup]="form" (ngSubmit)="searchByDate(form.value)" class="example-form" >
+  <mat-form-field>
+    <input
+    
+     matInput 
+  
+     [matDatepicker]="picker"
+     [formControl]="date"
+      placeholder="Search by Date"
+      
+      >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker> 
+  
+    <!-- <mat-error *ngIf="(date.dirty || date.touched)">
+        <mat-error *ngIf="date.errors?.required">date is <strong>requird</strong>.</mat-error>
+        <mat-error *ngIf="date.invalid">invalid date.</mat-error>
+      </mat-error> -->
+  </mat-form-field>
+  
+  <button
+  mat-button type="submit" 
+  class="pointer"   
+  >submit
+</button>
+
+</form>
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <td>{{ order.shipping.name }}</td>
+      <td>{{ order.datePlaced | date}}</td>
+      <td>      
+        <button (click)="queryParams(order.userId,order.datePlaced)">details</button>
+         
+        <!-- <a [routerLink]="['/admin/ordersDetails/',order.userId]">View</a> -->
+      </td>
+    </tr>
+  </tbody> 
+</table>
+</div>
+<app-footer></app-footer>

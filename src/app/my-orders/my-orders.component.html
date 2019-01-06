@@ -1,0 +1,94 @@
+<bs-navbar></bs-navbar>
+
+<div @todosAnimation class="container">
+  <h1>Orders</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+ 
+  <!-- <div *ngFor="let item of object | keyvalue">
+      {{item.key}}:{{item.value}}
+    </div>
+    <p>Map</p>
+    <div *ngFor="let item of map | keyvalue">
+      {{item.key}}:{{item.value}}
+    </div> -->
+
+  <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <td>{{ order.shipping.name }}</td>
+      <td>{{ order.datePlaced | date}}</td>
+     
+      <td>
+      
+          <a  class="modal-view" href="#" data-toggle="modal" data-target="#productModal" (click)="onClickGetDate(order.datePlaced)">View </a>
+          <!-- <a  (click)="openDialog(order.datePlaced)">View </a> -->
+      </td>
+
+      
+    </tr>
+  </tbody> 
+</table>
+</div>
+
+
+
+<!-- QUICKVIEW PRODUCT -->
+<div id="quickview-wrapper">
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body" *ngFor="let order of items">
+                  <div  *ngIf="orderDate==order.datePlaced">
+                         <h1>
+                      Place order on date {{ order.datePlaced | date}}
+ 
+                        </h1>
+                <div class="modal-product"*ngFor="let item of order.items">
+                                <div class="product-images">
+                                    <div class="main-image images">
+                                        <img *ngIf="item.product.imageUrl" alt="" [src]="item.product.imageUrl">
+                                    </div>
+                                </div><!-- .product-images -->
+          
+                                <div class="product-info">
+                                    <h1>Product Information</h1>
+                                    <div class="price-box">
+                                      <p>Name</p>
+                                        <p class="price"><span class="special-price"><span class="amount">{{item.product.title}}</span></span></p>
+                                    </div>
+                                 
+                                    <div class="price-box">
+                                        <p>Price</p>
+                                          <p class="price"><span class="special-price"><span class="amount">{{item.product.price}}</span></span></p>
+                                      </div>
+                                      <div class="price-box">
+                                          <p>quantity</p>
+                                            <p class="price"><span class="special-price"><span class="amount">{{item.quantity}}</span></span></p>
+                                        </div>
+                                        <div class="price-box">
+                                            <p>Total Price</p>
+                                              <p class="price"><span class="special-price"><span class="amount">{{item.totalPrice}}</span></span></p>
+                                          </div>
+                                </div><!-- .product-info -->
+                            </div><!-- .modal-product -->
+                  </div>
+                  
+              </div><!-- .modal-body -->
+          </div><!-- .modal-content -->        
+      </div><!-- .modal-dialog -->
+  </div>
+  <!-- END Modal -->
+</div>
+<!-- END QUICKVIEW PRODUCT -->
+
+<app-footer></app-footer>

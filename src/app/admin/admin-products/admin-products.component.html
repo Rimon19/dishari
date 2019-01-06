@@ -1,0 +1,160 @@
+<bs-navbar></bs-navbar>
+<div class="container">
+<p>
+    <a *ngIf="appUser.isAdmin" routerLink="/admin/products/new" class="btn btn-primary">New Product</a> 
+   <a *ngIf="appUser.isMarchand&&appUser.isActive" routerLink="/marchand/products/new" class="btn btn-primary">New Product</a> 
+</p>
+<p>
+  <input 
+    #query
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search...">
+</p>
+
+<data-table
+  [items]="items"
+  [itemCount]="itemCount"
+  (reload)="reloadItems($event)">
+
+  <data-table-column
+    [property]="'title'"  
+    [header]="'Title'"
+    [sortable]="true"
+    [resizable]="true"
+  ></data-table-column>
+  
+  <data-table-column 
+   [property]="'writter'" 
+   [header]="'Writter'"
+   [sortable]="true" 
+   [resizable]="true">
+    </data-table-column>
+
+  <data-table-column 
+  [property]="'publication'" 
+  [header]="'Publication'"
+  [sortable]="true" 
+  [resizable]="true">
+</data-table-column>
+
+<data-table-column 
+  [property]="'category'" 
+  [header]="'Category'"
+  [sortable]="true" 
+  [resizable]="true">
+</data-table-column>
+
+<data-table-column 
+  [property]="'condition'" 
+  [header]="'Condition'"
+  [sortable]="true" 
+  [resizable]="true">
+</data-table-column>
+
+<data-table-column 
+  [property]="'publishedYear'" 
+  [header]="'P.Year'"
+  [sortable]="true" 
+  [resizable]="true">
+</data-table-column>
+
+
+  <data-table-column
+    [property]="'price'"  
+    [header]="'Price'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+    <ng-template #dataTableCell let-item="item">
+      {{ item.price | currency:'USD':true }}
+    </ng-template>
+  </data-table-column>
+
+ 
+  <data-table-column
+  *ngIf="appUser.isAdmin"
+  
+  [header]="'Request'"    
+>
+  <ng-template  #dataTableCell let-item="item">
+    <a class="ndpColor" *ngIf="item.isDishariProduct==false">requested-</a> 
+    <a *ngIf="item.isDishariProduct==false"  class="modal-view" href="#" data-toggle="modal" data-target="#productModal"
+     (click)="getSpecificUserInfo(item.uid)">by </a>
+     <!-- <a *ngIf="item.isDishariProduct==false" [routerLink]="['/user-info-details/', item.uid]">by</a> -->
+    <a  class="dpColor" *ngIf="item.isDishariProduct==true">Approved-</a>
+    <a *ngIf="item.isDishariProduct==true"  class="modal-view" href="#" data-toggle="modal" data-target="#productModal"
+     (click)="getSpecificUserInfo(item.uid)">for </a>
+    <!-- <a *ngIf="item.isDishariProduct==true" [routerLink]="['/user-info-details/', item.uid]">for</a> -->
+  </ng-template>
+</data-table-column>
+
+  <data-table-column
+  *ngIf="appUser.isMarchand&&appUser.isActive"
+    [property]="'isDishariProduct'"  
+    [header]="'Status'"    
+  >
+    <ng-template   #dataTableCell let-item="item">
+      <a class="ndpColor" *ngIf="item.isDishariProduct==false">Pending</a>
+      <a  class="dpColor" *ngIf="item.isDishariProduct==true">Approved</a>
+    </ng-template>
+  </data-table-column>
+
+  <data-table-column
+    [property]="'$key'"  
+    [header]="'Action'"
+  >
+    <ng-template #dataTableCell let-item="item">
+      <a *ngIf="appUser.isAdmin" [routerLink]="['/admin/products/', item.$key]">Edit</a>
+      <a *ngIf="appUser.isMarchand&&appUser.isActive" [routerLink]="['/marchand/products/', item.$key]">Edit</a>
+    </ng-template>
+  </data-table-column>
+
+</data-table>
+</div>
+
+<app-footer></app-footer>
+
+
+<!-- QUICKVIEW PRODUCT -->
+<div id="quickview-wrapper">
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+     
+                <div class="modal-product">
+                                <div class="product-images">
+                                    
+                                </div><!-- .product-images -->
+          
+                                <div class="product-info">
+                                    <h1>User Information</h1>
+                                    <div class="price-box">
+                                      <p>Name</p>
+                                        <p *ngIf="specificUser.fullName" class="price"><span class="special-price"><span class="amount">{{specificUser.fullName}}</span></span></p>
+                                    </div>
+                                 
+                                    <div class="price-box">
+                                        <p>Email</p>
+                                          <p *ngIf="specificUser.email" class="price"><span class="special-price"><span class="amount">{{specificUser.email}}</span></span></p>
+                                      </div>
+                                      <div class="price-box">
+                                          <p *ngIf="specificUser.mobileNumber">Phone no</p>
+                                            <p class="price"><span class="special-price"><span class="amount">{{specificUser.mobileNumber}}</span></span></p>
+                                        </div>
+                                       
+                                </div><!-- .product-info -->
+                            </div><!-- .modal-product -->
+                  
+                  
+              </div><!-- .modal-body -->
+          </div><!-- .modal-content -->        
+      </div><!-- .modal-dialog -->
+  </div>
+  <!-- END Modal -->
+</div>
+<!-- END QUICKVIEW PRODUCT -->
