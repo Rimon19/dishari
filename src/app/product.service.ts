@@ -6,10 +6,10 @@ import { TrendingsProducts1 } from './models/Trendings-Products';
 import * as firebase from 'firebase/app';
 @Injectable()
 export class ProductService {
-   p=new Product();
+  p = new Product();
   constructor(private db: AngularFireDatabase) { }
 
-  create(product) { 
+  create(product) {
     return this.db.list('/products').push(product);
   }
 
@@ -17,20 +17,20 @@ export class ProductService {
   getAll(): Observable<Product[]> {
     return this.db.list('/products');
   }
-  
-  get(productId) { 
+
+  get(productId) {
     return this.db.object('/products/' + productId);
   }
 
-  update(productId, product) { 
+  update(productId, product) {
     return this.db.object('/products/' + productId).update(product);
   }
 
-  delete(productId) { 
+  delete(productId) {
     return this.db.object('/products/' + productId).remove();
   }
 
-  getAllTrendingsProducts(){
+  getAllTrendingsProducts() {
     return this.db.list('/TrendingsProducts');
   }
 
@@ -39,7 +39,7 @@ export class ProductService {
     return this.db.list('/products', {
       query: {
         orderByChild: 'uid',
-        equalTo: userId        
+        equalTo: userId
       }
     });
   }
@@ -48,92 +48,129 @@ export class ProductService {
     let storageRef = firebase.storage().ref();
     //uploadimageurl
     let uploadTaskImageUrl = storageRef
-    .child(`uploads/Image/${product.imageUrlFile.name}`)
-    .put(product.imageUrlFile);    
+      .child(`uploads/Image/${product.imageUrlFile.name}`)
+      .put(product.imageUrlFile);
     uploadTaskImageUrl.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) =>  {
+      (snapshot) => {
       },
       (error) => {
         console.log(error)
-       },
-       () :any=> {
+      },
+      (): any => {
         //upload success
-          this.p.imageUrl = uploadTaskImageUrl.snapshot.downloadURL
-          this.p.imageUrlName = product.imageUrlFile.name
-        }     
+        this.p.imageUrl = uploadTaskImageUrl.snapshot.downloadURL
+        this.p.imageUrlName = product.imageUrlFile.name
+      }
     );
 
     //upload imageUrl2
-     let uploadTaskImageUrl2 = storageRef
-    .child(`uploads/Image/${product.imageUrl2File.name}`)
-    .put(product.imageUrl2File);    
+    let uploadTaskImageUrl2 = storageRef
+      .child(`uploads/Image/${product.imageUrl2File.name}`)
+      .put(product.imageUrl2File);
     uploadTaskImageUrl2.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) =>  {
+      (snapshot) => {
       },
       (error) => {
         console.log(error)
-       },
-       () :any=> {
+      },
+      (): any => {
         this.p.imageUrl2 = uploadTaskImageUrl2.snapshot.downloadURL
         this.p.imageUrl2Name = product.imageUrl2File.name
-        
-        }
-      
+
+      }
+
     );
 
-//upload demo pdf file
-let uploadTaskDemoPdf = storageRef
-.child(`uploads/Pdf/DemoPdf/${product.demoPdfFile.name}`)
-.put(product.demoPdfFile);    
-uploadTaskDemoPdf.on(firebase.storage.TaskEvent.STATE_CHANGED,
-  (snapshot) =>  {
-  },
-  (error) => {
-    console.log(error)
-   },
-   () :any=> {
-    this.p.demoPdfUrl = uploadTaskDemoPdf.snapshot.downloadURL
-    this.p.demoPdfUrlName = product.demoPdfFile.name    
-    }
-  
-);
+    //upload demo pdf file
+    let uploadTaskDemoPdf = storageRef
+      .child(`uploads/Pdf/DemoPdf/${product.demoPdfFile.name}`)
+      .put(product.demoPdfFile);
+    uploadTaskDemoPdf.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+      },
+      (error) => {
+        console.log(error)
+      },
+      (): any => {
+        this.p.demoPdfUrl = uploadTaskDemoPdf.snapshot.downloadURL
+        this.p.demoPdfUrlName = product.demoPdfFile.name
+      }
+
+    );
 
 
-//upload pdf file
-let uploadTaskBooksPdfMain = storageRef
-.child(`uploads/Pdf/BooksPdfMain/${product.bookPdfFile.name}`)
-.put(product.bookPdfFile);    
-uploadTaskBooksPdfMain.on(firebase.storage.TaskEvent.STATE_CHANGED,
-  (snapshot) =>  {
-  },
-  (error) => {
-    console.log(error)
-   },
-   () :any=> {
-     product.imageUrl=this.p.imageUrl;
-     product.imageUrlName=this.p.imageUrlName;
-     product.imageUrl2=this.p.imageUrl2;
-     product.imageUrl2Name=this.p.imageUrl2Name;
-     product.demoPdfUrl=this.p.demoPdfUrl;
-     product.demoPdfUrlName=this.p.demoPdfUrlName;
-      product.bookPdfUrl = uploadTaskBooksPdfMain.snapshot.downloadURL
-      product.bookPdfUrlName = product.demoPdfFile.name
+    //upload pdf file
+    let uploadTaskBooksPdfMain = storageRef
+      .child(`uploads/Pdf/BooksPdfMain/${product.bookPdfFile.name}`)
+      .put(product.bookPdfFile);
+    uploadTaskBooksPdfMain.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+      },
+      (error) => {
+        console.log(error)
+      },
+      (): any => {
+        product.imageUrl = this.p.imageUrl;
+        product.imageUrlName = this.p.imageUrlName;
+        product.imageUrl2 = this.p.imageUrl2;
+        product.imageUrl2Name = this.p.imageUrl2Name;
+        product.demoPdfUrl = this.p.demoPdfUrl;
+        product.demoPdfUrlName = this.p.demoPdfUrlName;
+        product.bookPdfUrl = uploadTaskBooksPdfMain.snapshot.downloadURL
+        product.bookPdfUrlName = product.demoPdfFile.name
 
-      console.log("push Upload obj",product);
-      this.saveFileData(product);
-    }
-  
-);
+        console.log("push Upload obj", product);
+        this.saveFileData(product);
+      }
 
-
+    );
 
 
 
-}
- 
 
-private saveFileData(p) {
-  this.db.list(`books/`).push(p);
-}
+
+  }
+
+
+  private saveFileData(p) {
+    this.db.list(`products/`).push(p);
+  }
+
+
+  IsExistFontImage(fontImageName: string) {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'imageUrlName',
+        equalTo: fontImageName
+      }
+    });
+  }
+
+  IsExistBakendImage(bakendImageName: string) {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'imageUrl2Name',
+        equalTo: bakendImageName
+      }
+    });
+  }
+
+  IsExistDemoPdfName(demoPdfName: string) {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'demoPdfUrlName',
+        equalTo: demoPdfName
+      }
+    });
+  }
+
+  IsExistBookPdfName(bookPdfName: string) {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'bookPdfUrlName',
+        equalTo: bookPdfName
+      }
+    });
+  }
 
 }

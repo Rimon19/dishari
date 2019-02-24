@@ -1,73 +1,80 @@
 <bs-navbar></bs-navbar>
-<div class="container" >
+<div class="container">
 
-    <div class="row" >
-      <div class="col-md-6">
-        <form #f="ngForm" (ngSubmit)="f.valid&&save(product)">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>
-              <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
-                Title is required.
-              </div>
-            </div>    
-            <div class="form-group">
-              <label for="titleInBangla">Title in Bangla</label>
-              <input #titleInBangla="ngModel" [(ngModel)]="product.titleInBangla" name="titleInBangla" id="titleInBangla" type="text" class="form-control">              
-            </div> 
-            <div class="form-group">
-              <label for="writter">Writter</label>
-              <input #writter="ngModel" [(ngModel)]="product.writter" name="writter" id="writter" type="text" class="form-control" required>
-              <div class="alert alert-danger" *ngIf="writter.touched && writter.invalid">
-                Writter is required.
-              </div>
-            </div>    
+  <div class="row">
+    <div class="col-md-6">
+      <form #f="ngForm" (ngSubmit)="f.valid&&save(product)">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control"
+            required>
+          <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+            Title is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="titleInBangla">Title in Bangla</label>
+          <input #titleInBangla="ngModel" [(ngModel)]="product.titleInBangla" name="titleInBangla" id="titleInBangla"
+            type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="writter">Writter</label>
+          <input #writter="ngModel" [(ngModel)]="product.writter" name="writter" id="writter" type="text"
+            class="form-control" required>
+          <div class="alert alert-danger" *ngIf="writter.touched && writter.invalid">
+            Writter is required.
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label for="publication">Publication</label>
-              <input #publication="ngModel" [(ngModel)]="product.publication" name="publication" id="publication" type="text" class="form-control" required>
-              <div class="alert alert-danger" *ngIf="publication.touched && publication.invalid">
-                Publication is required.
-              </div>
-            </div> 
-            <div class="form-group">
-              <label for="price">Price</label>
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control" required [min]="0">
-              </div>
-              <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-                <div *ngIf="price.errors.required">Price is required.</div>
-                <div *ngIf="price.errors.min">Price should be 0 or higher.</div>
-              </div>
-            </div>        
-            <div class="form-group">
-              <label for="category">Category</label>
-              <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
-                <option value=""></option>
-                <option *ngFor="let c of categories$ | async" [value]="c.$key">
-                  {{ c.name }}
-                </option>
-              </select>
-              <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
-                Category is required.
-              </div>
-            </div>    
-            
-            <div class="form-group">
-              <label for="subCategory">Sub Category</label>
-              <select #subCategory="ngModel" [(ngModel)]="product.subCategory" name="subCategory" id="subCategory" class="form-control">
-                <option value=""></option>
-                <option *ngFor="let sc of subCategory$ | async" [value]="sc.$key">
-                  {{ sc.name }}
-                </option>
-              </select>
-              <!-- <div class="alert alert-danger" *ngIf="subCategory.touched && subCategory.invalid">
+        <div class="form-group">
+          <label for="publication">Publication</label>
+          <input #publication="ngModel" [(ngModel)]="product.publication" name="publication" id="publication"
+            type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="publication.touched && publication.invalid">
+            Publication is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number"
+              class="form-control" required [min]="0">
+          </div>
+          <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+            <div *ngIf="price.errors.required">Price is required.</div>
+            <div *ngIf="price.errors.min">Price should be 0 or higher.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control"
+            required>
+            <option value=""></option>
+            <option *ngFor="let c of categories$ | async" [value]="c.$key">
+              {{ c.name }}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+            Category is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subCategory">Sub Category</label>
+          <select #subCategory="ngModel" [(ngModel)]="product.subCategory" name="subCategory" id="subCategory"
+            class="form-control">
+            <option value=""></option>
+            <option *ngFor="let sc of subCategory$ | async" [value]="sc.$key">
+              {{ sc.name }}
+            </option>
+          </select>
+          <!-- <div class="alert alert-danger" *ngIf="subCategory.touched && subCategory.invalid">
               Sub Category is required.
               </div> -->
-            </div>  
-            
-            <!-- <div class="form-group">
+        </div>
+
+        <!-- <div class="form-group">
               <label for="imageUrl">Image URL for Front Cover Page</label>
               <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
               <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
@@ -75,102 +82,112 @@
                 <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
               </div>
             </div>       -->
-             <div class="form-group">
-              <label for="imageUrlFile"> Upload Image for Front Cover Page</label>
-              <input type="file" (change)="detectFilesForFrontCvrImg($event)"  class="form-control" >     
-            </div>      
-            
-            <div class="form-group">
-              <label for="imageUrl2"> Upload Image for Bakend Cover Page</label>
-              <input type="file" (change)="detectFilesForBakendCvrImg($event)"  class="form-control" >     
-            </div>    
+        <div class="form-group">
+          <label for="imageUrlFile"> Upload Image for Front Cover Page</label>
+          <input type="file" (change)="detectFilesForFrontCvrImg($event)" class="form-control">
+        </div>
 
-            <div class="form-group">
-              <label for="demoPdfUrl"> Upload Demo PDF File</label>
-              <input type="file" (change)="detectFilesForDemoPdfFile($event)"  class="form-control" >     
-            </div>    
+        <div class="form-group">
+          <label for="imageUrl2"> Upload Image for Bakend Cover Page</label>
+          <input type="file" (change)="detectFilesForBakendCvrImg($event)" class="form-control">
+        </div>
 
-            <div class="form-group">
-              <label for="demoPdfUrl"> Upload PDF File</label>
-              <input type="file" (change)="detectFilesForPdfFile($event)"  class="form-control" >     
-            </div>     
-            <div class="form-group">
-                <label for="condition">Condition</label>
-                <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition" class="form-control">
-                  <option value=""></option>
-                  <option *ngFor="let c of condition$ | async" [value]="c.$key">
-                    {{ c.name }}
-                  </option>
-                </select>
-                <!-- <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
+        <div class="form-group">
+          <label for="demoPdfUrl"> Upload Demo PDF File</label>
+          <input type="file" (change)="detectFilesForDemoPdfFile($event)" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="demoPdfUrl"> Upload PDF File</label>
+          <input type="file" (change)="detectFilesForPdfFile($event)" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="condition">Condition</label>
+          <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition"
+            class="form-control">
+            <option value=""></option>
+            <option *ngFor="let c of condition$ | async" [value]="c.$key">
+              {{ c.name }}
+            </option>
+          </select>
+          <!-- <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
                 Condition is required.
                 </div> -->
-              </div>  
-              
-              <div class="form-group">
-                  <label for="interest">Interest</label>
-                  <input #interest="ngModel" [(ngModel)]="product.interest" name="interest" id="interest" type="text" class="form-control">
-             </div>   
-             <div class="form-group">
-              <label for="summery">Summery</label>
-              <input #summery="ngModel" [(ngModel)]="product.summery" name="summery" id="summery" type="text" class="form-control">
-         </div>   
-         <div class="form-group">
-            <label for="publishedYear">Published Year</label>
-            <input #publishedYear="ngModel" [(ngModel)]="product.publishedYear" name="publishedYear" id="publishedYear" type="text" class="form-control">
-       </div> 
-       <div class="form-group">
+        </div>
+
+        <div class="form-group">
+          <label for="interest">Interest</label>
+          <input #interest="ngModel" [(ngModel)]="product.interest" name="interest" id="interest" type="text"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="summery">Summery</label>
+          <input #summery="ngModel" [(ngModel)]="product.summery" name="summery" id="summery" type="text"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="publishedYear">Published Year</label>
+          <input #publishedYear="ngModel" [(ngModel)]="product.publishedYear" name="publishedYear" id="publishedYear"
+            type="text" class="form-control">
+        </div>
+        <div class="form-group">
           <label for="isbn">ISBN</label>
           <input #isbn="ngModel" [(ngModel)]="product.isbn" name="isbn" id="isbn" type="text" class="form-control">
-     </div> 
-     <div class="form-group">
-        <label for="edition">Edition</label>
-        <input #edition="ngModel" [(ngModel)]="product.edition" name="edition" id="edition" type="text" class="form-control">
-   </div> 
-   <div class="form-group">
-      <label for="language">Language</label>
-      <input #language="ngModel" [(ngModel)]="product.language" name="language" id="language" type="text" class="form-control">
- </div> 
- <div class="form-group">
-    <label for="numberOfPage">Number of Page</label>
-    <input #numberOfPage="ngModel" [(ngModel)]="product.numberOfPage" name="numberOfPage" id="numberOfPage" type="text" class="form-control">
-</div> 
+        </div>
+        <div class="form-group">
+          <label for="edition">Edition</label>
+          <input #edition="ngModel" [(ngModel)]="product.edition" name="edition" id="edition" type="text"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="language">Language</label>
+          <input #language="ngModel" [(ngModel)]="product.language" name="language" id="language" type="text"
+            class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="numberOfPage">Number of Page</label>
+          <input #numberOfPage="ngModel" [(ngModel)]="product.numberOfPage" name="numberOfPage" id="numberOfPage"
+            type="text" class="form-control">
+        </div>
 
-<div class="form-group">
-  <label for="location">Location</label>
-  <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control">
-    <option value=""></option>
-    <option *ngFor="let c of location$ | async" [value]="c.$key">
-      {{ c.name }}
-    </option>
-  </select>
-  <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
-    location is required.
-  </div>
-</div>          
+        <div class="form-group">
+          <label for="location">Location</label>
+          <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let c of location$ | async" [value]="c.$key">
+              {{ c.name }}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
+            location is required.
+          </div>
+        </div>
 
-<div class="form-group">
-  <label for="description">Description</label>
+        <div class="form-group">
+          <label for="description">Description</label>
 
-  <textarea #description="ngModel" [(ngModel)]="product.description" name="description" id="description" cols="30" rows="5"></textarea>
-</div> 
-<div  *ngIf="appUser.isAdmin" class="form-group">
+          <textarea #description="ngModel" [(ngModel)]="product.description" name="description" id="description"
+            cols="30" rows="5"></textarea>
+        </div>
+        <div *ngIf="appUser.isAdmin" class="form-group">
 
-  <input #isDishariProduct="ngModel" [(ngModel)]="product.isDishariProduct" type="checkbox" name="isDishariProduct"> Approved<br>
- 
+          <input #isDishariProduct="ngModel" [(ngModel)]="product.isDishariProduct" type="checkbox"
+            name="isDishariProduct"> Approved<br>
 
-</div>
 
-            <button class="btn btn-primary">Save</button>
-            <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
-          </form>    
-      </div>
-      <div class="col-md-6">
-        <product-card [product]="product" [show-actions]="false"></product-card>
-      </div>
+        </div>
+
+        <button class="btn btn-primary">Save</button>
+        <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+      </form>
     </div>
+    <div class="col-md-6">
+      {{errorMessage}}
+      <!-- <product-card [product]="product" [show-actions]="false"></product-card> -->
+    </div>
+  </div>
 
 
- 
+
 </div>
 <app-footer></app-footer>
