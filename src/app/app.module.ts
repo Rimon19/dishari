@@ -65,11 +65,12 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { TodosTestingPurposeComponent } from './todos-testing-purpose/todos-testing-purpose.component';
 import { MarchandAuthGuard } from './marchand-auth-guard.service';
 import { UserInfoDetailsComponent } from './user-info-details/user-info-details.component';
-
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import{PdfViewerModule} from 'ng2-pdf-viewer';
+import { ViewPdfFilesComponent } from './view-pdf-files/view-pdf-files.component';
 
 //import { FooterComponent } from './footer/footer.component';
-
-
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,13 +102,16 @@ import { UserInfoDetailsComponent } from './user-info-details/user-info-details.
     AppFooterComponent,
     TodosTestingPurposeComponent,
     UserInfoDetailsComponent,
+    FileUploadComponent,
+    ViewPdfFilesComponent,
     
    // FooterComponent,
  
   
   ],
   imports: [
-
+    PdfViewerModule,
+    NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
@@ -144,6 +148,7 @@ import { UserInfoDetailsComponent } from './user-info-details/user-info-details.
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
       { path: 'sign-up', component: SignUpComponent },
+      { path: 'view-pdf', component: ViewPdfFilesComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
       { path: 'sell-book', component: SellBookComponent, canActivate: [AuthGuard] },
@@ -224,7 +229,13 @@ import { UserInfoDetailsComponent } from './user-info-details/user-info-details.
         path: 'user-info-details/:uid', 
         component: UserInfoDetailsComponent, 
         canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      { 
+        path: 'file-upload', 
+        component: FileUploadComponent, 
+        canActivate: [AuthGuard, AdminAuthGuard] 
       }
+
     ])    
   ],
   

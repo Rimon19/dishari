@@ -7,8 +7,17 @@ export class ProductForm {
     price:number;
     category: string;
     subCategory: string;
+
     imageUrl:string;
     imageUrl2:string;
+    demoPdfUrl:string;
+    bookPdfUrl:string;
+
+    imageUrlFile: File;
+    imageUrl2File:File;
+    demoPdfFile:File;
+    bookPdfFile:File;
+
     condition:string;
     interest:string;
     summery:string;

@@ -1,3 +1,4 @@
+import { Product } from './../../models/product';
 import { AppUser } from './../../models/app-user';
 import { AuthService } from './../../auth.service';
 
@@ -19,10 +20,13 @@ export class ProductFormComponent implements OnInit {
   subCategory$;
   condition$;
   location$;
-  product=new ProductForm(); 
+  product=new Product(); 
   id;
   appUser=new AppUser();
-
+  selectedFilesForFrontCvrImg: FileList;
+  selectedFilesForBakendCvrImg: FileList;
+  selectedFilesForDemoPdf: FileList;
+  selectedFilesForPdf: FileList;
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
@@ -31,6 +35,7 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService) {
 
     this.categories$ = categoryService.getAll();
+    console.log(this.categories$);
     this.subCategory$=categoryService.getAllSubCategories();
     this.condition$=categoryService.getAllcondition();
     this.location$=categoryService.getAllLocation();
@@ -53,13 +58,16 @@ export class ProductFormComponent implements OnInit {
  
    this.product.searchDate = year+''+month+''+day;
 
+    console.log(product);
+
     this.auth.appUser$.forEach(element => {
       this.appUser=element; 
       if(this.appUser.isAdmin){ 
 
           if (this.id) this.productService.update(this.id, this.product);
-          else this.productService.create(product);
+         else this.productService.pushUpload(product);
           this.router.navigate(['/admin/products']);
+
       }
 
       if(this.appUser.isMarchand&&this.appUser.isActive){
@@ -87,8 +95,29 @@ export class ProductFormComponent implements OnInit {
      });
   }
 
+  detectFilesForFrontCvrImg(event) {
+    this.selectedFilesForFrontCvrImg = event.target.files;
+    this.product.imageUrlFile=this.selectedFilesForFrontCvrImg.item(0);
+
+  }
+
+ detectFilesForBakendCvrImg(event) {
+  this.selectedFilesForBakendCvrImg = event.target.files;
+  this.product.imageUrl2File=this.selectedFilesForBakendCvrImg.item(0);
+  }
+
+  detectFilesForDemoPdfFile(event) {
+    this.selectedFilesForDemoPdf = event.target.files;
+    this.product.demoPdfFile=this.selectedFilesForDemoPdf.item(0);
+    }
+    detectFilesForPdfFile(event) {
+      this.selectedFilesForPdf = event.target.files;
+      this.product.bookPdfFile=this.selectedFilesForPdf.item(0);
+      }
+
   ngOnInit() {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
   }
+
 
 }

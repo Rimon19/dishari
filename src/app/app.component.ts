@@ -13,8 +13,9 @@ declare var $:any;
  
 })
 export class AppComponent implements OnInit {
-  
+  show:boolean;
   constructor(private userService: UserService, private auth: AuthService, router: Router) {
+
     auth.user$.subscribe(user => {
       if (!user) return; 
       userService.save(user);
@@ -27,28 +28,13 @@ export class AppComponent implements OnInit {
     
   }
   ngOnInit() {
-    // $.getScript('assets/js/jquery-3.2.1.min.js');
-    // $.getScript('assets/js/popper.min.js');
-    // $.getScript('assets/js/bootstrap.min.js');
-    // $.getScript('assets/vendors/revolution/js/jquery.themepunch.tools.min.js');
-    // $.getScript('assets/vendors/revolution/js/jquery.themepunch.revolution.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.video.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.navigation.min.js');
-    // $.getScript('assets/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js');
-    // $.getScript('assets/vendors/counterup/jquery.waypoints.min.js');
-    // $.getScript('assets/vendors/counterup/jquery.counterup.min.js');
-    // $.getScript('assets/vendors/owl-carousel/owl.carousel.min.js');
-    // $.getScript('assets/vendors/bootstrap-selector/js/bootstrap-select.min.js');
-    // $.getScript('assets/vendors/image-dropdown/jquery.dd.min.js');
-    // $.getScript('assets/js/smoothscroll.js');
-    // $.getScript('assets/vendors/isotope/imagesloaded.pkgd.min.js');
-    // $.getScript('assets/vendors/isotope/isotope.pkgd.min.js');
-    // $.getScript('assets/vendors/magnify-popup/jquery.magnific-popup.min.js');
-    // $.getScript('assets/vendors/vertical-slider/js/jQuery.verticalCarousel.js');
-    // $.getScript('assets/vendors/jquery-ui/jquery-ui.js');
-    // $.getScript('assets/js/theme.js');
+
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; 
+    if(month==2){
+      this.show=true;
+    }else{
+      this.show=false;
+    }
 }
 }

@@ -3,7 +3,7 @@
 
     <div class="row" >
       <div class="col-md-6">
-        <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <form #f="ngForm" (ngSubmit)="f.valid&&save(product)">
             <div class="form-group">
               <label for="title">Title</label>
               <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control" required>
@@ -11,7 +11,10 @@
                 Title is required.
               </div>
             </div>    
-              
+            <div class="form-group">
+              <label for="titleInBangla">Title in Bangla</label>
+              <input #titleInBangla="ngModel" [(ngModel)]="product.titleInBangla" name="titleInBangla" id="titleInBangla" type="text" class="form-control">              
+            </div> 
             <div class="form-group">
               <label for="writter">Writter</label>
               <input #writter="ngModel" [(ngModel)]="product.writter" name="writter" id="writter" type="text" class="form-control" required>
@@ -53,46 +56,55 @@
             
             <div class="form-group">
               <label for="subCategory">Sub Category</label>
-              <select #subCategory="ngModel" [(ngModel)]="product.subCategory" name="subCategory" id="subCategory" class="form-control" required>
+              <select #subCategory="ngModel" [(ngModel)]="product.subCategory" name="subCategory" id="subCategory" class="form-control">
                 <option value=""></option>
                 <option *ngFor="let sc of subCategory$ | async" [value]="sc.$key">
                   {{ sc.name }}
                 </option>
               </select>
-              <div class="alert alert-danger" *ngIf="subCategory.touched && subCategory.invalid">
+              <!-- <div class="alert alert-danger" *ngIf="subCategory.touched && subCategory.invalid">
               Sub Category is required.
-              </div>
+              </div> -->
             </div>  
             
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="imageUrl">Image URL for Front Cover Page</label>
               <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
               <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
                 <div *ngIf="imageUrl.errors.required">Image URL is required.</div>
                 <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
               </div>
+            </div>       -->
+             <div class="form-group">
+              <label for="imageUrlFile"> Upload Image for Front Cover Page</label>
+              <input type="file" (change)="detectFilesForFrontCvrImg($event)"  class="form-control" >     
             </div>      
             
             <div class="form-group">
-              <label for="imageUrl2">Image URL for Bakend Cover Page </label>
-              <input #imageUrl2="ngModel" [(ngModel)]="product.imageUrl2" name="imageUrl2" id="imageUrl2" type="text" class="form-control" required url>
-              <div class="alert alert-danger" *ngIf="imageUrl2.touched && imageUrl2.invalid">
-                <div *ngIf="imageUrl2.errors.required">Image URL is required.</div>
-                <div *ngIf="imageUrl2.errors.url">Please enter a valid URL.</div>
-              </div>
-            </div>  
+              <label for="imageUrl2"> Upload Image for Bakend Cover Page</label>
+              <input type="file" (change)="detectFilesForBakendCvrImg($event)"  class="form-control" >     
+            </div>    
 
             <div class="form-group">
+              <label for="demoPdfUrl"> Upload Demo PDF File</label>
+              <input type="file" (change)="detectFilesForDemoPdfFile($event)"  class="form-control" >     
+            </div>    
+
+            <div class="form-group">
+              <label for="demoPdfUrl"> Upload PDF File</label>
+              <input type="file" (change)="detectFilesForPdfFile($event)"  class="form-control" >     
+            </div>     
+            <div class="form-group">
                 <label for="condition">Condition</label>
-                <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition" class="form-control" required>
+                <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition" class="form-control">
                   <option value=""></option>
                   <option *ngFor="let c of condition$ | async" [value]="c.$key">
                     {{ c.name }}
                   </option>
                 </select>
-                <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
+                <!-- <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
                 Condition is required.
-                </div>
+                </div> -->
               </div>  
               
               <div class="form-group">
@@ -126,7 +138,7 @@
 
 <div class="form-group">
   <label for="location">Location</label>
-  <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control" required>
+  <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control">
     <option value=""></option>
     <option *ngFor="let c of location$ | async" [value]="c.$key">
       {{ c.name }}
