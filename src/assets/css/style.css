@@ -824,7 +824,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 }
 
 .shop_header_area .navbar .navbar-nav li {
-  margin-right: 40px;
+  margin-right: 63px;
 }
 
 .shop_header_area .navbar .navbar-nav li a {
