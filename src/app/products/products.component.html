@@ -1,599 +1,630 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-       <!--================Top Header Area =================-->
+<!--================Top Header Area =================-->
 
-    <!--================End Top Header Area =================-->
-            <!--================Menu Area =================-->
-           
-            <!--================End Menu Area =================-->
-       <!--================Slider Area =================-->
-       <bs-navbar></bs-navbar>
-      
+<!--================End Top Header Area =================-->
+<!--================Menu Area =================-->
 
-         
-       <section class="main_slider_area" *ngIf="filteredProducts.length==0">
-        <div class="container" >
-            <img class="img-fluid" src="assets/img/feature-add/3D-image.jpg" style="height:330px; width:100%" alt="">
-        </div>
-    </section>
-       <!--================End Slider Area =================-->
-       
-       <!--================Feature Add Area =================-->
-       <section class="feature_add_area" *ngIf="filteredProducts.length==0">
-           <div class="container">
-               <div class="row feature_inner">
-                   <div class="col-lg-5">
-                       <div class="f_add_item">
-                           <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-1.jpeg" alt=""></div>
-                           <div class="f_add_hover">
-                               <h4>Buy books at lowest possible price <br />possible price</h4>
-                               <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                           </div>
-                           <div class="sale">Sale</div>
-                       </div>
-                   </div>
-                   <div class="col-lg-4">
-                       <div class="f_add_item right_dir">
-                           <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-2.jpeg" alt=""></div>
-                           <div class="f_add_hover">
-                               <h4 style="color:white;     font-size: 25px;
+<!--================End Menu Area =================-->
+<!--================Slider Area =================-->
+<bs-navbar></bs-navbar>
+
+
+
+<section class="main_slider_area" *ngIf="filteredProducts.length==0">
+    <div class="container" id="resizescreen">
+        <img class="img-fluid" src="assets/img/feature-add/3D-image.jpg" style="height:330px; width:100%" alt="">
+    </div>
+</section>
+<!--================End Slider Area =================-->
+
+<!--================Feature Add Area =================-->
+<section class="feature_add_area" *ngIf="filteredProducts.length==0">
+    <div class="container">
+        <div class="row feature_inner">
+            <div class="col-lg-5">
+                <div class="f_add_item">
+                    <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-1.jpeg" alt="">
+                    </div>
+                    <div class="f_add_hover">
+                        <h4>Buy books at lowest possible price <br />possible price</h4>
+                        <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
+                    </div>
+                    <div class="sale">Sale</div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="f_add_item right_dir">
+                    <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-2.jpeg" alt="">
+                    </div>
+                    <div class="f_add_hover">
+                        <h4 style="color:white;     font-size: 25px;
                                -webkit-text-stroke: 1px black;
                                font-weight: 800;">Select from <br />huge collection of books</h4>
-                               <a class="add_btn" style="color:white;" href="#">Shop Now <i class="arrow_right"></i></a>
-                           </div>
-                           <div class="off">10% off</div>
-                       </div>
-                   </div>
-                   <div class="col-lg-3">
-                       <div class="f_add_item">
-                           <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-3.jpeg" alt=""></div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-       <!--================End Feature Add Area =================-->
-       
-       <!--================Our Latest Product Area =================-->
-       <section class="our_latest_product" *ngIf="filteredProducts.length==0">
-        <div class="container">
-            <div class="s_m_title">
-                <h2>Our Latest Product</h2>
+                        <a class="add_btn" style="color:white;" href="#">Shop Now <i class="arrow_right"></i></a>
+                    </div>
+                    <div class="off">10% off</div>
+                </div>
             </div>
-            <div class="l_product_slider owl-carousel">
-                <div class="item">
-                    <div class="l_product_item">
-                        <div class="l_p_img">
-                            <img class="{{T_product1.$key}}" [src]="T_product1.imageUrl"  alt="">
-                        </div>
-                        <div class="l_p_text">
-                            <ul>
-                                <li class="p_icon"><a [routerLink]="['products/', T_product1.$key]" ><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn"  (click)="addToCart(T_product1)">Add To Cart</a></li>
-                               
-                            </ul>
-                            <h4>{{T_product1.title}}</h4>
-                            <h5><del>$45.50</del> Tk.{{T_product1.price}}</h5>
-                        </div>
+            <div class="col-lg-3">
+                <div class="f_add_item">
+                    <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-3.jpeg" alt="">
                     </div>
-                 
                 </div>
-                <div class="item">
-                    <div class="l_product_item">
-                        <div class="l_p_img">
-                            <img class="{{T_product2.$key}}" [src]="T_product2.imageUrl"  alt="">
-                        </div>
-                        <div class="l_p_text">
-                           <ul>
-                                <li class="p_icon"><a [routerLink]="['products/', T_product2.$key]" ><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn" href="#" (click)="addToCart(T_product2)">Add To Cart</a></li>
-                             
-                            </ul>
-                            <h4>{{T_product2.title}}</h4>
-                            <h5><del>$45.50</del> Tk. {{T_product2.price}}</h5>
-                        </div>
-                    </div>
-                  
-                </div>
-                <div class="item">
-                    <div class="l_product_item">
-                        <div class="l_p_img">
-                            <img class="{{T_pruduct3.$key}}" [src]="T_pruduct3.imageUrl" alt="">
-                        </div>
-                        <div class="l_p_text">
-                           <ul>
-                                <li class="p_icon"><a  [routerLink]="['products/', T_pruduct3.$key]"><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn" (click)="addToCart(T_pruduct3)">Add To Cart</a></li>
-                                
-                            </ul>
-                            <h4>{{T_pruduct3.title}}</h4>
-                            <h5>Tk. {{T_pruduct3.price}}</h5>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="item">
-                    <div class="l_product_item">
-                        <div class="l_p_img">
-                            <img class="{{T_pruduct4.$key}}" [src]="T_pruduct4.imageUrl" alt="">
-                        </div>
-                        <div class="l_p_text">
-                           <ul>
-                                <li class="p_icon"><a [routerLink]="['products/', T_pruduct4.$key]"><i class="icon_piechart"></i></a></li>
-                                <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct4)">Add To Cart</a></li>
-                                
-                            </ul>
-                            <h4>{{T_pruduct4.title}}</h4>
-                            <h5><del>$130</del> Tk. {{T_pruduct4.price}}</h5>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct5.$key}}" [src]="T_pruduct5.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct5.$key]" ><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct5)">Add To Cart</a></li>
-                                  
-                                </ul>
-                                <h4>{{T_pruduct5.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct5.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
-                 <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct6.$key}}" [src]="T_pruduct6.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct6.$key]"><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct6)">Add To Cart</a></li>
-                                    
-                                </ul>
-                                <h4>{{T_pruduct6.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct6.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
-                 <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct7.$key}}" [src]="T_pruduct7.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct7.$key]"><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct7)">Add To Cart</a></li>
-                                    
-                                </ul>
-                                <h4>{{T_pruduct6.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct7.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
-                 <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct8.$key}}" [src]="T_pruduct8.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct8.$key]"><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct8)">Add To Cart</a></li>
-                                  
-                                </ul>
-                                <h4>{{T_pruduct8.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct8.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
-                 <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct9.$key}}" [src]="T_pruduct9.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct9.$key]"><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct9)">Add To Cart</a></li>
-                                   
-                                </ul>
-                                <h4>{{T_pruduct9.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct9.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
-                 <div class="item">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <img class="{{T_pruduct10.$key}}" [src]="T_pruduct10.imageUrl" alt="">
-                            </div>
-                            <div class="l_p_text">
-                               <ul>
-                                    <li class="p_icon"><a [routerLink]="['products/', T_pruduct10.$key]"><i class="icon_piechart"></i></a></li>
-                                    <li><a class="add_cart_btn"  (click)="addToCart(T_pruduct10)">Add To Cart</a></li>
-                                    
-                                </ul>
-                                <h4>{{T_pruduct10.title}}</h4>
-                                <h5><del>$130</del> Tk. {{T_pruduct10.price}}</h5>
-                            </div>
-                        </div>
-                        
-                 </div>
             </div>
         </div>
-    </section>
-       <!--================End Our Latest Product Area =================-->
-       
-       <!--================Feature Big Add Area =================-->
-       <section class="feature_big_add_area" *ngIf="filteredProducts.length==0">
-           <div class="container">
-               <div class="row">
-                   <div class="col-lg-6">
-                       <div class="f_add_item white_add">
-                           <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-4.jpeg" alt=""></div>
-                           <div class="f_add_hover">
-                               <h4>Read Book anywhere <br />anytime</h4>
-                               <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-6">
-                       <div class="f_add_item white_add">
-                           <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-5.jpeg" alt=""></div>
-                           <div class="f_add_hover">
-                               <h4 style="-webkit-text-stroke: 1px black;     font-size: 25px;
+    </div>
+</section>
+<!--================End Feature Add Area =================-->
+
+<!--================Our Latest Product Area =================-->
+<section class="our_latest_product" *ngIf="filteredProducts.length==0">
+    <div class="container">
+        <div class="s_m_title">
+            <h2>Our Latest Product</h2>
+        </div>
+        <div class="l_product_slider owl-carousel">
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_product1.$key}}" [src]="T_product1.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_product1.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_product1)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_product1.title}}</h4>
+                        <h5><del>$45.50</del> Tk.{{T_product1.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_product2.$key}}" [src]="T_product2.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_product2.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" href="#" (click)="addToCart(T_product2)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_product2.title}}</h4>
+                        <h5><del>$45.50</del> Tk. {{T_product2.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct3.$key}}" [src]="T_pruduct3.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct3.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct3)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct3.title}}</h4>
+                        <h5>Tk. {{T_pruduct3.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct4.$key}}" [src]="T_pruduct4.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct4.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct4)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct4.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct4.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct5.$key}}" [src]="T_pruduct5.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct5.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct5)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct5.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct5.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct6.$key}}" [src]="T_pruduct6.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct6.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct6)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct6.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct6.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct7.$key}}" [src]="T_pruduct7.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct7.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct7)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct6.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct7.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct8.$key}}" [src]="T_pruduct8.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct8.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct8)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct8.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct8.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct9.$key}}" [src]="T_pruduct9.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct9.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct9)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct9.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct9.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="{{T_pruduct10.$key}}" [src]="T_pruduct10.imageUrl" alt="">
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', T_pruduct10.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(T_pruduct10)">Add To Cart</a></li>
+
+                        </ul>
+                        <h4>{{T_pruduct10.title}}</h4>
+                        <h5><del>$130</del> Tk. {{T_pruduct10.price}}</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Our Latest Product Area =================-->
+
+<!--================Feature Big Add Area =================-->
+<section class="feature_big_add_area" *ngIf="filteredProducts.length==0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="f_add_item white_add">
+                    <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-4.jpeg" alt="">
+                    </div>
+                    <div class="f_add_hover">
+                        <h4>Read Book anywhere <br />anytime</h4>
+                        <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="f_add_item white_add">
+                    <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-5.jpeg" alt="">
+                    </div>
+                    <div class="f_add_hover">
+                        <h4 style="-webkit-text-stroke: 1px black;     font-size: 25px;
                                font-weight: 800;">Earn Exciting <br />Credit bonus</h4>
-                               <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-       <!--================End Feature Big Add Area =================-->
-       
-       <!--================Product_listing Area =================-->
-       <section class="product_listing_area" *ngIf="filteredProducts.length==0">
-           <div class="container">
-               <div class="row p_listing_inner">
-                   <div class="col-lg-4">
-                       <div class="row">
-                           <div class="col-lg-6 col-sm-8">
-                               <div class="p_list_text">
-                                   <h3>University Admission</h3>
-                                   <ul>
-                                       <li><a href="#">IBA MBA</a></li>
-                                       <li><a href="#">EMBA</a></li>
-                                       <li><a href="#">Engineering</a></li>
-                                       <li><a href="#">Medical</a></li>
-                                       <li><a href="#">Public</a></li>
-                                       <li><a href="#">Professional</a></li>
-                                   </ul>
-                               </div>
-                           </div>
-                           <div class="col-lg-6 col-sm-4">
-                               <div class="p_list_img">
-                                   <img src="assets/img/product/p-categories-list/product-I-1.jpeg" alt="">
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-4">
-                       <div class="row">
-                           <div class="col-lg-6 col-sm-8">
-                               <div class="p_list_text">
-                                   <h3>Job Recruitment</h3>
-                                   <ul>
-                                       <li><a href="#">Bank</a></li>
-                                       <li><a href="#">GOVT.</a></li>
-                                       <li><a href="#">Non-Cadre</a></li>
-                                       <li><a href="#">Ministry</a></li>
-                                       <li><a href="#">Teacher</a></li>
-                                       <li><a href="#">Other</a></li>
-                                   </ul>
-                               </div>
-                           </div>
-                           <div class="col-lg-6 col-sm-4">
-                               <div class="p_list_img">
-                                   <img src="assets/img/product/p-categories-list/product-I-2.jpeg" alt="">
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-4">
-                       <div class="row">
-                           <div class="col-lg-6 col-sm-8">
-                               <div class="p_list_text">
-                                   <h3>Novel</h3>
-                                   <ul>
-                                       <li><a href="#">Humayun Ahmed</a></li>
-                                       <li><a href="#">Jafar Iqbal</a></li>
-                                       <li><a href="#">Abroad</a></li>
-                                       <li><a href="#">Poetry</a></li>
-                                       <li><a href="#">Sci-fi</a></li>
-                                       <li><a href="#">Adventure</a></li>
-                                   </ul>
-                               </div>
-                           </div>
-                           <div class="col-lg-6 col-sm-4">
-                               <div class="p_list_img">
-                                   <img src="assets/img/product/p-categories-list/product-I-3.jpeg" alt="">
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-       <!--================End Product_listing Area =================-->
-       
-       <!--================Featured Product Area =================-->
-       <section class="feature_product_area" *ngIf="filteredProducts.length==0">
-           <div class="container">
-               <div class="f_p_inner">
-                   <div class="row">
-                       <div class="col-lg-3">
-                           <div class="f_product_left">
-                               <div class="s_m_title">
-                                   <h2>Featured Products</h2>
-                               </div>
-                               <div class="f_product_inner">
-                                   <div class="media">
-                                       <div class="d-flex">
-                                           <img src="assets/img/product/featured-product/f-p-1.jpg" alt="">
-                                       </div>
-                                       <div class="media-body">
-                                           <h4>Barron's New SaT</h4>
-                                           <h5>Tk. 230</h5>
-                                       </div>
-                                   </div>
-                                   <div class="media">
-                                       <div class="d-flex">
-                                           <img src="assets/img/product/featured-product/f-p-2.jpg" alt="">
-                                       </div>
-                                       <div class="media-body">
-                                           <h4>Preliminary Analysis</h4>
-                                           <h5>Tk. 450</h5>
-                                       </div>
-                                   </div>
+                        <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Feature Big Add Area =================-->
 
-                                   <div class="media">
-                                       <div class="d-flex">
-                                           <img src="assets/img/product/featured-product/f-p-3.jpg" alt="">
-                                       </div>
-                                       <div class="media-body">
-                                           <h4>Cliff's TOEFL</h4>
-                                           <h5>Tk. 75</h5>
-                                       </div>
-                                   </div>
-                                   <div class="media">
-                                       <div class="d-flex">
-                                           <img src="assets/img/product/featured-product/f-p-4.jpg" alt="">
-                                       </div>
-                                       <div class="media-body">
-                                           <h4>Mental Ability</h4>
-                                           <h5>Tk. 240</h5>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="col-lg-9">
-                           <div class="fillter_slider_inner">
-                               <ul class="portfolio_filter">
-                                   <li class="active" data-filter="*"><a href="#">Admission</a></li>
-                                   <li data-filter=".woman"><a href="#">Job/BCS</a></li>
-                                   <li data-filter=".shoes"><a href="#">English</a></li>
- 
-                               </ul>
-                               <div class="fillter_slider owl-carousel">
-                                   <div class="item shoes">
-                                       <div class=" l_product_item fillter_product_item bags">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product1.imageUrl" alt="">
-                                               <h5 class="sale">Sale</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product1.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product1)">Add To Cart</a></li>
-                                                        
-                                                </ul>
-                                               <h5>{{F_product1.title}}</h5>
-                                               <h4>Tk. {{F_product1.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
+<!--================Product_listing Area =================-->
+<section class="product_listing_area" *ngIf="filteredProducts.length==0">
+    <div class="container">
+        <div class="row p_listing_inner">
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-8">
+                        <div class="p_list_text">
+                            <h3>University Admission</h3>
+                            <ul>
+                                <li><a href="#">IBA MBA</a></li>
+                                <li><a href="#">EMBA</a></li>
+                                <li><a href="#">Engineering</a></li>
+                                <li><a href="#">Medical</a></li>
+                                <li><a href="#">Public</a></li>
+                                <li><a href="#">Professional</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-4">
+                        <div class="p_list_img">
+                            <img src="assets/img/product/p-categories-list/product-I-1.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-8">
+                        <div class="p_list_text">
+                            <h3>Job Recruitment</h3>
+                            <ul>
+                                <li><a href="#">Bank</a></li>
+                                <li><a href="#">GOVT.</a></li>
+                                <li><a href="#">Non-Cadre</a></li>
+                                <li><a href="#">Ministry</a></li>
+                                <li><a href="#">Teacher</a></li>
+                                <li><a href="#">Other</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-4">
+                        <div class="p_list_img">
+                            <img src="assets/img/product/p-categories-list/product-I-2.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-8">
+                        <div class="p_list_text">
+                            <h3>Novel</h3>
+                            <ul>
+                                <li><a href="#">Humayun Ahmed</a></li>
+                                <li><a href="#">Jafar Iqbal</a></li>
+                                <li><a href="#">Abroad</a></li>
+                                <li><a href="#">Poetry</a></li>
+                                <li><a href="#">Sci-fi</a></li>
+                                <li><a href="#">Adventure</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-4">
+                        <div class="p_list_img">
+                            <img src="assets/img/product/p-categories-list/product-I-3.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Product_listing Area =================-->
 
-                                   <div class="item woman shoes bags">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product2.imageUrl" alt="">
-                                               <h5 class="new">New</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product2.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product2)">Add To Cart</a></li>
-                                                       
-                                                </ul>
-                                               <h5>{{F_product2.title}}</h5>
-                                               <h4><del>$250</del> Tk. {{F_product2.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item woman shoes">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product3.imageUrl"  alt="">
-                                               <h5 class="discount">-10%</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product3.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product3)">Add To Cart</a></li>
-                                                       
-                                                </ul>
-                                               <h5>{{F_product3.title}}</h5>
-                                               <h4>Tk. {{F_product3.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item shoes">
-                                       <div class="l_product_item fillter_product_item bags">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product4.imageUrl" alt="">
-                                               <h5 class="sale">Sale</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product4.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product4)">Add To Cart</a></li>
-                                                       
-                                                </ul>
-                                               <h5>{{F_product4.title}}</h5>
-                                               <h4>Tk. {{F_product4.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item woman shoes bags">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product5.imageUrl" alt="">
-                                               <h5 class="new">New</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product5.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#"(click)="addToCart(F_product5)">Add To Cart</a></li>
-                                                        
-                                                </ul>
-                                               <h5>{{F_product5.title}}</h5>
-                                               <h4><del>$250</del>Tk. {{F_product5.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item woman shoes">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product6.imageUrl" alt="">
-                                               <h5 class="discount">-10%</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product6.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product6)">Add To Cart</a></li>
-                                                 
-                                                </ul>
-                                               <h5>{{F_product6.title}}</h5>
-                                               <h4>Tk. {{F_product6.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item shoes">
-                                       <div class="l_product_item fillter_product_item bags">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product7.imageUrl" alt="">
-                                               <h5 class="sale">Sale</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a [routerLink]="['products/', F_product7.$key]"><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product7)">Add To Cart</a></li>
-                                                      
-                                                </ul>
-                                               <h5>{{F_product6.title}}</h5>
-                                               <h4>Tk. {{F_product6.price}}</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item woman shoes bags">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img [src]="F_product5.imageUrl" alt="">
-                                               <h5 class="new">New</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a ><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" href="" >Add To Cart</a></li>
-                                                        <li class="p_icon"><a ><i class="icon_heart_alt"></i></a></li>
-                                                </ul>
-                                               <h5>Cliff's TOEFL</h5>
-                                               <h4>Tk. 75</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <div class="item woman shoes">
-                                       <div class="l_product_item fillter_product_item">
-                                           <div class="l_p_img">
-                                               <img src="assets/img/product/fillter-product/f-product-3.jpg" alt="">
-                                               <h5 class="discount">-10%</h5>
-                                           </div>
-                                           <div class="l_p_text">
-                                                <ul>
-                                                        <li class="p_icon"><a ><i class="icon_piechart"></i></a></li>
-                                                        <li><a class="add_cart_btn" >Add To Cart</a></li>
-                                                      
-                                                </ul>
-                                               <h5>GMAT Guide</h5>
-                                               <h4>Tk. 320</h4>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-       <!--================End Featured Product Area =================-->
-       
-      <div class="container">
-                <div class="two_column_product" *ngIf="filteredProducts.length!=0">
-                    
-                        <div class="row ">                          
-                               
-                        <div class="col-lg-3 col-md-3 col-sm-6" *ngFor="let product of filteredProducts| paginate: { itemsPerPage: 16, currentPage: p };index as i">
-                                <div class="l_product_item">
+<!--================Featured Product Area =================-->
+<section class="feature_product_area" *ngIf="filteredProducts.length==0">
+    <div class="container">
+        <div class="f_p_inner">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="f_product_left">
+                        <div class="s_m_title">
+                            <h2>Featured Products</h2>
+                        </div>
+                        <div class="f_product_inner">
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img src="assets/img/product/featured-product/f-p-1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Barron's New SaT</h4>
+                                    <h5>Tk. 230</h5>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img src="assets/img/product/featured-product/f-p-2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Preliminary Analysis</h4>
+                                    <h5>Tk. 450</h5>
+                                </div>
+                            </div>
+
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img src="assets/img/product/featured-product/f-p-3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Cliff's TOEFL</h4>
+                                    <h5>Tk. 75</h5>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img src="assets/img/product/featured-product/f-p-4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Mental Ability</h4>
+                                    <h5>Tk. 240</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="fillter_slider_inner">
+                        <ul class="portfolio_filter">
+                            <li class="active" data-filter="*"><a href="#">Admission</a></li>
+                            <li data-filter=".woman"><a href="#">Job/BCS</a></li>
+                            <li data-filter=".shoes"><a href="#">English</a></li>
+
+                        </ul>
+                        <div class="fillter_slider owl-carousel">
+                            <div class="item shoes">
+                                <div class=" l_product_item fillter_product_item bags">
                                     <div class="l_p_img">
-                                        <img class="img-fluid {{product.$key}}"  [src]="product.imageUrl" alt="">
+                                        <img [src]="F_product1.imageUrl" alt="">
                                         <h5 class="sale">Sale</h5>
                                     </div>
                                     <div class="l_p_text">
-                                    <ul>
-                                            <li class="p_icon"><a [routerLink]="['products/', product.$key]"><i class="icon_piechart"></i></a></li>
-                                            <li><a class="add_cart_btn" (click)="addToCart(product)">Add To Cart</a></li> 
-                                            <!-- <button class="add_cart_btn"   type="button">Add to cart</button> -->
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product1.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product1)">Add To
+                                                    Cart</a></li>
+
                                         </ul>
-                                        <h4>{{product.title}}</h4>
-                                        <h5><del>$45.50</del> TK.{{product.price}}</h5>
+                                        <h5>{{F_product1.title}}</h5>
+                                        <h4>Tk. {{F_product1.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item woman shoes bags">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product2.imageUrl" alt="">
+                                        <h5 class="new">New</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product2.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product2)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product2.title}}</h5>
+                                        <h4><del>$250</del> Tk. {{F_product2.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item woman shoes">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product3.imageUrl" alt="">
+                                        <h5 class="discount">-10%</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product3.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product3)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product3.title}}</h5>
+                                        <h4>Tk. {{F_product3.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item shoes">
+                                <div class="l_product_item fillter_product_item bags">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product4.imageUrl" alt="">
+                                        <h5 class="sale">Sale</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product4.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product4)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product4.title}}</h5>
+                                        <h4>Tk. {{F_product4.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item woman shoes bags">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product5.imageUrl" alt="">
+                                        <h5 class="new">New</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product5.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product5)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product5.title}}</h5>
+                                        <h4><del>$250</del>Tk. {{F_product5.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item woman shoes">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product6.imageUrl" alt="">
+                                        <h5 class="discount">-10%</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product6.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product6)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product6.title}}</h5>
+                                        <h4>Tk. {{F_product6.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item shoes">
+                                <div class="l_product_item fillter_product_item bags">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product7.imageUrl" alt="">
+                                        <h5 class="sale">Sale</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a [routerLink]="['products/', F_product7.$key]"><i
+                                                        class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="#" (click)="addToCart(F_product7)">Add To
+                                                    Cart</a></li>
+
+                                        </ul>
+                                        <h5>{{F_product6.title}}</h5>
+                                        <h4>Tk. {{F_product6.price}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item woman shoes bags">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img [src]="F_product5.imageUrl" alt="">
+                                        <h5 class="new">New</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a><i class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn" href="">Add To Cart</a></li>
+                                            <li class="p_icon"><a><i class="icon_heart_alt"></i></a></li>
+                                        </ul>
+                                        <h5>Cliff's TOEFL</h5>
+                                        <h4>Tk. 75</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item woman shoes">
+                                <div class="l_product_item fillter_product_item">
+                                    <div class="l_p_img">
+                                        <img src="assets/img/product/fillter-product/f-product-3.jpg" alt="">
+                                        <h5 class="discount">-10%</h5>
+                                    </div>
+                                    <div class="l_p_text">
+                                        <ul>
+                                            <li class="p_icon"><a><i class="icon_piechart"></i></a></li>
+                                            <li><a class="add_cart_btn">Add To Cart</a></li>
+
+                                        </ul>
+                                        <h5>GMAT Guide</h5>
+                                        <h4>Tk. 320</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
-                        <nav aria-label="Page navigation example" class="pagination_area">
-                        <ul class="pagination">
-                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                        </ul>
-                        </nav>
-            
+                    </div>
                 </div>
-            </div> 
-         
- 
-        <app-footer></app-footer>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Featured Product Area =================-->
+
+<div class="container">
+    <div class="two_column_product" *ngIf="filteredProducts.length!=0">
+
+        <div class="row ">
+
+            <div class="col-lg-3 col-md-3 col-sm-6"
+                *ngFor="let product of filteredProducts| paginate: { itemsPerPage: 16, currentPage: p };index as i">
+                <div class="l_product_item">
+                    <div class="l_p_img">
+                        <img class="img-fluid {{product.$key}}" [src]="product.imageUrl" alt="">
+                        <h5 class="sale">Sale</h5>
+                    </div>
+                    <div class="l_p_text">
+                        <ul>
+                            <li class="p_icon"><a [routerLink]="['products/', product.$key]"><i
+                                        class="icon_piechart"></i></a></li>
+                            <li><a class="add_cart_btn" (click)="addToCart(product)">Add To Cart</a></li>
+                            <!-- <button class="add_cart_btn"   type="button">Add to cart</button> -->
+                        </ul>
+                        <h4>{{product.title}}</h4>
+                        <h5><del>$45.50</del> TK.{{product.price}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav aria-label="Page navigation example" class="pagination_area">
+            <ul class="pagination">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+
+<app-footer></app-footer>
