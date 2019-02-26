@@ -46,6 +46,28 @@ Table of Content:
 }
 
 /*---------------------------------------------------- */
+
+.sticky {
+  padding-top:10px;
+  position: fixed;
+  top: 0;
+  width: 89%;
+  z-index:999999;
+  background-color: white;
+}
+
+.sticky2 {
+  position: fixed;
+  top: 75px;
+  width: 100%;
+  z-index:999999;
+  background-color: white;
+  margin-left: 80px;
+  
+}
+
+
+
 /*----------------------------------------------------*/
 ul {
   list-style: none;
