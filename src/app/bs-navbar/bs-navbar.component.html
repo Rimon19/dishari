@@ -1,4 +1,4 @@
-<div class="header_top_area" style="padding-bottom: 0px;">
+<div class="header_top_area header_top_44" style="padding-bottom: 0px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 numberandSearchbox">
@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<div class="header_top_area" style="padding-bottom: 0px;">
+<div class="header_top_area header_top_44" style="padding-bottom: 0px;">
     <div class="container ">
         <div class="row" id="fixtopbar">
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 numberandSearchbox">
@@ -82,7 +82,7 @@
                                     <a routerLink="/my/orders"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
                                         Order</a>
-                                    
+
 
                                     <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
@@ -128,6 +128,101 @@
 
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!--Mobile and tab-->
+<div class="header_top_area header_top_45" style="padding-bottom: 0px;">
+    <div class="container ">
+        <div class="row" id="fixtopbar8">
+            <div class="col-md-6 col-sm-6 col-xs-6 numberandSearchbox">
+                <div class="top_header_left">
+
+
+                    <div class="input-group" style="margin-top:-6px">
+
+                        <input type="text" class="form-control" #query (keyup)="filter(query.value)"
+                            placeholder="Search" style="height: 40px;" aria-label="Search">
+
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier"></i></button>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 col-sm-1 hideMobileSection" *ngIf="appUser; else anonymousUser">
+                <h6 style="margin-top:25px;">{{  appUser.name ||appUser.fullName}}</h6>
+            </div>
+            <div class="col-md-5 col-sm-5 hideMobileSection">
+                <div class="top_right_header ">
+                    <div class="">
+                        <ul class="top_right">
+                            <li class="user dropdownd">
+                                <a class="user-link" href="#">
+                                    <i style="color:black" class="icon-user icons"></i></a>
+                                <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
+                                    <a routerLink="/my/orders"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
+                                        Order</a>
+
+
+                                    <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
+                                        Orders</a>
+
+                                    <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
+                                        Products</a>
+
+                                    <a (click)="logout()" routerLink="/login"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>
+
+
+                                </div>
+                                <ng-template #anonymousUser>
+                                    <div class="dropdown-content">
+                                        <a routerLink="/login"
+                                            style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Login</a>
+                                        <a routerLink="/sign-up"
+                                            style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">sign
+                                            up</a>
+                                    </div>
+
+                                </ng-template>
+
+                            </li>
+
+
+
+                            <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"><i
+                                        style="color:black" class="icon-handbag icons"></i>
+                                    <div class="cartItemTOp">
+                                        <p style="margin-top: -11px;font-size: 13px;font-weight: 500;">
+                                            {{ cart.totalItemsCount }}</p>
+                                    </div>
+                                </a></li>
+                            <li class="h_price top_right_price">
+                                <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 logoAndemail">
+                <div class="top_header_middle">
+
+
+                    <div class="" style=" margin-top: 10px;">
+                        <img src="assets/img/logo.png" alt="" style=" height: 39px;cursor: pointer;">
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -220,11 +315,11 @@
         </div>
     </div> -->
 
-<header class="shop_header_area">
+<header class="shop_header_area" style="margin-top:-12px">
     <div class="container" id="fixtop3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: none;">
             <a class="navbar-brand" href="/"><img class="mobilesize1" src="assets/img/logo.png" alt=""
-                    style=" height: 55px;"></a>
+                    style=" height: 36px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -259,7 +354,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item" href="#"><a class="nav-link" >Be a
+                    <li class="nav-item" href="#"><a class="nav-link">Be a
                             Member</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Publish Book</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Boimela Exclusive</a></li>

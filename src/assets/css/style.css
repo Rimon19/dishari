@@ -60,10 +60,17 @@ Table of Content:
   position: fixed;
   top: 75px;
   width: 100%;
-  z-index:999999;
+  z-index:7;
   background-color: white;
   margin-left: 80px;
   
+}
+.sticky3{
+  position: fixed;
+  padding-top: 2px;
+  z-index:8;
+  background-color: white;
+  margin-right: 25px;
 }
 
 

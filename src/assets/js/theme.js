@@ -30,6 +30,7 @@
     window.onscroll = function () { myFunction() };
 
     var header = document.getElementById("fixtopbar");
+    var header3 = document.getElementById("fixtopbar8");
     var header2 = document.getElementById("fixtop3");
     //var header3 = document.getElementById("resizescreen");
 
@@ -39,11 +40,15 @@
         if (window.pageYOffset > sticky) {
             header.classList.add("sticky");
             header2.classList.add("sticky2");
-         //   header3.classList.add("sticky4");
+            header2.classList.add("sticky9");
+            header3.classList.add("sticky3");
+            //   header3.classList.add("sticky4");
         } else {
             header.classList.remove("sticky");
             header2.classList.remove("sticky2");
-        //    header3.classList.remove("sticky4");
+            header2.classList.remove("sticky9");
+            header3.classList.remove("sticky3");
+            //    header3.classList.remove("sticky4");
         }
     }
 
