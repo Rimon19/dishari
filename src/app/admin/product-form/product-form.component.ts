@@ -62,7 +62,7 @@ export class ProductFormComponent implements OnInit {
 
     this.product.searchDate = year + '' + month + '' + day;
 
-    console.log(product);
+    
 
     this.auth.appUser$.forEach(element => {
       this.appUser = element;
@@ -90,7 +90,7 @@ export class ProductFormComponent implements OnInit {
                         this.productService.IsExistDemoPdfName(product.bookPdfFile.name).subscribe(s => {
                           if (s.length == 0) {
 
-                            console.log('saved:', product);
+                          
                             this.productService.pushUpload(product)
                             this.router.navigate(['/admin/products']);
 
@@ -151,14 +151,19 @@ export class ProductFormComponent implements OnInit {
   }
 
   delete() {
-    if (!confirm('Are you sure you want to delete this product?')) return;
+    // if (!confirm('Are you sure you want to delete this product?')) return;
+    // if (this.id) this.productService.get(this.id).take(1)
+    // .subscribe(p => this.product = p);
+    // console.log("r",this.product);
+    // this.productService.deleteUpload(this.product);
+ 
+      //this.router.navigate(['/admin/products']); 
 
-    this.productService.delete(this.id);
-    this.auth.appUser$.forEach(element => {
-      this.appUser = element;
-      if (this.appUser.isAdmin) { this.router.navigate(['/admin/products']); }
-      if (this.appUser.isMarchand && this.appUser.isActive) { this.router.navigate(['/marchand/products']); }
-    });
+    // this.auth.appUser$.forEach(element => {
+    //   this.appUser = element;
+    //   if (this.appUser.isAdmin) { this.router.navigate(['/admin/products']); }
+    //   if (this.appUser.isMarchand && this.appUser.isActive) { this.router.navigate(['/marchand/products']); }
+    // });
   }
 
   detectFilesForFrontCvrImg(event) {

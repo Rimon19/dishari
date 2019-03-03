@@ -1,15 +1,19 @@
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Product } from './models/product';
-import { Observable } from 'rxjs';
+import { Observable ,timer,Subject} from 'rxjs';
 import { TrendingsProducts1 } from './models/Trendings-Products';
 import * as firebase from 'firebase/app';
+import { interval } from 'rxjs/observable/interval';
+
+
 @Injectable()
 export class ProductService {
   p = new Product();
   constructor(private db: AngularFireDatabase) { }
 
   create(product) {
+    
     return this.db.list('/products').push(product);
   }
 
@@ -30,6 +34,53 @@ export class ProductService {
     return this.db.object('/products/' + productId).remove();
   }
 
+  deleteUpload(product: Product) {
+    console.log('p s',product)
+    this.deleteFileData(product.$key)
+    .then( () => {
+      let storageRef = firebase.storage().ref();
+      storageRef.child(`uploads/Image/${product.imageUrlName}`).delete().then(t=>{
+        storageRef.child(`uploads/Image/${product.imageUrl2Name}`).delete().then(t=>{
+          storageRef.child(`uploads/Pdf/DemoPdf/${product.demoPdfUrlName}`).delete().then(t=>{
+            storageRef.child(`uploads/Pdf/BooksPdfMain/${product.bookPdfUrlName}`).delete().then(t=>{
+          
+            })
+          })
+        })
+      });
+    })
+    .catch(error => console.log(error));
+  
+  // console.log(product.imageUrl2Name);
+  //   this.deleteFontImageFileStorage(product.imageUrlName);
+  //     this.deleteBakendImageFileStorage(product.imageUrl2Name);
+  //     this.deleteDemoPdfFileStorage(product.demoPdfUrlName);
+  //     this.deleteBookPdfFileStorage(product.bookPdfUrlName);
+
+      
+  }
+
+  
+  private deleteFileData(key: string) {
+    return this.db.list(`products/`).remove(key);
+  }
+ private   deleteFontImageFileStorage(name:string) {
+    let storageRef = firebase.storage().ref();
+    storageRef.child(`uploads/Image/${name}`).delete();
+  }
+  private deleteBakendImageFileStorage(name:string) {
+    let storageRef = firebase.storage().ref();
+    storageRef.child(`uploads/Image/${name}`).delete();
+  }
+  private deleteDemoPdfFileStorage(name:string) {
+    let storageRef = firebase.storage().ref();
+    storageRef.child(`uploads/Pdf/DemoPdf/${name}`).delete();
+  }
+ private deleteBookPdfFileStorage(name:string) {
+    let storageRef = firebase.storage().ref();
+    storageRef.child(`uploads/Pdf/BooksPdfMain/${name}`).delete();
+  }
+
   getAllTrendingsProducts() {
     return this.db.list('/TrendingsProducts');
   }
@@ -43,7 +94,7 @@ export class ProductService {
       }
     });
   }
-
+ 
   pushUpload(product: Product) {
     let storageRef = firebase.storage().ref();
     //uploadimageurl
@@ -58,8 +109,10 @@ export class ProductService {
       },
       (): any => {
         //upload success
-        this.p.imageUrl = uploadTaskImageUrl.snapshot.downloadURL
-        this.p.imageUrlName = product.imageUrlFile.name
+        this.p.imageUrl = uploadTaskImageUrl.snapshot.downloadURL;
+        this.p.imageUrlName = product.imageUrlFile.name;
+        console.log("i",this.p.imageUrl);
+        console.log('in',this.p.imageUrlName);
       }
     );
 
@@ -74,9 +127,10 @@ export class ProductService {
         console.log(error)
       },
       (): any => {
-        this.p.imageUrl2 = uploadTaskImageUrl2.snapshot.downloadURL
-        this.p.imageUrl2Name = product.imageUrl2File.name
-
+        this.p.imageUrl2 = uploadTaskImageUrl2.snapshot.downloadURL;
+        this.p.imageUrl2Name = product.imageUrl2File.name;
+        console.log("i2", this.p.imageUrl2 );
+        console.log('i2n',this.p.imageUrl2Name);
       }
 
     );
@@ -92,8 +146,10 @@ export class ProductService {
         console.log(error)
       },
       (): any => {
-        this.p.demoPdfUrl = uploadTaskDemoPdf.snapshot.downloadURL
-        this.p.demoPdfUrlName = product.demoPdfFile.name
+        this.p.demoPdfUrl = uploadTaskDemoPdf.snapshot.downloadURL;
+        this.p.demoPdfUrlName = product.demoPdfFile.name;
+        console.log("d",this.p.demoPdfUrl);
+        console.log('dn',this.p.demoPdfUrlName);
       }
 
     );
@@ -110,32 +166,78 @@ export class ProductService {
         console.log(error)
       },
       (): any => {
-        product.imageUrl = this.p.imageUrl;
-        product.imageUrlName = this.p.imageUrlName;
-        product.imageUrl2 = this.p.imageUrl2;
-        product.imageUrl2Name = this.p.imageUrl2Name;
-        product.demoPdfUrl = this.p.demoPdfUrl;
-        product.demoPdfUrlName = this.p.demoPdfUrlName;
-        product.bookPdfUrl = uploadTaskBooksPdfMain.snapshot.downloadURL
-        product.bookPdfUrlName = product.demoPdfFile.name
+     
+        this.p.bookPdfUrl = uploadTaskBooksPdfMain.snapshot.downloadURL;
+        this.p.bookPdfUrlName = product.bookPdfFile.name;
+        console.log('pdfurl',this.p.bookPdfUrl);
+        console.log('pdfurlname',this.p.bookPdfUrlName );
 
-        console.log("push Upload obj", product);
-        this.saveFileData(product);
+        interval(20000);
+      
+        if(this.p.bookPdfUrl!=undefined&& this.p.bookPdfUrlName!=undefined){
+
+          product.imageUrl = this.p.imageUrl;
+          product.imageUrlName = this.p.imageUrlName;
+          product.imageUrl2 = this.p.imageUrl2;
+          product.imageUrl2Name = this.p.imageUrl2Name;
+          product.demoPdfUrl = this.p.demoPdfUrl;
+          product.demoPdfUrlName = this.p.demoPdfUrlName;
+          product.bookPdfUrl=this.p.bookPdfUrl;
+          product.bookPdfUrlName=this.p.bookPdfUrlName;
+      
+      
+          console.log("push Upload obj", product);
+          if( product.imageUrl!=undefined&&product.imageUrlName!=undefined&&
+            product.imageUrl2!=undefined&&product.imageUrl2Name!=undefined&&
+            product.demoPdfUrl!=undefined&&product.demoPdfUrlName!=undefined&&
+            product.bookPdfUrl!=undefined&&product.bookPdfUrlName!=undefined
+            &&
+            product.imageUrl!=null&&product.imageUrlName!=null&&
+            product.imageUrl2!=null&&product.imageUrl2Name!=null&&
+            product.demoPdfUrl!=null&&product.demoPdfUrlName!=null&&
+            product.bookPdfUrl!=null&&product.bookPdfUrlName!=null){
+            
+              this.saveFileData(product);
+              console.log('saved!');
+            }else{
+              console.log('not saved!');
+            }
+      
+        }
+        
+      
+    
+     
       }
 
     );
-
-
-
-
-
+    
+   
   }
 
 
   private saveFileData(p) {
-    this.db.list(`products/`).push(p);
+   this.IsExistProductTitle(p.title).subscribe(s=>{
+     if( s.length==0){
+      this.db.list(`products/`).push(p);
+      console.log("finaly saved");
+     }else{
+       console.log("title already exist"); 
+     }
+    
+   });
+  
   }
 
+
+  IsExistProductTitle(title: string) {
+    return this.db.list('/products', {
+      query: {
+        orderByChild: 'title',
+        equalTo: title
+      }
+    });
+  }
 
   IsExistFontImage(fontImageName: string) {
     return this.db.list('/products', {

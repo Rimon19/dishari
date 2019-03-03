@@ -34,7 +34,7 @@ export class MyOrdersComponent {
     private orderService: OrderService,
     public dialog: MatDialog) { 
 
-    this.orders$ = authService.user$.switchMap(u => orderService.getOrdersByUser(u.uid));
+    this.orders$ = authService.user$.switchMap(u =>orderService.getOrdersByUser(u.uid));
      
     this.orders$.subscribe(_items=> {
      this. items=_items;

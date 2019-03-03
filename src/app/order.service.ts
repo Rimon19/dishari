@@ -15,6 +15,12 @@ export class OrderService {
     return result;
   }
 
+  async addToLibrary(books,userId){
+  
+    let result = await this.db.list(`library/${userId}`).push(books);
+    console.log("s result",result);
+    return result;
+  }
   getOrders() { 
     return this.db.list('/orders');
   }
@@ -40,7 +46,14 @@ export class OrderService {
       }
     });
   }
-
+  getOrdersByStatusWherePending() {
+    return this.db.list('/orders', {
+      query: {
+        orderByChild: 'status',
+        equalTo: 'pending'        
+      }
+    });
+  }
 
   
 }

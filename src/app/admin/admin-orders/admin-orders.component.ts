@@ -41,14 +41,16 @@ export class AdminOrdersComponent {
 
   constructor(private orderService: OrderService,
     private router:Router) { 
-    this.orders$ = orderService.getOrders();
+    this.orders$ = orderService.getOrdersByStatusWherePending();
     // this.orders$.forEach(element => {
     //   this.orders=element;
     //   console.log(this.orders);
     // });
    
   }
-
+  approvedOrder(order){
+    console.log(order);
+  }
   queryParams(userId,oDate) {
     this.router.navigate(['/admin/ordersDetails/'], { queryParams: { id: userId, 'oDate': oDate } });
  

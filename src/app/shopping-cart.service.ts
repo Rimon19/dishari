@@ -52,16 +52,17 @@ export class ShoppingCartService {
 
   private async updateItem(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.$key);
+   let item$ = this.getItem(cartId, product.$key);
     item$.take(1).subscribe(item => {
-      let quantity = (item.quantity || 0) + change;
-      if (quantity === 0) item$.remove();
+     // let quantity = (item.quantity || 0) + change;
+      let quantity = change;
+     if (quantity === 0) item$.remove();
       else item$.update({ 
         title: product.title,
         imageUrl: product.imageUrl,
         price: product.price,
         quantity: quantity
       });
-    });
+  });
   }
 }

@@ -31,7 +31,7 @@
 
     var header = document.getElementById("fixtopbar");
     var header2 = document.getElementById("fixtop3");
-    var header3 = document.getElementById("resizescreen");
+    //var header3 = document.getElementById("resizescreen");
 
     var sticky = header.offsetTop;
 
@@ -39,11 +39,11 @@
         if (window.pageYOffset > sticky) {
             header.classList.add("sticky");
             header2.classList.add("sticky2");
-            header3.classList.add("sticky4");
+         //   header3.classList.add("sticky4");
         } else {
             header.classList.remove("sticky");
             header2.classList.remove("sticky2");
-            header3.classList.remove("sticky4");
+        //    header3.classList.remove("sticky4");
         }
     }
 

@@ -145,7 +145,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
       { path: 'todo', component: TodosTestingPurposeComponent },
      // { path: 'TestProducts', component: TestProductsComponent },
       { path: 'products/:id', component: ProductsDetailsComponent },
-      { path: 'shopping-cart', component: ShoppingCartComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'view-pdf', component: ViewPdfFilesComponent },
@@ -158,38 +158,38 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
 
        //marchand access link
-       { 
-        path: 'marchand/products/new', 
-        component: ProductFormComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard] 
-      },
-      { 
-        path: 'marchand/products/:id', 
-        component: ProductFormComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard] 
-      },
-      { 
-        path: 'marchand/products', 
-        component: AdminProductsComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard] 
-      },
-      { 
-        path: 'marchand/orders', 
-        component: AdminOrdersComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard]
+      //  { 
+      //   path: 'marchand/products/new', 
+      //   component: ProductFormComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard] 
+      // },
+      // { 
+      //   path: 'marchand/products/:id', 
+      //   component: ProductFormComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard] 
+      // },
+      // { 
+      //   path: 'marchand/products', 
+      //   component: AdminProductsComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard] 
+      // },
+      // { 
+      //   path: 'marchand/orders', 
+      //   component: AdminOrdersComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard]
 
-      },
+      // },
       
-      { 
-        path: 'marchand/ordersDetails', 
-        component: AdminOrdersDetailsComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard] 
-      },
-      { 
-        path: 'marchand/adminCellRequest', 
-        component: AdminCellRequestComponent, 
-        canActivate: [AuthGuard, MarchandAuthGuard] 
-      },
+      // { 
+      //   path: 'marchand/ordersDetails', 
+      //   component: AdminOrdersDetailsComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard] 
+      // },
+      // { 
+      //   path: 'marchand/adminCellRequest', 
+      //   component: AdminCellRequestComponent, 
+      //   canActivate: [AuthGuard, MarchandAuthGuard] 
+      // },
 
       //Admin access link
       { 

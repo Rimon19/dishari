@@ -70,8 +70,9 @@
     </ng-template>
   </data-table-column>
 
+
  
-  <data-table-column
+  <!-- <data-table-column
   *ngIf="appUser.isAdmin"
   
   [header]="'Request'"    
@@ -80,13 +81,13 @@
     <a class="ndpColor" *ngIf="item.isDishariProduct==false">requested-</a> 
     <a *ngIf="item.isDishariProduct==false"  class="modal-view" href="#" data-toggle="modal" data-target="#productModal"
      (click)="getSpecificUserInfo(item.uid)">by </a>
-     <!-- <a *ngIf="item.isDishariProduct==false" [routerLink]="['/user-info-details/', item.uid]">by</a> -->
+   
     <a  class="dpColor" *ngIf="item.isDishariProduct==true">Approved-</a>
     <a *ngIf="item.isDishariProduct==true"  class="modal-view" href="#" data-toggle="modal" data-target="#productModal"
-     (click)="getSpecificUserInfo(item.uid)">for </a>
-    <!-- <a *ngIf="item.isDishariProduct==true" [routerLink]="['/user-info-details/', item.uid]">for</a> -->
+     (click)="getSpecificUserInfo(item.uid)">for </a>  
   </ng-template>
-</data-table-column>
+
+</data-table-column> -->
 
   <data-table-column
   *ngIf="appUser.isMarchand&&appUser.isActive"
@@ -104,8 +105,8 @@
     [header]="'Action'"
   >
     <ng-template #dataTableCell let-item="item">
-      <a *ngIf="appUser.isAdmin" [routerLink]="['/admin/products/', item.$key]">Edit</a>
-      <a *ngIf="appUser.isMarchand&&appUser.isActive" [routerLink]="['/marchand/products/', item.$key]">Edit</a>
+      <a *ngIf="appUser.isAdmin" [routerLink]="['/admin/products/', item.$key]">Edit </a>
+      <a *ngIf="appUser.isAdmin" (click)="delete(item.$key)">delete</a>
     </ng-template>
   </data-table-column>
 

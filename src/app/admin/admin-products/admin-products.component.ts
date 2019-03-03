@@ -13,7 +13,7 @@ import { DataTableResource } from 'angular5-data-table';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-
+p=new Product();
   products: Product[];
   subscription: Subscription;
   tableResource: DataTableResource<Product>;
@@ -98,4 +98,12 @@ getSpecificUserInfo(uid){
     // console.log("admin-product",this.appUser = appUser));
   }
 
+
+  delete(id){
+       console.log('id:',id);
+       if (id) this.productService.get(id).take(1)
+    .subscribe(p => this.p = p);
+    console.log("obj",this.p);
+    this.productService.deleteUpload(this.p);
+  }
 }

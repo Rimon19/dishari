@@ -35,18 +35,24 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
+      <th>Customer Id</th>
+      <th>Mobile No:</th>
+      <th>Transaction No:</th>
+      <th>amount</th>
       <th>Date</th>
       <th></th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders$ | async">
-      <td>{{ order.shipping.name }}</td>
+      <td>{{order.userId}}</td>
+      <td>{{order.shipping.mobileNo}}</td>
+      <td>{{order.shipping.transactionNo}}</td>
+      <td>{{order.itemsTotalPrice}}</td>
       <td>{{ order.datePlaced | date}}</td>
       <td>      
         <button (click)="queryParams(order.userId,order.datePlaced)">details</button>
-         
+         <button (click)="approvedOrder(order)">approved</button>
         <!-- <a [routerLink]="['/admin/ordersDetails/',order.userId]">View</a> -->
       </td>
     </tr>

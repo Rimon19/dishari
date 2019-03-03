@@ -4,10 +4,17 @@ export class Order {
   datePlaced: number;
   searchDate; 
   items: any[];
- 
+  status:string;
+
+  //this is old version of application
+  // constructor(public userId: string, public shipping: any,
+  //   shoppingCart: ShoppingCart,public  itemsTotalPrice:number,public totalItemsCount:number) {
+  //  this.datePlaced = new Date().getTime();
+  //  ){}
 
   constructor(public userId: string, public shipping: any,
-     shoppingCart: ShoppingCart,public  itemsTotalPrice:number,public totalItemsCount:number) {
+      shoppingCart: ShoppingCart,public  itemsTotalPrice:number,public totalItemsCount:number) {
+     
     this.datePlaced = new Date().getTime();
     
     var dateObj = new Date();
@@ -30,4 +37,7 @@ export class Order {
       }
     })    
   }
+
+  
+
 }
