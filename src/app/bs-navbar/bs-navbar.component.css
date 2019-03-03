@@ -54,3 +54,17 @@
 }
 
 
+@media screen and (min-width:768px){
+    .textid1{
+        font-size:11px;
+    }
+    .top_right_header{
+        margin-top:29px;
+    }
+    .sticky5{
+        position:fixed;
+        bottom: 0;
+    }
+}
+
+
