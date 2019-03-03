@@ -1,4 +1,3 @@
-import { CellRequestService } from './cell-request.service';
 
 import {ValidatePassword} from './sign-up/validatePassword';
 import { OrderService } from './order.service';
@@ -58,12 +57,8 @@ import { ProductsDetailsComponent } from './products-details/products-details.co
 //import { MyOrdersDetailsComponent } from './my-orders-details/my-orders-details.component';
 //import {MatDialogModule} from '@angular/material/dialog';
 import { AdminOrdersDetailsComponent } from './admin/admin-orders-details/admin-orders-details.component';
-import { SellBookComponent } from './sell-book/sell-book.component';
-import { AdminCellRequestComponent } from './admin/admin-cell-request/admin-cell-request.component';
-import { MyCellRequestComponent } from './my-cell-request/my-cell-request.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { TodosTestingPurposeComponent } from './todos-testing-purpose/todos-testing-purpose.component';
-import { MarchandAuthGuard } from './marchand-auth-guard.service';
 import { UserInfoDetailsComponent } from './user-info-details/user-info-details.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import{PdfViewerModule} from 'ng2-pdf-viewer';
@@ -96,9 +91,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     //TestProductsComponent,
    // MyOrdersDetailsComponent,
     AdminOrdersDetailsComponent,
-    SellBookComponent,
-    AdminCellRequestComponent,
-    MyCellRequestComponent,
     AppFooterComponent,
     TodosTestingPurposeComponent,
     UserInfoDetailsComponent,
@@ -134,11 +126,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     MDBBootstrapModule.forRoot(),
     //NgxCarouselModule,
     RouterModule.forRoot([
-      {
-         path: 'h',
-       component: HomeComponent ,
-       canActivate: [AuthGuard,MarchandAuthGuard] 
-      },
 
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
@@ -151,45 +138,9 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
       { path: 'view-pdf', component: ViewPdfFilesComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-      { path: 'sell-book', component: SellBookComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-      { path: 'my/cellRequest', component: MyCellRequestComponent, canActivate: [AuthGuard] },
      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
-
-       //marchand access link
-      //  { 
-      //   path: 'marchand/products/new', 
-      //   component: ProductFormComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard] 
-      // },
-      // { 
-      //   path: 'marchand/products/:id', 
-      //   component: ProductFormComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard] 
-      // },
-      // { 
-      //   path: 'marchand/products', 
-      //   component: AdminProductsComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard] 
-      // },
-      // { 
-      //   path: 'marchand/orders', 
-      //   component: AdminOrdersComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard]
-
-      // },
-      
-      // { 
-      //   path: 'marchand/ordersDetails', 
-      //   component: AdminOrdersDetailsComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard] 
-      // },
-      // { 
-      //   path: 'marchand/adminCellRequest', 
-      //   component: AdminCellRequestComponent, 
-      //   canActivate: [AuthGuard, MarchandAuthGuard] 
-      // },
 
       //Admin access link
       { 
@@ -218,11 +169,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
         path: 'admin/ordersDetails', 
         component: AdminOrdersDetailsComponent, 
         canActivate: [AuthGuard, AdminAuthGuard] 
-      },
-      { 
-        path: 'admin/adminCellRequest', 
-        component: AdminCellRequestComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
       }
       ,
       { 
@@ -250,7 +196,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     ProductService,
     ShoppingCartService,
     OrderService,
-    CellRequestService
   ],
   bootstrap: [AppComponent]
 })

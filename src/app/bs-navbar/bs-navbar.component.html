@@ -80,18 +80,14 @@
                                     <i style="color:black" class="icon-user icons"></i></a>
                                 <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
                                     <a routerLink="/my/orders"
-                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Sell
-                                        History</a>
-                                    <a routerLink="/marchand/products" *ngIf="appUser.isMarchand"
-                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
-                                        Products</a>
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
+                                        Order</a>
+                                    
 
                                     <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
                                         Orders</a>
-                                    <!-- <a routerLink="/admin/adminCellRequest" *ngIf="appUser.isAdmin"
-                                        style="display:block;font-size: 14px;line-height: 40px; border: none; ">Sell
-                                        Requests</a> -->
+
                                     <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
                                         Products</a>
@@ -263,7 +259,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item" routerLink="/sell-book"><a class="nav-link" routerLink="/sell-book">Be a
+                    <li class="nav-item" href="#"><a class="nav-link" >Be a
                             Member</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Publish Book</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Boimela Exclusive</a></li>
