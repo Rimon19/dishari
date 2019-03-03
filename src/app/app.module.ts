@@ -1,5 +1,5 @@
 
-import {ValidatePassword} from './sign-up/validatePassword';
+import { ValidatePassword } from './sign-up/validatePassword';
 import { OrderService } from './order.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ProductService } from './product.service';
@@ -11,13 +11,13 @@ import { AuthService } from './auth.service';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2'; 
-import { AngularFireDatabaseModule } from 'angularfire2/database'; 
-import { AngularFireAuthModule } from 'angularfire2/auth'; 
-import { RouterModule } from '@angular/router'; 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms'; 
-import { CustomFormsModule } from 'ng2-validation'; 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular5-data-table';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
@@ -37,15 +37,15 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatIconModule } from "@angular/material/icon"; 
-import {MatCardModule} from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -61,11 +61,12 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { TodosTestingPurposeComponent } from './todos-testing-purpose/todos-testing-purpose.component';
 import { UserInfoDetailsComponent } from './user-info-details/user-info-details.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-import{PdfViewerModule} from 'ng2-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ViewPdfFilesComponent } from './view-pdf-files/view-pdf-files.component';
 
 //import { FooterComponent } from './footer/footer.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,17 +90,18 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     ValidatePassword,
     ProductsDetailsComponent,
     //TestProductsComponent,
-   // MyOrdersDetailsComponent,
+    // MyOrdersDetailsComponent,
     AdminOrdersDetailsComponent,
     AppFooterComponent,
     TodosTestingPurposeComponent,
     UserInfoDetailsComponent,
     FileUploadComponent,
     ViewPdfFilesComponent,
-    
-   // FooterComponent,
- 
-  
+    UserDashboardComponent,
+
+    // FooterComponent,
+
+
   ],
   imports: [
     PdfViewerModule,
@@ -114,7 +116,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
     MatRadioModule,
     BrowserModule,
     FormsModule,
-   // MatDialogModule,
+    // MatDialogModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     CustomFormsModule,
@@ -130,7 +132,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'todo', component: TodosTestingPurposeComponent },
-     // { path: 'TestProducts', component: TestProductsComponent },
+      // { path: 'TestProducts', component: TestProductsComponent },
       { path: 'products/:id', component: ProductsDetailsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
@@ -142,25 +144,29 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
 
+     
+      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
+
+      
       //Admin access link
-      { 
-        path: 'admin/products/new', 
-        component: ProductFormComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
+      {
+        path: 'admin/products/new',
+        component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
-      { 
-        path: 'admin/products/:id', 
-        component: ProductFormComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
+      {
+        path: 'admin/products/:id',
+        component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
-      { 
-        path: 'admin/products', 
-        component: AdminProductsComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
+      {
+        path: 'admin/products',
+        component: AdminProductsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
-      { 
-        path: 'admin/orders', 
-        component: AdminOrdersComponent, 
+      {
+        path: 'admin/orders',
+        component: AdminOrdersComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
 
       },
@@ -171,22 +177,27 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
         canActivate: [AuthGuard, AdminAuthGuard] 
       }
       ,
-      { 
-        path: 'user-info-details/:uid', 
-        component: UserInfoDetailsComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
+      {
+        path: 'user-info-details/:uid',
+        component: UserInfoDetailsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
       },
-      { 
-        path: 'file-upload', 
-        component: FileUploadComponent, 
-        canActivate: [AuthGuard, AdminAuthGuard] 
+      {
+        path: 'file-upload',
+        component: FileUploadComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
+      {
+        path: 'UserDashboard',
+        component: UserDashboardComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
       }
 
-    ])    
+    ])
   ],
-  
-  schemas: [ NO_ERRORS_SCHEMA ],
-  
+
+  schemas: [NO_ERRORS_SCHEMA],
+
   providers: [
     AuthService,
     AuthGuard,

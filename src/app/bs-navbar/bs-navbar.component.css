@@ -53,22 +53,18 @@
     }
 }
 
-.sticky {
-  padding-top:10px;
-  position: fixed;
-  top: 0;
-  width: 89%;
-  z-index:999999;
-  background-color: white;
+
+@media screen and (min-width:768px){
+    .textid1{
+        font-size:11px;
+    }
+    .top_right_header{
+        margin-top:29px;
+    }
+    .sticky5{
+        position:fixed;
+        bottom: 0;
+    }
 }
 
-.sticky2 {
-  position: fixed;
-  top: 75px;
-  width: 100%;
-  z-index:999999;
-  background-color: white;
-  margin-left: 57px;
-  
-}
 
