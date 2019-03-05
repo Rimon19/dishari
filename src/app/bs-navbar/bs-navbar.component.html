@@ -368,3 +368,62 @@
         </nav>
     </div>
 </header>
+
+<div class="row">
+    <div class="col-sm-6 showMobileSection">
+        <div class="top_right_header ">
+            <div class="">
+                <ul class="top_right">
+                    <li class="user dropdownd">
+                        <a class="user-link" href="#">
+                            <i style="color:black" class="icon-user icons"></i></a>
+                        <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
+                            <a routerLink="/my/orders"
+                                style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
+                                Order</a>
+
+
+                            <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
+                                style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
+                                Orders</a>
+
+                            <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
+                                style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
+                                Products</a>
+
+                            <a (click)="logout()" routerLink="/login"
+                                style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>
+
+
+                        </div>
+                        <ng-template #anonymousUser>
+                            <div class="dropdown-content">
+                                <a routerLink="/login"
+                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Login</a>
+                                <a routerLink="/sign-up"
+                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">sign
+                                    up</a>
+                            </div>
+
+                        </ng-template>
+
+                    </li>
+
+
+
+                    <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"><i
+                                style="color:black" class="icon-handbag icons"></i>
+                            <div class="cartItemTOp">
+                                <p style="margin-top: -11px;font-size: 13px;font-weight: 500;">
+                                    {{ cart.totalItemsCount }}</p>
+                            </div>
+                        </a></li>
+                    <li class="h_price top_right_price">
+                        <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
