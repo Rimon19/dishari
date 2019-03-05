@@ -7,20 +7,18 @@ import { Order } from './models/order';
 @Injectable()
 export class OrderService {
 
-  constructor(private db: AngularFireDatabase, private shoppingCartService: ShoppingCartService) { }
+  constructor(private db: AngularFireDatabase,
+     private shoppingCartService: ShoppingCartService) { }
 
   async placeOrder(order) {
     let result = await this.db.list('/orders').push(order);
     this.shoppingCartService.clearCart();
     return result;
   }
-
-  async addToLibrary(books,userId){
-  
-    let result = await this.db.list(`library/${userId}`).push(books);
-    console.log("s result",result);
-    return result;
+  update(orderId, order) {
+    return this.db.object('/orders/' + orderId).update(order);
   }
+ 
   getOrders() { 
     return this.db.list('/orders');
   }

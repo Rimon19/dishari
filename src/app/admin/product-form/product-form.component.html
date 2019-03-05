@@ -12,10 +12,22 @@
             Title is required.
           </div>
         </div>
+       
         <div class="form-group">
-          <label for="titleInBangla">Title in Bangla</label>
-          <input #titleInBangla="ngModel" [(ngModel)]="product.titleInBangla" name="titleInBangla" id="titleInBangla"
-            type="text" class="form-control">
+          <label for="title">Title in Bangla</label>
+          <input #titleInBangla="ngModel" [(ngModel)]="product.titleInBangla" name="titleInBangla" id="titleInBangla" type="text" class="form-control"
+            required>
+          <div class="alert alert-danger" *ngIf="titleInBangla.touched && titleInBangla.invalid">
+            Title In Bangla is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="title">Author</label>
+          <input #author="ngModel" [(ngModel)]="product.author" name="author" id="author" type="text" class="form-control"
+            required>
+          <div class="alert alert-danger" *ngIf="author.touched && author.invalid">
+            Author is required.
+          </div>
         </div>
         <div class="form-group">
           <label for="writter">Writter</label>
@@ -87,10 +99,10 @@
           <input type="file" (change)="detectFilesForFrontCvrImg($event)" class="form-control">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="imageUrl2"> Upload Image for Bakend Cover Page</label>
           <input type="file" (change)="detectFilesForBakendCvrImg($event)" class="form-control">
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="demoPdfUrl"> Upload Demo PDF File</label>
@@ -102,7 +114,7 @@
           <input type="file" (change)="detectFilesForPdfFile($event)" class="form-control">
         </div>
         <div class="form-group">
-          <label for="condition">Condition</label>
+          <label for="condition">Language</label>
           <select #condition="ngModel" [(ngModel)]="product.condition" name="condition" id="condition"
             class="form-control">
             <option value=""></option>
@@ -110,9 +122,9 @@
               {{ c.name }}
             </option>
           </select>
-          <!-- <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
-                Condition is required.
-                </div> -->
+          <div class="alert alert-danger" *ngIf="condition.touched && condition.invalid">
+            Condition is required.
+          </div>
         </div>
 
         <div class="form-group">
@@ -129,6 +141,7 @@
           <label for="publishedYear">Published Year</label>
           <input #publishedYear="ngModel" [(ngModel)]="product.publishedYear" name="publishedYear" id="publishedYear"
             type="text" class="form-control">
+   
         </div>
         <div class="form-group">
           <label for="isbn">ISBN</label>
@@ -139,18 +152,14 @@
           <input #edition="ngModel" [(ngModel)]="product.edition" name="edition" id="edition" type="text"
             class="form-control">
         </div>
-        <div class="form-group">
-          <label for="language">Language</label>
-          <input #language="ngModel" [(ngModel)]="product.language" name="language" id="language" type="text"
-            class="form-control">
-        </div>
+      
         <div class="form-group">
           <label for="numberOfPage">Number of Page</label>
           <input #numberOfPage="ngModel" [(ngModel)]="product.numberOfPage" name="numberOfPage" id="numberOfPage"
             type="text" class="form-control">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="location">Location</label>
           <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control">
             <option value=""></option>
@@ -161,7 +170,7 @@
           <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
             location is required.
           </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="description">Description</label>

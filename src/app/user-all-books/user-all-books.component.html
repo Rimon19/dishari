@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-lg-1 col-md-1 col-sm-4">
-      <p><b> <a routerLink="/UserAllBooks">Books</a> </b><br>
+      <p><b>Books</b><br>
         <span>200</span></p>
 
     </div>
@@ -34,8 +34,27 @@
     <hr>
   </div>
 
+  <div *ngIf="!hide" class="row"  >
 
-  <div class="row" >
+    <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let book of allBooks">
+      <div class="item">
+        <div class="l_product_item">
+          <div class="l_p_img">
+            <img class="" [src]="book.imageUrl" style="height:150px" alt="">
+          </div>
+          <div class="l_p_text">
+            <h4>{{book.title}}</h4>
+            <h6> <a href="#">Read</a></h6>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    
+
+  </div>
+  <div *ngIf="hide"  class="row" >
 
     <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let book of filteredBooks">
       <div class="item">
@@ -52,77 +71,6 @@
       </div>
     </div>
     
-    
-
-  </div>
-
-  <div class="s_m_title">
-    <h2>Novel</h2>
-  </div>
-  <hr>
-  <div class="row" >
-    <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let book of allBooks">
-      <div class="item">
-        <div class="l_product_item">
-          <div class="l_p_img">
-            <img class="" [src]="book.imageUrl" style="height:150px" alt="">
-          </div>
-          <div class="l_p_text">
-            <h4>{{book.title}}</h4>
-            <h6> <a href="#">Read</a></h6>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    
-
-  </div>
-  <!--New Section-->
-  <div class="s_m_title">
-    <h2>Academic</h2>
-  </div>
-  <hr>
-  <div class="row" >
-
-    <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let book of allBooks">
-      <div class="item">
-        <div class="l_product_item">
-          <div class="l_p_img">
-            <img class="" [src]="book.imageUrl" style="height:150px" alt="">
-          </div>
-          <div class="l_p_text">
-            <h4>{{book.title}}</h4>
-            <h6> <a href="#">Read</a></h6>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    
-    
-
-  </div>
-  <!--New Section-->
-  <div class="s_m_title">
-    <h2>Job Preparation</h2>
-  </div>
-  <hr>
-  <div class="row" >
-    <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let book of allBooks">
-      <div class="item">
-        <div class="l_product_item">
-          <div class="l_p_img">
-            <img class="" [src]="book.imageUrl" style="height:150px" alt="">
-          </div>
-          <div class="l_p_text">
-            <h4>{{book.title}}</h4>
-            <h6> <a href="#">Read</a></h6>
-          </div>
-        </div>
-
-      </div>
-    </div>
     
 
   </div>

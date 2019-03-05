@@ -1,3 +1,5 @@
+import { LibraryService } from './../../library.service';
+import { UserBook } from './../../models/user-book';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order } from '../../models/order';
@@ -31,6 +33,7 @@ export const MY_FORMATS = {
 })
 export class AdminOrdersComponent {
   orders$;
+  book=new UserBook();
 
   startDate = new Date(2019, 0, 1);
   form=new FormGroup({
@@ -40,7 +43,8 @@ export class AdminOrdersComponent {
   });
 
   constructor(private orderService: OrderService,
-    private router:Router) { 
+    private router:Router,
+    private libraryService:LibraryService) { 
     this.orders$ = orderService.getOrdersByStatusWherePending();
     // this.orders$.forEach(element => {
     //   this.orders=element;
@@ -49,7 +53,31 @@ export class AdminOrdersComponent {
    
   }
   approvedOrder(order){
-    console.log(order);
+    console.log(order.userId);
+    order.items.forEach(element => {
+      console.log('product',element.product);
+      this.book.key=element.product.key;
+      this.book.title=element.product.title;
+      
+      this.book.price =element.product.price;
+     //this.book.titleInBangla=element.product.titleInBangla;
+      this.book.imageUrl=element.product.imageUrl;
+      //this.book.imageUrl2=element.product.imageUrl2
+      //this.book.bookPdfUrl=element.product.bookPdfUrl;
+      //this.book.category=element.product.category;
+     // this.book.writter=element.product.writter;
+      //this.book.publication=element.product.publication;
+       //this.book.condition=element.product.condition;
+       //this.book.author=element.product.author;
+
+       //serch and entry date will be added here
+      
+      let result = this.libraryService.addToLibrary( this.book,order.userId);
+    });
+
+     order.status="approved";
+     this.orderService.update(order.$key,order);
+
   }
   queryParams(userId,oDate) {
     this.router.navigate(['/admin/ordersDetails/'], { queryParams: { id: userId, 'oDate': oDate } });

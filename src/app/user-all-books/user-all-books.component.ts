@@ -1,20 +1,22 @@
 import { AuthService } from './../auth.service';
 import { UserBook } from './../models/user-book';
-import { LibraryService } from './../library.service';
 import { Component, OnInit } from '@angular/core';
+import { LibraryService } from '../library.service';
 
 @Component({
-  selector: 'app-user-dashboard',
-  templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.scss']
+  selector: 'app-user-all-books',
+  templateUrl: './user-all-books.component.html',
+  styleUrls: ['./user-all-books.component.scss']
 })
-export class UserDashboardComponent implements OnInit {
- allBooks:UserBook[]=[];
+export class UserAllBooksComponent implements OnInit {
+
+  allBooks:UserBook[]=[];
  filteredBooks:UserBook[]=[];
  userId;
+ hide:boolean;
   constructor(private libraryService:LibraryService,
     private authService:AuthService) {
-   
+     this.hide=false;
     
    }
 
@@ -27,12 +29,13 @@ export class UserDashboardComponent implements OnInit {
   }
 
   filterBooks(query){
-    
+    this.hide=true;
     let filteredResult = (query) ?
     this.allBooks.filter(p => p.title.toLowerCase()
     .includes(query.toLowerCase())) :
      this.allBooks;      
      this.filteredBooks=filteredResult;
   }
+
 
 }

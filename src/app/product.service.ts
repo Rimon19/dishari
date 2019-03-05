@@ -40,13 +40,13 @@ export class ProductService {
     .then( () => {
       let storageRef = firebase.storage().ref();
       storageRef.child(`uploads/Image/${product.imageUrlName}`).delete().then(t=>{
-        storageRef.child(`uploads/Image/${product.imageUrl2Name}`).delete().then(t=>{
+       // storageRef.child(`uploads/Image/${product.imageUrl2Name}`).delete().then(t=>{
           storageRef.child(`uploads/Pdf/DemoPdf/${product.demoPdfUrlName}`).delete().then(t=>{
             storageRef.child(`uploads/Pdf/BooksPdfMain/${product.bookPdfUrlName}`).delete().then(t=>{
           
             })
           })
-        })
+     //   })
       });
     })
     .catch(error => console.log(error));
@@ -116,25 +116,7 @@ export class ProductService {
       }
     );
 
-    //upload imageUrl2
-    let uploadTaskImageUrl2 = storageRef
-      .child(`uploads/Image/${product.imageUrl2File.name}`)
-      .put(product.imageUrl2File);
-    uploadTaskImageUrl2.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
-      },
-      (error) => {
-        console.log(error)
-      },
-      (): any => {
-        this.p.imageUrl2 = uploadTaskImageUrl2.snapshot.downloadURL;
-        this.p.imageUrl2Name = product.imageUrl2File.name;
-        console.log("i2", this.p.imageUrl2 );
-        console.log('i2n',this.p.imageUrl2Name);
-      }
-
-    );
-
+    
     //upload demo pdf file
     let uploadTaskDemoPdf = storageRef
       .child(`uploads/Pdf/DemoPdf/${product.demoPdfFile.name}`)
@@ -154,7 +136,10 @@ export class ProductService {
 
     );
 
-
+    for (let index = 0; index < 100000; index++) {
+          
+          
+    }
     //upload pdf file
     let uploadTaskBooksPdfMain = storageRef
       .child(`uploads/Pdf/BooksPdfMain/${product.bookPdfFile.name}`)
@@ -172,14 +157,12 @@ export class ProductService {
         console.log('pdfurl',this.p.bookPdfUrl);
         console.log('pdfurlname',this.p.bookPdfUrlName );
 
-        interval(20000);
+       
       
         if(this.p.bookPdfUrl!=undefined&& this.p.bookPdfUrlName!=undefined){
 
           product.imageUrl = this.p.imageUrl;
           product.imageUrlName = this.p.imageUrlName;
-          product.imageUrl2 = this.p.imageUrl2;
-          product.imageUrl2Name = this.p.imageUrl2Name;
           product.demoPdfUrl = this.p.demoPdfUrl;
           product.demoPdfUrlName = this.p.demoPdfUrlName;
           product.bookPdfUrl=this.p.bookPdfUrl;
@@ -188,12 +171,10 @@ export class ProductService {
       
           console.log("push Upload obj", product);
           if( product.imageUrl!=undefined&&product.imageUrlName!=undefined&&
-            product.imageUrl2!=undefined&&product.imageUrl2Name!=undefined&&
             product.demoPdfUrl!=undefined&&product.demoPdfUrlName!=undefined&&
             product.bookPdfUrl!=undefined&&product.bookPdfUrlName!=undefined
             &&
             product.imageUrl!=null&&product.imageUrlName!=null&&
-            product.imageUrl2!=null&&product.imageUrl2Name!=null&&
             product.demoPdfUrl!=null&&product.demoPdfUrlName!=null&&
             product.bookPdfUrl!=null&&product.bookPdfUrlName!=null){
             

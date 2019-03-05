@@ -19,16 +19,16 @@ export class Product {
   imageUrl2File:File;
   demoPdfFile:File;
   bookPdfFile:File;
-
+  author:string;
   writter:string;
   publication:string;
-  condition:string;
+  condition:string;//its actually language
   interest:string;
   summery:string;
   publishedYear:string;
   isbn:string;
   edition:string;
-  language:string;
+  
   numberOfPage:string;
   subCategory: string;
   

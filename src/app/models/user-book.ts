@@ -18,7 +18,7 @@ export class UserBook {
     imageUrl2File:File;
     demoPdfFile:File;
     bookPdfFile:File;
-  
+    author:string;
     writter:string;
     publication:string;
     condition:string;

@@ -28,9 +28,21 @@ export class Order {
     this.items = shoppingCart.items.map(i => {
       return {
         product: {
+          
           title: i.title,
+          price: i.price,
+          key:i.$key,
+         // titleInBangla:i.titleInBangla,
           imageUrl: i.imageUrl,
-          price: i.price
+         // imageUrl2:i.imageUrl2,
+          //bookPdfUrl:i.bookPdfUrl,
+
+         // category: i.category,      
+         // writter:i.writter,
+         // publication:i.publication,
+       //  condition:i.condition,
+         // author:i.author,
+
         },
         quantity: i.quantity,
         totalPrice: i.totalPrice

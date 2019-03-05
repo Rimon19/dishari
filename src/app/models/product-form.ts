@@ -2,6 +2,7 @@ export class ProductForm {
 
     $key:string;
     title:string;
+    author:string;
     writter:string;
     publication:string;
     price:number;
