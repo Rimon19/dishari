@@ -10,6 +10,7 @@ import { Order } from '../models/order';
 import { Subscription } from 'rxjs/Subscription';
 import { ShippingForm } from '../models/shipping-form';
 import { Router } from '@angular/router';
+import { LibraryService } from '../library.service';
 
 
 @Component({
@@ -43,7 +44,8 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
   constructor(private shoppingCartService: ShoppingCartService,
     private orderService: OrderService,
     private authService: AuthService,
-    private router:Router) { }
+    private router:Router,
+    private libraryService:LibraryService) { }
 
   async ngOnInit() {
     this.cart$ = await this.shoppingCartService.getCart();
@@ -69,21 +71,38 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
           order.status="approved";
         
         this.cart.items.forEach(element => {
-          console.log(element);
-          this.book.key=element.$key;
+          console.log('element',element);
+          this.book.key=element.$key;          
           this.book.title=element.title;
-          this.book.imageUrl=element.imageUrl;          
-          let result = this.orderService.addToLibrary( this.book,this.userId);
+          this.book.price =element.price;
+
+         // this.book.titleInBangla=element.titleInBangla;
+          this.book.imageUrl=element.imageUrl;
+         // this.book.imageUrl2=element.imageUrl2
+        //  this.book.bookPdfUrl=element.bookPdfUrl;
+        //  this.book.category=element.category;
+
+         // this.book.writter=element.writter;
+        //  this.book.publication=element.publication;
+           //this.book.author=element.author;
+        //   this.book.condition=element.condition;
+       //serch and entry date will be added here
+          let result = this.libraryService.addToLibrary( this.book,this.userId);
 
         });
 
         let result = await this.orderService.placeOrder(order);
-        console.log(this.cart.items);
+        console.log('cart items',this.cart.items);
         this.router.navigate(['/order-success', result.key]);
       }
     
   }
   
+  RemoveFromShoppingCart(item){
+ 
+     this.shoppingCartService.removeFromCart(item);
+    
+  }
   clearCart() { 
     this.shoppingCartService.clearCart();
   }

@@ -73,76 +73,76 @@ export class ProductFormComponent implements OnInit {
         }
         else {
 
-          if (product.imageUrlFile != undefined &&
-            product.imageUrl2File != undefined &&
-            product.demoPdfFile != undefined &&
-            product.bookPdfFile != undefined) {
+          this.productService.IsExistProductTitle(product.title).subscribe(s=>{
+            if( s.length==0){
 
-            this.productService.IsExistFontImage(product.imageUrlFile.name).subscribe(i => {
-              if (i.length == 0) {
-
-                this.productService.IsExistBakendImage(product.imageUrl2File.name).subscribe(s => {
-                  if (s.length == 0) {
-
-                    this.productService.IsExistDemoPdfName(product.demoPdfFile.name).subscribe(s => {
-                      if (s.length == 0) {
-
-                        this.productService.IsExistDemoPdfName(product.bookPdfFile.name).subscribe(s => {
+              if (product.imageUrlFile != undefined &&
+                product.demoPdfFile != undefined &&
+                product.bookPdfFile != undefined) {
+    
+                this.productService.IsExistFontImage(product.imageUrlFile.name).subscribe(i => {
+                  if (i.length == 0) {
+    
+                    // this.productService.IsExistBakendImage(product.imageUrl2File.name).subscribe(s => {
+                    //   if (s.length == 0) {
+    
+                        this.productService.IsExistDemoPdfName(product.demoPdfFile.name).subscribe(s => {
                           if (s.length == 0) {
-
-                          
-                            this.productService.pushUpload(product)
-                            this.router.navigate(['/admin/products']);
-
+    
+                            this.productService.IsExistDemoPdfName(product.bookPdfFile.name).subscribe(s => {
+                              if (s.length == 0) {
+    
+                              
+                                this.productService.pushUpload(product)
+                                this.router.navigate(['/admin/products']);
+    
+                              } else {
+                                this.errorMessage = "book pdf  already exist";
+    
+                              }
+                            });
+    
                           } else {
-                            this.errorMessage = "book pdf  already exist";
-
+                            this.errorMessage = "demo pdf  already exist";
+    
                           }
                         });
-
-                      } else {
-                        this.errorMessage = "demo pdf  already exist";
-
-                      }
-                    }
-                    );
-
+    
+                  //    } //else {
+                       // this.errorMessage = "bakend image already exist";
+    
+                     // }
+                  //  });
+    
+    
                   } else {
-                    this.errorMessage = "bakend image already exist";
-
+                    this.errorMessage = "Font image already exist";
+    
                   }
                 }
-
                 );
-
-
+    
+    
               } else {
-                this.errorMessage = "Font image already exist";
-
+                this.errorMessage = "file inputs are required !";
               }
+    
+              
+            
+            }else{
+              this.errorMessage = "title already exist !";
+              console.log("title already exist"); 
             }
-            );
+           
+          });
+         
 
-
-          } else {
-            this.errorMessage = "file inputs are required !";
-          }
-
+        
         }
 
 
       }
 
-      //if(this.appUser.isMarchand&&this.appUser.isActive){
-
-      // let userUid = localStorage.getItem('userUid');
-      // this.product.uid=userUid;
-      // this.product.isDishariProduct=false;
-
-      // if (this.id) this.productService.update(this.id, this.product);
-      // else this.productService.create(product);
-      //  this.router.navigate(['/marchand/products']);
-      // }
 
 
     })

@@ -17,8 +17,10 @@
       <tr>
         <th></th>
         <th>Product</th>
-        <!-- <th class="text-center" style="width: 230px">Quantity</th> -->
         <th class="text-right" style="width: 200px">Price</th>
+        <th>Remove</th>
+        <!-- <th class="text-center" style="width: 230px">Quantity</th> -->
+       
       </tr>
     </thead>
     <tbody >
@@ -30,13 +32,15 @@
         <td>
           {{ item.title }}
         </td>
+      
         <!-- <td>
           <product-quantity [product]="item" [shopping-cart]="cart">
           </product-quantity>
         </td> -->
         <td class="text-right">
-          {{ item.totalPrice | currency:'USD':true }}
+          {{ item.totalPrice}} .tk
         </td>
+        <td>(<a (click)="RemoveFromShoppingCart(item)">-</a>)</td>
       </tr>
     </tbody>
     <tfoot>
@@ -44,7 +48,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th class="text-right">{{ cart.totalPrice | currency:'USD':true }}</th>
+        <th class="text-right">{{ cart.totalPrice}} .tk</th>
       </tr>
       <tr>
         <th colspan="4">

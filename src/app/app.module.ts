@@ -67,6 +67,7 @@ import { ViewPdfFilesComponent } from './view-pdf-files/view-pdf-files.component
 //import { FooterComponent } from './footer/footer.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserAllBooksComponent } from './user-all-books/user-all-books.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +99,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     FileUploadComponent,
     ViewPdfFilesComponent,
     UserDashboardComponent,
+    UserAllBooksComponent,
 
     // FooterComponent,
 
@@ -142,6 +144,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+      {  path: 'UserDashboard', component: UserDashboardComponent, canActivate: [AuthGuard] },
+      {  path: 'UserAllBooks', component: UserAllBooksComponent, canActivate: [AuthGuard] },
      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
 
      
@@ -185,11 +189,6 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
       {
         path: 'file-upload',
         component: FileUploadComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-      },
-      {
-        path: 'UserDashboard',
-        component: UserDashboardComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       }
 

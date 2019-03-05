@@ -29,9 +29,7 @@ export class UserService {
         fullName: registrationForm.name,
         email: registrationForm.email,
         password: registrationForm.password,
-        dateOfBirth:registrationForm.date,
-        mobileNumber:registrationForm.mobileNumber,
-        gender:registrationForm.gender
+        mobileNumber:registrationForm.mobileNumber
       });
     });
    }
