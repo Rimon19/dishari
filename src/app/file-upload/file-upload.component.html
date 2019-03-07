@@ -27,3 +27,27 @@
         Upload Multiple
       </button>
 
+
+
+      
+<form  >
+  <div class="form-group">
+    <label for="">Front image name.</label>
+    <input #name="ngModel" name="name" [(ngModel)]="shipping.mobileNo" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Demo pdg name</label>
+    <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.transactionNo" type="text" class="form-control" placeholder="Line 1">   
+  </div>
+  <div class="form-group">
+    <label for="">Book pdf name</label>
+    <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control" placeholder="Line 2">
+  </div>
+ 
+  <button 
+    (click)="deleteFromStorage(shipping)"
+    class="btn btn-primary">Delete</button>
+  
+</form>    
+
+

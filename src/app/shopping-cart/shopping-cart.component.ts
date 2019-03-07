@@ -12,7 +12,7 @@ import { ShippingForm } from '../models/shipping-form';
 import { Router } from '@angular/router';
 import { LibraryService } from '../library.service';
 
-
+declare function MyMethod():any;
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -48,6 +48,7 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
     private libraryService:LibraryService) { }
 
   async ngOnInit() {
+    
     this.cart$ = await this.shoppingCartService.getCart();
     this.cart$ .forEach(element => {
       this.cart=element;

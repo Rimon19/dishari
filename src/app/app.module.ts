@@ -146,6 +146,7 @@ import { UserAllBooksComponent } from './user-all-books/user-all-books.component
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
       {  path: 'UserDashboard', component: UserDashboardComponent, canActivate: [AuthGuard] },
       {  path: 'UserAllBooks', component: UserAllBooksComponent, canActivate: [AuthGuard] },
+      {  path: 'read/:url', component: ViewPdfFilesComponent, canActivate: [AuthGuard] },
      // { path: 'orderdetails', component: MyOrdersDetailsComponent, canActivate: [AuthGuard] },
 
      
@@ -190,7 +191,8 @@ import { UserAllBooksComponent } from './user-all-books/user-all-books.component
         path: 'file-upload',
         component: FileUploadComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
-      }
+      },
+      
 
     ])
   ],

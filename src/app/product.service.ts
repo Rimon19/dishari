@@ -64,21 +64,24 @@ export class ProductService {
   private deleteFileData(key: string) {
     return this.db.list(`products/`).remove(key);
   }
- private   deleteFontImageFileStorage(name:string) {
+  deleteFontImageFileStorage(name:string) {
     let storageRef = firebase.storage().ref();
     storageRef.child(`uploads/Image/${name}`).delete();
+    console.log("font image deleted");
   }
-  private deleteBakendImageFileStorage(name:string) {
-    let storageRef = firebase.storage().ref();
-    storageRef.child(`uploads/Image/${name}`).delete();
-  }
-  private deleteDemoPdfFileStorage(name:string) {
+  // private deleteBakendImageFileStorage(name:string) {
+  //   let storageRef = firebase.storage().ref();
+  //   storageRef.child(`uploads/Image/${name}`).delete();
+  // }
+  deleteDemoPdfFileStorage(name:string) {
     let storageRef = firebase.storage().ref();
     storageRef.child(`uploads/Pdf/DemoPdf/${name}`).delete();
+    console.log("demo pdf deleted");
   }
- private deleteBookPdfFileStorage(name:string) {
+  deleteBookPdfFileStorage(name:string) {
     let storageRef = firebase.storage().ref();
     storageRef.child(`uploads/Pdf/BooksPdfMain/${name}`).delete();
+    console.log("book pdf deleted");
   }
 
   getAllTrendingsProducts() {
@@ -102,8 +105,8 @@ export class ProductService {
       .child(`uploads/Image/${product.imageUrlFile.name}`)
       .put(product.imageUrlFile);
     uploadTaskImageUrl.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
-      },
+      // (snapshot) => {
+      // },
       (error) => {
         console.log(error)
       },
@@ -122,8 +125,8 @@ export class ProductService {
       .child(`uploads/Pdf/DemoPdf/${product.demoPdfFile.name}`)
       .put(product.demoPdfFile);
     uploadTaskDemoPdf.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
-      },
+      // (snapshot) => {
+      // },
       (error) => {
         console.log(error)
       },
@@ -145,8 +148,9 @@ export class ProductService {
       .child(`uploads/Pdf/BooksPdfMain/${product.bookPdfFile.name}`)
       .put(product.bookPdfFile);
     uploadTaskBooksPdfMain.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) => {
-      },
+      // (snapshot) => {
+        
+      // },
       (error) => {
         console.log(error)
       },

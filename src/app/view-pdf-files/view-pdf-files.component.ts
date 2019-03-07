@@ -32,7 +32,7 @@ export class ViewPdfFilesComponent implements OnInit {
     }
 
   ngOnInit() {
-    
+    this.url="https://firebasestorage.googleapis.com/v0/b/dishari-d2728.appspot.com/o/uploads%2FPdf%2FBooksPdfMain%2FAaaaB.pdf?alt=media&token=555229b8-df73-4e54-882d-8c0a031d7fe3"
   }
 
   

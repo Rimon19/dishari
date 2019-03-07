@@ -2,6 +2,7 @@ import { AuthService } from './../auth.service';
 import { UserBook } from './../models/user-book';
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from '../library.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-all-books',
@@ -15,7 +16,8 @@ export class UserAllBooksComponent implements OnInit {
  userId;
  hide:boolean;
   constructor(private libraryService:LibraryService,
-    private authService:AuthService) {
+    private authService:AuthService,
+    private router:Router) {
      this.hide=false;
     
    }
@@ -36,6 +38,5 @@ export class UserAllBooksComponent implements OnInit {
      this.allBooks;      
      this.filteredBooks=filteredResult;
   }
-
 
 }
