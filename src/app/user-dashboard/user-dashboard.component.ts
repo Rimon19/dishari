@@ -19,20 +19,20 @@ export class UserDashboardComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.userId= localStorage.getItem('userUid');
-    let allbooks=this.libraryService.getAllBooks(this.userId);
-    allbooks.forEach(element => {
-      this.allBooks=element;
-    });
+    // this.userId= localStorage.getItem('userUid');
+    // let allbooks=this.libraryService.getAllBooks(this.userId);
+    // allbooks.forEach(element => {
+    //   this.allBooks=element;
+    // });
   }
 
-  filterBooks(query){
+  // filterBooks(query){
     
-    let filteredResult = (query) ?
-    this.allBooks.filter(p => p.title.toLowerCase()
-    .includes(query.toLowerCase())) :
-     this.allBooks;      
-     this.filteredBooks=filteredResult;
-  }
+  //   let filteredResult = (query) ?
+  //   this.allBooks.filter(p => p.title.toLowerCase()
+  //   .includes(query.toLowerCase())) :
+  //    this.allBooks;      
+  //    this.filteredBooks=filteredResult;
+  // }
 
 }

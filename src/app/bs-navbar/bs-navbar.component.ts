@@ -88,7 +88,10 @@ export class BsNavbarComponent implements OnInit {
   }
 
   filter(query: string) {
+    console.log("v",query);
     if(query!=null&&query!=""){
+     
+      console.log("filter called");
       this.router.navigate(['/'], { queryParams: { query: query} });
     }
     // else{
