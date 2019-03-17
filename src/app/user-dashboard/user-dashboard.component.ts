@@ -26,13 +26,13 @@ export class UserDashboardComponent implements OnInit {
     // });
   }
 
-  // filterBooks(query){
+  filterBooks(query){
     
-  //   let filteredResult = (query) ?
-  //   this.allBooks.filter(p => p.title.toLowerCase()
-  //   .includes(query.toLowerCase())) :
-  //    this.allBooks;      
-  //    this.filteredBooks=filteredResult;
-  // }
+    let filteredResult = (query) ?
+    this.allBooks.filter(p => p.title.toLowerCase()
+    .includes(query.toLowerCase())) :
+     this.allBooks;      
+     this.filteredBooks=filteredResult;
+  }
 
 }

@@ -7,6 +7,8 @@
     display: none;
 }
 
+
+
 @media screen and(max-width:768px){
     .mobilesize1{
         cursor: pointer;
@@ -41,22 +43,10 @@
 }
 
 /* mobile */
-@media screen and(max-width:480px){
-    .mobilesize1{
-        cursor: pointer;
-        height: 40px;
-    }
-}
-@media screen and(max-width:481px){
-    .mobilesize1{
-        cursor: pointer;
-        height: 50px;
-    }
-   
-}
 
-@media screen and (max-width:480px){
-    .top_right_header{
+
+@media screen and (max-width:375px) and (min-width:360px){
+     .top_right_header{
         display: block;
     }
     .hideMobileSection{
@@ -95,12 +85,67 @@
 
 }
 
+
+@media screen and (max-width:575px) and (min-width:376px){
+    .mobilesize1{
+        cursor: pointer;
+        height: 40px;
+    }
+   
+    .top_right_header{
+        display: block;
+    }
+    .hideMobileSection{
+        display: none;
+    }
+    .header_top_44{
+        display: none;
+    }
+
+    .header_top_45{
+        display: inline;
+    }
+    .showMobileSection{
+        display: inline;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        
+    }
+    .sticky9{
+        margin-left: 0px;
+        top: 47px;
+    }
+    
+    .sticky3{
+        margin-right: 1px;
+    }
+    .navbar-light .navbar-toggler{
+        margin-top: 7px;
+        margin-bottom: 13px;
+    }
+    .navbar-toggler{
+        padding: .09rem .45rem;
+        font-size: 1.15rem;
+    }
+
+    .forgenericmobile{
+        margin-right: 65px;
+    }
+
+    
+
+}
+
 @media screen and (max-width:1440px) and (min-width:1367px){
     .sticky{
         width: 83%;
     }
     .sticky2{
         margin-left: 110px;
+    }
+    .hideDesktopandTab{
+        display: none;
     }
 }
 
@@ -111,6 +156,9 @@
     .sticky2{
         margin-left: 80px;
     }
+    .hideDesktopandTab{
+        display: none;
+    }
 }
 
 @media screen and (max-width:1280px) and (min-width:880px){
@@ -120,9 +168,71 @@
     .sticky2{
         margin-left: 47px;
     }
+    .hideDesktopandTab{
+        display: none;
+    }
 }
 
-@media screen and (max-width:850px) and (min-width:481px){
+
+@media screen and (max-width:767px) and (min-width:576px){
+    .textid1{
+        font-size:11px;
+    }
+    .top_right_header{
+        margin-top:29px;
+    }
+    .sticky5{
+        position:fixed;
+        bottom: 0;
+    }
+    .header_top_44{
+        display: none;
+    }
+
+    .header_top_45{
+        display: inline;
+    }
+    .top_right_header{
+        margin-top: 14px;
+        margin-left: 30%;
+    }
+    .top_right li a{
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .cartItemTOp{
+        margin-top: -20px;
+        margin-left: 14px;
+        height: 19px;
+        width: 21px;
+        border-radius: 11px;
+    }
+    .top_right_price{
+        padding: 8px 4px 2px 6px;     border: 1px solid #ccc9c9; margin-left: 4px;     font-size: 13px;
+                                    font-weight: 600;
+    }
+    .navbar-light .navbar-toggler{
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .navbar-toggler{
+        padding: 0.10rem .5rem;
+        font-size: 1.1rem;
+    }
+    .sticky2{
+        margin-left: 23px;
+        top:49px;
+    }
+    .hideDesktopandTab{
+        display: none;
+    }
+    .fortabwidth{
+        width:300px;
+    }
+
+}
+
+@media screen and (max-width:850px) and (min-width:768px){
     .textid1{
         font-size:11px;
     }
@@ -171,7 +281,13 @@
         margin-left: 23px;
         top:49px;
     }
-}
+    .hideDesktopandTab{
+        display: none;
+    }
 
+    .fortabwidth{
+        width:472px;
+    }
+}
 
 

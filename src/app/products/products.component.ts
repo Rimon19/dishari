@@ -139,7 +139,7 @@ export class ProductsComponent implements OnInit  {
    addToCart( product:Product) {
     
     
-    var cart = $('.icon-handbag');
+    var cart = $('.icon-book-open');
     // var imgtodrag = $(this).parent('.item').find("img").eq(0);
     //var imgtodrag = $('.-KrqgOLs07ZkbapP4EGi');
     if(product.$key!=undefined){
