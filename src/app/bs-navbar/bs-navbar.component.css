@@ -173,6 +173,76 @@
     }
 }
 
+@media screen and (max-width:991px) and (min-width:851px){
+     .textid1{
+        font-size:11px;
+    }
+    .top_right_header{
+        margin-top:29px;
+    }
+    .sticky5{
+        position:fixed;
+        bottom: 0;
+    }
+    .header_top_44{
+        display: none;
+    }
+
+    .header_top_45{
+        display: inline;
+    }
+    .top_right_header{
+        margin-top: 14px;
+        margin-left: 30%;
+    }
+    .top_right li a{
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .cartItemTOp{
+        margin-top: -20px;
+        margin-left: 14px;
+        height: 19px;
+        width: 21px;
+        border-radius: 11px;
+    }
+    .top_right_price{
+        padding: 8px 4px 2px 6px;     border: 1px solid #ccc9c9; margin-left: 4px;     font-size: 13px;
+                                    font-weight: 600;
+    }
+    .navbar-light .navbar-toggler{
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .navbar-toggler{
+        padding: 0.10rem .5rem;
+        font-size: 1.1rem;
+    }
+    .sticky2{
+        margin-left: 126px;
+        top:49px;
+        padding-left: 14%;
+    }
+
+    .sticky3{
+        position: fixed;
+        padding-top: 2px;
+        z-index: 8;
+        background-color: white;
+        margin-right: 21px;
+        
+        padding-left: 129px;
+    }
+
+
+
+    .hideDesktopandTab{
+        display: none;
+    }
+    .fortabwidth{
+        width:300px;
+    }
+}
 
 @media screen and (max-width:767px) and (min-width:576px){
     .textid1{

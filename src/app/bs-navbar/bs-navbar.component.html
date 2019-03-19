@@ -26,8 +26,6 @@
                     <ul class="header_social showHide">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                     </ul>
                 </div>
@@ -47,8 +45,8 @@
 
                     <div class="input-group" style="margin-top:-6px">
 
-                        <input type="text" class="form-control" #q (keyup)="filter(q.value)"
-                            placeholder="Search" aria-label="Search">
+                        <input type="text" class="form-control" #q (keyup)="filter(q.value)" placeholder="Search"
+                            aria-label="Search">
 
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="button"><i class="icon-magnifier"></i></button>
@@ -68,8 +66,11 @@
 
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 " *ngIf="appUser; else anonymousUser">
-                <h6 style="margin-top:30px; margin-left: 45px">{{  appUser.name ||appUser.fullName}}</h6>
+            <div class="col-lg-1 col-md-1 col-sm-1 " style="width:100%">
+                <div *ngIf="appUser; else anonymousUser">
+                    <h6 style="margin-top:30px; margin-left: 45px">{{  appUser.name ||appUser.fullName}}</h6>
+                </div>
+
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="top_right_header ">
@@ -170,7 +171,7 @@
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
                                         Order</a>
 
-                                        <a routerLink="/UserAllBooks"
+                                    <a routerLink="/UserAllBooks"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
                                         Library</a>
 
@@ -321,12 +322,12 @@
         </div>
     </div> -->
 
-<header class="shop_header_area" style="margin-top:-12px">
+<header class="shop_header_area">
     <div class="container" id="fixtop3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: none;">
             <div class="row">
-                <div class="col-xs-4"><a class="navbar-brand" href="/"><img class="mobilesize1"
-                    routerLink="/"  src="assets/img/logo.png" alt=""
+                <div class="col-xs-4"><a class="navbar-brand" href="/"><img class="mobilesize1" routerLink="/"
+                            src="assets/img/logo.png" alt=""
                             style=" height: 36px; margin-top:11px; margin-left:15px"></a></div>
                 <div class="col-xs-6 fortabwidth forgenericmobile" style="margin-top:-7px;">
                     <ul class="top_right hideDesktopandTab">
@@ -338,10 +339,10 @@
                                 <a routerLink="/my/orders"
                                     style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
                                     Order</a>
-                                    
-                                    <a routerLink="/UserAllBooks"
-                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
-                                        Library</a>
+
+                                <a routerLink="/UserAllBooks"
+                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
+                                    Library</a>
 
 
                                 <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"

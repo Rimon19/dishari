@@ -1,63 +1,70 @@
 <bs-navbar></bs-navbar>
-<div class="container" @todosAnimation>
-<h1>Your Book List</h1>
-<div class="card" *ngIf="cart$ | async as cart" style="width: 80%;">
-  <div class="card-body">
-    <p>
-      You have {{ cart.totalItemsCount }} items in your Book List.
-      <button *ngIf="cart.items.length" (click)="clearCart()"
-       class="float-right btn btn-light btn-sm"
+<div class="container text-center" @todosAnimation id="shoppingid2">
+  <h1>Your Book List</h1>
+  <div *ngIf="cart$ | async as cart" style="width: 80%;">
+    <div class="row card-body">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <p style="font-weight:bold; text-decoration:underline;">
+          You have {{ cart.totalItemsCount }} items in your Book List.</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-primary">Clear Book
+          List</button>
+      </div>
 
-       >Clear Book List</button>
 
-    </p>
-  </div>
-  <table class="table" >
-    <thead>
-      <tr>
-        <th></th>
-        <th>Product</th>
-        <th class="text-right" style="width: 200px">Price</th>
-        <th>Remove</th>
-        <!-- <th class="text-center" style="width: 230px">Quantity</th> -->
-       
-      </tr>
-    </thead>
-    <tbody >
-      <tr *ngFor="let item of cart.items" >
-        <td>
-          <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
-          </div>
-        </td>
-        <td>
-          {{ item.title }}
-        </td>
-      
-        <!-- <td>
+
+
+    </div>
+
+    <table class="table table-responsive table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Product Image</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Remove</th>
+          <!-- <th class="text-center" style="width: 230px">Quantity</th> -->
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart.items">
+          <td>
+            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
+            </div>
+          </td>
+          <td>
+            {{ item.title }}
+          </td>
+
+          <!-- <td>
           <product-quantity [product]="item" [shopping-cart]="cart">
           </product-quantity>
         </td> -->
-        <td class="text-right">
-          {{ item.totalPrice}} .tk
-        </td>
-        <td>(<a class="removeBtn" (click)="RemoveFromShoppingCart(item)">-</a>)</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th class="text-right">{{ cart.totalPrice}} .tk</th>
-      </tr>
-      <tr>
-        <th colspan="4">
-          <!-- <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a> -->
+          <td class="text-right">
+            {{ item.totalPrice}} .tk
+          </td>
+          <td><a class="removeBtn btn btn-primary" (click)="RemoveFromShoppingCart(item)">-</a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Total Price</th>
+          <th class="text-right">{{ cart.totalPrice}} .tk</th>
+        </tr>
+        <tr>
+          <th colspan="4">
+            <!-- <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a> -->
             <a *ngIf="cart.items.length" (click)=(checkOut()) class="btn btn-primary">Check Out</a>
-        </th>
-      </tr>
-    </tfoot>
-  </table>
-</div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+  </div>
 </div>
 <app-footer></app-footer>

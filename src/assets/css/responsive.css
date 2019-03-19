@@ -41,8 +41,9 @@
         margin-right: 15px; 
     }
     .l_p_text .add_cart_btn{
-        padding: 0px 10px;
-        font-size: 11px;
+        padding: 0px 4px;
+        font-size: 8.5px;
+        font-weight: 500;
     }
     .carousel_menu_inner .navbar .navbar-nav.justify-content-end li a {
         line-height: 42px;

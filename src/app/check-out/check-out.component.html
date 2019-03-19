@@ -1,15 +1,44 @@
 <bs-navbar></bs-navbar>
-<div class="container"  @todosAnimation>
-<h1>Payment</h1>
-<div class="row" *ngIf="cart$ | async as cart" @fade>
-  <div class="col-6">
-    <shipping-form [cart]="cart"></shipping-form>
+<div class="container" @todosAnimation>
+  <h1>Payment</h1>
+  <div class="row" *ngIf="cart$ | async as cart" @fade>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <shipping-form [cart]="cart"></shipping-form>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <!-- <shopping-cart-summary [cart]="cart"></shopping-cart-summary> -->
+      <img src="assets/img/1200x630wa.png" alt="" style="height:160px" />
+      <h3 style="text-align:center">BKASH</h3>
+      <hr>
+      <table class="table table-striped">
+        <tr>
+          <th>Mobile Number: </th>
+          <td>01632-079419</td>
+        </tr>
+        <tr>
+          <th>Amount: </th>
+          <td>{{cart.totalPrice}} BDT</td>
+
+        </tr>
+      </table>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <!-- <shopping-cart-summary [cart]="cart"></shopping-cart-summary> -->
+      <img src="assets/img/mobile-Banking-Billboard.jpg" alt="" style="height:160px" />
+      <h3 style="text-align:center">ROCKET</h3>
+      <hr>
+      <table class="table table-striped">
+        <tr>
+          <th>Mobile Number :</th>
+          <td>01632-079419</td>
+        </tr>
+        <tr>
+          <th>Amount:</th>
+          <td> {{cart.totalPrice}} BDT</td>
+
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="col-6">
-    <!-- <shopping-cart-summary [cart]="cart"></shopping-cart-summary> -->
-    bkas number: 01632079419 <br>
-    your total amount :{{cart.totalPrice}} tk
-  </div>
-</div>
 </div>
 <app-footer></app-footer>

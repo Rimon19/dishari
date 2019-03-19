@@ -856,9 +856,15 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
   margin-right: 63px;
 }
 
+/* Shopping cart Design*/
+.showHeading{
+  margin-top: 150px;
+}
+
+
 .shop_header_area .navbar .navbar-nav li a {
   padding: 0px;
-  line-height: 70px;
+  line-height: 50px;
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
@@ -2635,11 +2641,11 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 }
 
 .add_cart_btn {
-  background: #262121;
+  background: #f04a09;
   cursor:pointer;
   color: white;
   line-height: 38px;
-  border: 1px solid #262121;
+  border: 1px solid #f04a09;
   display: inline-block;
   font-size: 14px;
   text-transform: uppercase;
