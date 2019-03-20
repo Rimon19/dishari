@@ -31,7 +31,8 @@ export class ProductsComponent implements OnInit  {
   isControls; 
   products$;
   p;
- 
+  bookSearched:boolean;
+  searchItemFound:boolean;
   isCallJavascript;
 
   clickedproductDetails:Product;
@@ -94,19 +95,23 @@ export class ProductsComponent implements OnInit  {
         this.category = params.get('category');
         this.query = params.get('query');    
         if(this.category!=null&&this.category!=""){
+          this.bookSearched=true;
            this.applyFilter();  
         }
         if(this.category==null&&this.query==null){
-          
+          this.bookSearched=false;
           this.filteredProducts=[];     
           //this.router.navigate(['/']);    
        }
         if(this.query!=null&&this.query!=""){
+          this.bookSearched=true;
           this.filter(this.query); 
+         
         }
        
         if(this.query=="search"){
          // window.location.reload();
+         this.bookSearched=false;
           this.router.navigate(['/']);
         }
        
@@ -123,16 +128,30 @@ export class ProductsComponent implements OnInit  {
       this.filteredProducts=this.products;
     }
 
+    if(this.filteredProducts.length==0){
+      this.searchItemFound=false;
+     } 
+     if(this.filteredProducts.length!=0){
+      this.searchItemFound=true;
+     } 
+
   }
 
 
    filter(query: string) { 
-   
+    
      let filteredProducts = (query) ?
-       this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
+       this.products.filter(p => p.title.toLowerCase()
+       .includes(query.toLowerCase())) :
         this.products;      
         this.filteredProducts=filteredProducts;
- 
+
+       if(this.filteredProducts.length==0){
+        this.searchItemFound=false;
+       } 
+       if(this.filteredProducts.length!=0){
+        this.searchItemFound=true;
+       } 
     }
 
 

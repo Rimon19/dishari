@@ -1,10 +1,10 @@
 <bs-navbar></bs-navbar>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-6">
-      <h6>Welcome! <span>Fahim Ferdous</span></h6>
+    <div *ngIf="appUser" class="col-lg-3 col-md-3 col-sm-6">
+      <h6>Welcome! <span>{{  appUser.name ||appUser.fullName}}</span></h6>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="col-lg-4 col-md-4 col-sm-4">
       <div class="input-group" style="margin-top:-6px">
 
         <input type="text" class="form-control" #query (keyup)="filterBooks(query.value)"
@@ -12,15 +12,33 @@
 
         <span class="input-group-btn">
           <button class="btn btn-secondary" type="button"><i class="icon-magnifier"></i></button>
-        </span>
-
+         
+        </span>      
       </div>
     </div>
+    
+    <div class="col-lg-2 col-md-2 col-sm-2">
+      <div class="input-group" style="margin-top:-6px">       
+       
+          <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category"
+          
+           (change)="filterBooksByCategory(product.category)" class="form-control">
+            <option value="">All Category</option>
+            <option *ngFor="let c of categories$ | async" [value]="c.$key">
+              {{ c.name }}
+            </option>
+        </select>
+     
+      </div>
+    </div>
+
     <div class="col-lg-1 col-md-1 col-sm-4">
-      <p><b>Books</b><br>
-        <span>200</span></p>
+        
+     <p><b>books</b><br>
+        <span>100</span></p>
 
     </div>
+
     <div class="col-lg-1 col-md-1 col-sm-4">
       <p><b>Wishlist</b><br>
         <span>5</span></p>
