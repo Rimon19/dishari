@@ -68,6 +68,8 @@ import { ViewPdfFilesComponent } from './view-pdf-files/view-pdf-files.component
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserAllBooksComponent } from './user-all-books/user-all-books.component';
+import { OrderSuccessFreeBooksComponent } from './order-success-free-books/order-success-free-books.component';
+import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimela-exclusive-books.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +102,8 @@ import { UserAllBooksComponent } from './user-all-books/user-all-books.component
     ViewPdfFilesComponent,
     UserDashboardComponent,
     UserAllBooksComponent,
+    OrderSuccessFreeBooksComponent,
+    BoimelaExclusiveBooksComponent,
 
     // FooterComponent,
 
@@ -142,7 +146,9 @@ import { UserAllBooksComponent } from './user-all-books/user-all-books.component
       { path: 'view-pdf', component: ViewPdfFilesComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
+      { path: 'boimela-exclusive', component: BoimelaExclusiveBooksComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+      { path: 'order-success-free-books/:id', component: OrderSuccessFreeBooksComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
       {  path: 'UserDashboard', component: UserDashboardComponent, canActivate: [AuthGuard] },
       {  path: 'UserAllBooks', component: UserAllBooksComponent, canActivate: [AuthGuard] },

@@ -94,7 +94,7 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
 
         let result = await this.orderService.placeOrder(order);
         console.log('cart items',this.cart.items);
-        this.router.navigate(['/order-success', result.key]);
+        this.router.navigate(['/order-success-free-books', result.key]);
       }
     
   }
