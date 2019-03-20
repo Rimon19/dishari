@@ -69,6 +69,7 @@
     .sticky9{
         margin-left: 0px;
         top: 47px;
+        margin-top: 12px;
     }
     
     .sticky3{
@@ -115,6 +116,7 @@
     .sticky9{
         margin-left: 0px;
         top: 47px;
+        margin-top: 12px;
     }
     
     .sticky3{
@@ -219,9 +221,10 @@
         font-size: 1.1rem;
     }
     .sticky2{
-        margin-left: 126px;
+        margin-left: 80px;
         top:49px;
         padding-left: 14%;
+        margin-top: 8px;
     }
 
     .sticky3{
@@ -292,6 +295,7 @@
     .sticky2{
         margin-left: 23px;
         top:49px;
+        margin-top:8px;
     }
     .hideDesktopandTab{
         display: none;
@@ -350,6 +354,7 @@
     .sticky2{
         margin-left: 23px;
         top:49px;
+        margin-top: 8px;
     }
     .hideDesktopandTab{
         display: none;

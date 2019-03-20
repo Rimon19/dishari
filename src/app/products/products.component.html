@@ -11,7 +11,7 @@
                     *ngFor="let product of filteredProducts| paginate: { itemsPerPage: 16, currentPage: p };index as i">
                     <div class="l_product_item">
                         <div class="l_p_img">
-                            <a [routerLink]="['products/', product.$key]"><img class="img-fluid {{product.$key}}"
+                            <a [routerLink]="['products/', product.$key]" data-toggle="tooltip" title="See Details"><img class="img-fluid {{product.$key}}"
                                 [src]="product.imageUrl" alt=""></a>
                             <h5 *ngIf="product.price==0" class="sale">Free</h5>
                         </div>
@@ -28,7 +28,7 @@
                 </div>
     
                 <div *ngIf="!searchItemFound">
-                    <h2>this book is not available yet !</h2>
+                    <h2 style="color:#ab4a24">This book is not available yet!</h2>
                 </div>
             </div>
     
