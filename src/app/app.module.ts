@@ -70,6 +70,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UserAllBooksComponent } from './user-all-books/user-all-books.component';
 import { OrderSuccessFreeBooksComponent } from './order-success-free-books/order-success-free-books.component';
 import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimela-exclusive-books.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,6 +113,7 @@ import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimel
   imports: [
     PdfViewerModule,
     NgxExtendedPdfViewerModule,
+    MatAutocompleteModule,
     BrowserAnimationsModule,
     MatTooltipModule,
     MatInputModule,

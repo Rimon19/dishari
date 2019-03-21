@@ -47,7 +47,9 @@
                     <div class="input-group" style="margin-top:-6px">
 
                         <input type="text" class="form-control" #query="ngModel" [(ngModel)]="filterClass.query" (keyup)="filter(filterClass.query)" placeholder="Search"
-                            aria-label="Search" style="border-color:#f04a09;">
+                            aria-label="Search" style="border-color:#f04a09;" >
+
+                           
 
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="button"><i class="icon-magnifier"
@@ -148,8 +150,14 @@
 
                     <div class="input-group" style="margin-top:-6px">
 
-                        <input type="text" class="form-control" #q (keyup)="filter(q.value)" placeholder="Search"
-                            aria-label="Search" style="border-color:#f04a09; height: 40px;">
+                        <input type="text" class="form-control" #query="ngModel" [(ngModel)]="filterClass.query" (keyup)="filter(filterClass.query)" placeholder="Search"
+                        aria-label="Search" style="border-color:#f04a09; height:40px;" matInput [matAutocomplete]="auto">
+
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let c of bsfilteredProducts" [value]="c.title">
+                                    {{c.title}}
+                                </mat-option>
+                              </mat-autocomplete>
 
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="button"><i class="icon-magnifier"
@@ -387,68 +395,18 @@
 
                     </ul>
                 </div>
-                <div class="col-xs-2"><button class="navbar-toggler" type="button" data-toggle="collapse"
+                <div class="col-xs-2">
+                    <button  class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation" style="">
                         <span class="navbar-toggler-icon"></span>
-                    </button></div>
+                    </button>
+                    
+                </div>
             </div>
 
 
-            <!--Action section start-->
-            <!-- <div class="">
-                <ul class="top_right">
-                    <li class="user dropdownd">
-                        <a class="user-link" href="#">
-                            <i style="color:black" class="icon-user icons"></i></a>
-                        <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
-                            <a routerLink="/my/orders"
-                                style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">my
-                                Order</a>
-
-
-                            <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
-                                style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
-                                Orders</a>
-
-                            <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
-                                style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
-                                Products</a>
-
-                            <a (click)="logout()" routerLink="/login"
-                                style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>
-
-
-                        </div>
-                        <ng-template #anonymousUser>
-                            <div class="dropdown-content">
-                                <a routerLink="/login"
-                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Login</a>
-                                <a routerLink="/sign-up"
-                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">sign
-                                    up</a>
-                            </div>
-
-                        </ng-template>
-
-                    </li>
-
-
-
-                    <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"><i
-                                style="color:black" class="icon-handbag icons"></i>
-                            <div class="cartItemTOp">
-                                <p style="margin-top: -11px;font-size: 13px;font-weight: 500;">
-                                    {{ cart.totalItemsCount }}</p>
-                            </div>
-                        </a></li>
-                    <li class="h_price top_right_price">
-                        <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
-                    </li>
-                </ul>
-            </div> -->
-            <!--Action Section Finish-->
-
+  
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 

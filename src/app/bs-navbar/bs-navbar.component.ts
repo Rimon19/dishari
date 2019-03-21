@@ -1,3 +1,4 @@
+import { Product } from './../models/product';
 import { Filter } from './../models/filter';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -34,6 +35,10 @@ export class BsNavbarComponent implements OnInit {
   cart$: Observable<ShoppingCart>;
   filterClass=new Filter();
 
+  expandMenu:boolean;
+  bsfilteredProducts: Product[] = [];
+  bsproducts: Product[] = [];
+
   constructor(private router: Router,
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService,
@@ -42,12 +47,12 @@ export class BsNavbarComponent implements OnInit {
     private productService: ProductService,
 
   ) {
-
     this.route.queryParamMap
       .subscribe(params => {
         this.filterClass.query = params.get('query');      
       });
     this.categories$ = categoryService.getAll();
+    this.productService.getAll().subscribe(p=>this.bsproducts=p);
   }
 
   async ngOnInit() {
@@ -103,7 +108,19 @@ export class BsNavbarComponent implements OnInit {
     if (query != null && query != "") {
      
       this.router.navigate(['/'], { queryParams: { query: query } });
+
+      let filteredProducts = (query) ?
+      this.bsproducts.filter(p => p.title.toLowerCase()
+      .includes(query.toLowerCase())) :
+       this.bsproducts;      
+       this.bsfilteredProducts=filteredProducts;
+
     }
+  }
+
+  expandMenuBar(value){
+    console.log(value);
+    this.expandMenu=value;
   }
 
 }
