@@ -77,7 +77,6 @@ export class ProductsComponent implements OnInit  {
     
 
     this.cart$ = await this.shoppingCartService.getCart();
-    //this.products$=  this.productService.getAll();
     this.populateProducts();
      
    

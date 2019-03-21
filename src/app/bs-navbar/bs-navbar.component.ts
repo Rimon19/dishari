@@ -1,3 +1,4 @@
+import { Filter } from './../models/filter';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -31,7 +32,7 @@ export class BsNavbarComponent implements OnInit {
 
   appUser: AppUser;
   cart$: Observable<ShoppingCart>;
-
+  filterClass=new Filter();
 
   constructor(private router: Router,
     private auth: AuthService,
@@ -42,6 +43,10 @@ export class BsNavbarComponent implements OnInit {
 
   ) {
 
+    this.route.queryParamMap
+      .subscribe(params => {
+        this.filterClass.query = params.get('query');      
+      });
     this.categories$ = categoryService.getAll();
   }
 
@@ -94,28 +99,11 @@ export class BsNavbarComponent implements OnInit {
   }
 
   filter(query: string) {
-    console.log("v", query);
+   
     if (query != null && query != "") {
-
-      console.log("filter called");
+     
       this.router.navigate(['/'], { queryParams: { query: query } });
     }
-    // else{
-    //   this.router.navigate(['/'], { queryParams: { query: "search"} });
-    //   window.location.reload();
-    // }
-
-
-    //  this.router.navigate(['/admin/ordersDetails/'], { queryParams: { id: userId, 'oDate': oDate } });
-    //  window.location.reload();
-    //  let productCompnt=new ProductsComponent(this.route,this.productService,this.shoppingCartService);
-    //  productCompnt.filter(query);
-
-
-  }
-
-  homePageReload() {
-    window.location.reload();
   }
 
 }

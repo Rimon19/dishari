@@ -15,7 +15,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 logoAndemail">
                 <div class="top_header_middle" style="margin-top:15px">
 
-                    <a href="#" class="textid1"><i class="fa fa-envelope" style="color: #f04a09;"></i> Email:
+                    <a  class="textid1"><i class="fa fa-envelope" style="color: #f04a09;"></i> Email:
                         <span>info@disharii.com</span></a>
 
 
@@ -46,7 +46,7 @@
 
                     <div class="input-group" style="margin-top:-6px">
 
-                        <input type="text" class="form-control" #qu (keyup)="filter(qu.value)" placeholder="Search"
+                        <input type="text" class="form-control" #query="ngModel" [(ngModel)]="filterClass.query" (keyup)="filter(filterClass.query)" placeholder="Search"
                             aria-label="Search" style="border-color:#f04a09;">
 
                         <span class="input-group-btn">
@@ -479,8 +479,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item" routerLink="/boimela-exclusive"><a class="nav-link">Be a
-                            Member</a></li>
+                    <li class="nav-item" ><a class="nav-link" routerLink="/boimela-exclusive" >Be a Member</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Publish Book</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Boimela Exclusive</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Best Selling Books</a></li>
