@@ -1,160 +1,152 @@
+<bs-navbar></bs-navbar>
+<!--================Product Details Area =================-->
+<section class="product_details_area" *ngIf="cart$ | async as cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="product_details_slider">
+                    <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl"
+                        alt="{{ product.title }}">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="product_table_details">
+                    <div class="table-responsive-md">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Name:</th>
+                                    <td>
 
-          <bs-navbar></bs-navbar>
-        <!--================Product Details Area =================-->
-        <section class="product_details_area" *ngIf="cart$ | async as cart">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="product_details_slider">
-                            <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
-                        </div>
+                                        <h4>{{ product.title }}</h4>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Writer:</th>
+                                    <td>
+                                        <h5>{{ product.writter }}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Publication:</th>
+                                    <td>
+                                        <h5>{{ product.publication }}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Condition:</th>
+                                    <td>
+                                        <h5>{{ product.condition }}</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Price:</th>
+                                    <td>
+                                        <h5>{{ product.price }} <b> .Tk</b></h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Category:</th>
+                                    <td>
+                                        <h5>{{ product.category }}</h5>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-lg-7">
-                            <div class="product_table_details">
-                                    <div class="table-responsive-md">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">Name:</th>
-                                                    <td>
-                                                       
-                                                        <h4>{{ product.title }}</h4>
-                                                        
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                        <th scope="row">Writer:</th>
-                                                        <td>
-                                                                <h5>{{ product.writter }}</h5>
-                                                        </td>
-                                                    </tr>
-                                                <tr>
-                                                    <th scope="row">Publication:</th>
-                                                    <td>
-                                                            <h5>{{ product.publication }}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                        <th scope="row">Condition:</th>
-                                                        <td>
-                                                                <h5>{{ product.condition }}</h5>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <th scope="row">Price:</th>
-                                                        <td>
-                                                                <h5>{{ product.price }} <b> .Tk</b></h5> 
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <th scope="row">Category:</th>
-                                                        <td>
-                                                                <h5>{{ product.category }}</h5>
-                                                        </td>
-                                                </tr>
+                </div>
+                <div class="product_details_text">
 
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                            </div>
-                        <div class="product_details_text">
- 
-                            <div class="quantity">
-                             
-                                <button 
-                
-                                  (click)="addToCart()"
-                                  class="btn btn-secondary btn-block">Add tto Cart</button>
-                                <ng-template #updateQuantity>
-                                  <product-quantity [product]="product" [shopping-cart]="cart">
-                                  </product-quantity>
-                                </ng-template>
-                                <!-- <a class="add_cart_btn" href="#">add to cart</a> -->
-                            </div>
-                            
-                        </div>
-                        <div class="product_table_details">
-                            <div class="table-responsive-md">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Description:</th>
-                                            <td>
-                                                
-                                                <h5>{{product.description}}</h5>
-                                                
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                                <th scope="row">Published Year:</th>
-                                                <td>
-                                                    
-                                                    <h5>{{product.publishedYear}}</h5>
-                                                    
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <th scope="row">Edition:</th>
-                                                <td>
-                                                    
-                                                    <h5>{{product.edition}}</h5>
-                                                    
-                                                </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="quantity">
+
+                        <button (click)="addToCart()" class="btn btn-primary">Add to Library</button>
+                        <ng-template #updateQuantity>
+                            <product-quantity [product]="product" [shopping-cart]="cart">
+                            </product-quantity>
+                        </ng-template>
+                        <!-- <a class="add_cart_btn" href="#">add to cart</a> -->
+                    </div>
+
+                </div>
+                <div class="product_table_details">
+                    <div class="table-responsive-md">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Description:</th>
+                                    <td>
+
+                                        <h5>{{product.description}}</h5>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Published Year:</th>
+                                    <td>
+
+                                        <h5>{{product.publishedYear}}</h5>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Edition:</th>
+                                    <td>
+
+                                        <h5>{{product.edition}}</h5>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--================End Product Details Area =================-->
-        
-        <!--================Product Description Area =================-->
-        <section class="product_description_area">
-            <div class="container">
-                <nav class="tab_menu">
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Product Description</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Return Policy</a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tags</a>
-                        <a class="nav-item nav-link" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="false">Delivery</a>
-                        <a class="nav-item nav-link" id="nav-gur-tab" data-toggle="tab" href="#nav-gur" role="tab" aria-controls="nav-gur" aria-selected="false">Seller Info</a>
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <h6>$24.01 International Priority Shipping to Bangladesh  via the Global Shipping Program </h6>
-                        <h5>Item location:</h5>
-                        <p>Edison, New Jersey, United States</p>
-                        <h5>Ships to:</h5>
-                        <p>United States and many other countries | See details</p>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <h4>Rocky Ahmed</h4>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.  Emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
-                    </div>
-                    <div class="tab-pane fade" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.  Emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
-                    </div>
-                    <div class="tab-pane fade" id="nav-gur" role="tabpanel" aria-labelledby="nav-gur-tab">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.  Emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
-                    </div>
-                </div>
+        </div>
+    </div>
+</section>
+<!--================End Product Details Area =================-->
+
+<!--================Product Description Area =================-->
+<section class="product_description_area">
+    <div class="container">
+        <nav class="tab_menu">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Product Description</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Book Return Policy</a>
+
             </div>
-        </section>
-        <app-footer></app-footer>
-        
-    
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <h6><b>About The Book:</b><br>
+                    <span>It is a great book to pass your leisure time</span></h6>
+                <h5>ISBN:</h5>
+                <p>4586867657654</p>
+                <h5>Book Source:</h5>
+                <p>Dishari</p>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <h4>Rules For Returing Books</h4>
+                <br>
+                <ul>
+                    <li>
+                        <p>If the price is paid then the book need not to return</p>
+                    </li>
+                    <li>
+                        <p>If the book is bought then it can't be returned except the content is found different</p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

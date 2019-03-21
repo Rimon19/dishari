@@ -5,7 +5,8 @@
                 <div class="top_header_left">
                     <a routerLink="/" [queryParams]="{ category: 'allCategory' }"><img class="readanimation"
                             src="assets/img/icon/smiley-reading-book-animation-3.gif" alt=""></a>
-                    <a class="number textid1" style="color: black;"><i class="fa fa-phone" style="color: #f04a09;"></i> Call Us:
+                    <a class="number textid1" style="color: black;"><i class="fa fa-phone" style="color: #f04a09;"></i>
+                        Call Us:
                         <span>+01632079419</span></a>
 
                 </div>
@@ -24,9 +25,9 @@
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="top_right_header" style="margin-top:15px">
                     <ul class="header_social showHide">
-                        <li><a href="#"><i class="fa fa-facebook" style="color: #f04a09;"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" style="color: #f04a09;"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" style="color: #f04a09;"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" style="color: #0e3cff;"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" style="color: #09aff0;"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" style="color: #ff0a0a;"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +50,8 @@
                             aria-label="Search" style="border-color:#f04a09;">
 
                         <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier" style="color: #f04a09;"></i></button>
+                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier"
+                                    style="color: #f04a09;"></i></button>
                         </span>
 
                     </div>
@@ -77,8 +79,8 @@
                     <div class="">
                         <ul class="top_right">
                             <li class="user dropdownd">
-                                <a class="user-link" >
-                                    <i style="color:black" class="icon-user icons"></i></a>
+                                <a class="user-link">
+                                    <i style="color:#f04a09" class="icon-user icons"></i></a>
                                 <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
                                     <a routerLink="/my/orders"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Added
@@ -117,7 +119,7 @@
 
 
                             <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"><i
-                                        style="color:black" class="icon-book-open icons"></i>
+                                        style="color:#f04a09" class="icon-book-open icons"></i>
                                     <div class="cartItemTOp">
                                         <p style="margin-top: -13px;font-size: 14px;font-weight: 500;">
                                             {{ cart.totalItemsCount }}</p>
@@ -125,7 +127,7 @@
                                 </a></li>
                             <li class="h_price" style="padding: 15px 10px 7px 7px;     border: 1px solid #ccc9c9; margin-left: 8px;     font-size: 14px;
                                     font-weight: 600;">
-                                <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
+                                <p *ngIf="cart$ | async as cart" style="color: #f04a09">Tk. {{ cart.totalPrice }}</p>
                             </li>
                         </ul>
                     </div>
@@ -150,7 +152,8 @@
                             aria-label="Search" style="border-color:#f04a09; height: 40px;">
 
                         <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier" style="color:#f04a09;" ></i></button>
+                            <button class="btn btn-secondary" type="button"><i class="icon-magnifier"
+                                    style="color:#f04a09;"></i></button>
                         </span>
 
                     </div>
@@ -164,14 +167,14 @@
                     <div class="">
                         <ul class="top_right">
                             <li class="user dropdownd">
-                                <a class="user-link" >
-                                    <i style="color:black" class="icon-user icons"></i></a>
+                                <a class="user-link">
+                                    <i style="color:#f04a09" class="icon-user icons"></i></a>
                                 <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
                                     <a routerLink="/my/orders"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Added
                                         History</a>
 
-                                        <a routerLink="/UserAllBooks"
+                                    <a routerLink="/UserAllBooks"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">My
                                         Library</a>
 
@@ -204,14 +207,14 @@
 
 
                             <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"><i
-                                        style="color:black" class="icon-book-open icons"></i>
+                                        style="color:#f04a09" class="icon-book-open icons"></i>
                                     <div class="cartItemTOp">
                                         <p style="margin-top: -11px;font-size: 13px;font-weight: 500;">
                                             {{ cart.totalItemsCount }}</p>
                                     </div>
                                 </a></li>
                             <li class="h_price top_right_price">
-                                <p *ngIf="cart$ | async as cart">Tk. {{ cart.totalPrice }}</p>
+                                <p *ngIf="cart$ | async as cart" style="color: #f04a09">Tk. {{ cart.totalPrice }}</p>
                             </li>
                         </ul>
                     </div>
@@ -334,15 +337,15 @@
                         <li class="user dropdownd">
                             <a class="user-link"
                                 style="padding: 0px 7px;font-size: 22px;margin-right: 14px;line-height: 36px;">
-                                <i style="color:black" class="icon-user icons"></i></a>
+                                <i style="color:#f04a09" class="icon-user icons"></i></a>
                             <div class="dropdown-content" *ngIf="appUser; else anonymousUser">
                                 <a routerLink="/my/orders"
                                     style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">Added
                                     History</a>
-                                    
-                                    <a routerLink="/UserAllBooks"
-                                        style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">MY
-                                        Library</a>
+
+                                <a routerLink="/UserAllBooks"
+                                    style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">MY
+                                    Library</a>
 
 
                                 <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
@@ -375,7 +378,7 @@
 
                         <li class="cartItem" *ngIf="cart$ | async as cart"><a routerLink="/shopping-cart"
                                 style="padding: 0px 7px;font-size: 22px;margin-right: 14px;line-height: 36px;"><i
-                                    style="color:black" class="icon-book-open icons"></i>
+                                    style="color:#f04a09" class="icon-book-open icons"></i>
                                 <div class="cartItemTOp" style="height: 18px;margin-top: -20px;border-radius: 9px;">
                                     <p style="margin-top: -10px;font-size: 12px;font-weight: 500;">
                                         {{ cart.totalItemsCount }}</p>

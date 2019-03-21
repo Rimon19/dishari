@@ -1,73 +1,58 @@
 <bs-navbar></bs-navbar>
 <div class="row align-items-center justify-content-center">
-<mat-card class="mat-card" >
-   
-    <h2> Dishari Sign in ..</h2>
+  <mat-card class="mat-card">
+
+    <h2 style="text-align:center;"> Sign in to Your Account.</h2>
+    <hr style="border-top: 1px solid #f04a09;">
     <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid
     && login(loginForm.value)" class="form">
-    
-    <div class="container"> 
+
+      <div class="container">
         <mat-form-field>
-          <input 
-          matInput 
-          placeholder="Enter your Email"
-            formControlName="email"            
-            autofocus
-            >
+          <input matInput placeholder="Enter your Email" formControlName="email" autofocus>
           <mat-error *ngIf="email.touched&&email.invalid">Enter an <strong>email</strong></mat-error>
-        </mat-form-field>       
+        </mat-form-field>
       </div>
-      <div class="container"> 
-          <mat-form-field>
-            <input 
-            matInput 
-            placeholder="Enter your Password"
-              formControlName="password"
-              [type]="hide ? 'password' : 'text'"
-               >
-               <!-- <mat-icon
+      <div class="container">
+        <mat-form-field>
+          <input matInput placeholder="Enter your Password" formControlName="password"
+            [type]="hide ? 'password' : 'text'">
+          <!-- <mat-icon
                      class="pointer"
                        matSuffix 
                        (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}
                       </mat-icon> -->
 
-            <mat-error *ngIf="password.touched&&password.invalid">Enter a <strong>password</strong>.</mat-error>
-          </mat-form-field>       
-        </div>
-        <div class="container">
-            <button 
-            
-             type="submit"
-             [disabled]="!loginForm.valid"
-              class="oshop pointer"
-              
-              >Sign in </button>
-              <!-- <h2 _ngcontent-c7="" class="ng-tns-c7-2" style="text-align: center;margin-bottom: 30px;"> Sign in OR Register</h2> -->
-        </div>
-  <div class="modal-body row">
-    <div class="col-md-6">
-        <button 
-        class="loginBtn loginBtn--facebook pointer"
-        (click)="loginWithFacbook()"
-        >
-            Login with Facebook
-          </button>
-    </div>
-    <div class="col-md-6">
-        <button
-         class="loginBtn loginBtn--google pointer"
-         (click)="loginWithGoogle()"
-         >
-            Login with Google
-          </button>
+          <mat-error *ngIf="password.touched&&password.invalid">Enter a <strong>password</strong>.</mat-error>
+        </mat-form-field>
       </div>
-    
-  </div>
-              
-  
+      <div class="container">
+        <button type="submit" [disabled]="!loginForm.valid" class="oshop pointer btn btn-primary">Sign in </button>
+        <!-- <h2 _ngcontent-c7="" class="ng-tns-c7-2" style="text-align: center;margin-bottom: 30px;"> Sign in OR Register</h2> -->
+      </div>
+
+      <h6 style="font-weight:bold; text-align:center; margin-top: 5px;margin-bottom: 5px;">OR</h6>
+
+      <div class="row" style="width:100%; display: flex;align-items: center;justify-content: center;">
+        <button class="loginBtn loginBtn--google pointer" (click)="loginWithGoogle()">
+          Login with Google
+        </button>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md--6 col-sm-6 col-xs-12" style="text-align: center;">
+          <a href="#" style="font-size: 15px;color: #f04a09;font-weight: bold;">Forgot Password?</a>
+        </div>
+        <div class="col-lg-6 col-md--6 col-sm-6 col-xs-12" style="text-align: center;">
+          <a href="#" style="font-size: 15px;color: #f04a09;font-weight: bold;">Register as a New User</a>
+        </div>
+
+      </div>
+
+
     </form>
-   
+
   </mat-card>
 
 </div>
-
+<app-footer></app-footer>

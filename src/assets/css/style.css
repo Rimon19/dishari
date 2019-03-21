@@ -861,6 +861,14 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
   margin-top: 150px;
 }
 
+.stickyUser{
+  position: fixed;
+  top: 200px;
+  background-color: white;
+  z-index:11;
+  
+}
+
 
 .shop_header_area .navbar .navbar-nav li a {
   padding: 0px;

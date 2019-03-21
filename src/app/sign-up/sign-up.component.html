@@ -1,87 +1,62 @@
 <bs-navbar></bs-navbar>
 <div class="container">
 
-<div class="row align-items-center justify-content-center">
-  <mat-card class="mat-card">
-    <h2 style="text-align: center">Create Dishari Account</h2>
+  <div class="row align-items-center justify-content-center">
+    <mat-card class="mat-card">
+      <h2 style="text-align: center">Create an Account</h2>
 
-    <form [formGroup]="registrationForm" (ngSubmit)="name.valid
+      <hr style="border-top: 1px solid #f04a09;">
+
+      <form [formGroup]="registrationForm" (ngSubmit)="name.valid
     &&email.valid
     &&password.valid
-    && signUp(registrationForm.value)" class="example-form" style="    padding-top: 12px;" >
-     
-      <div class="container"> 
-        <mat-form-field>
-          <input 
-          matInput 
-          placeholder="Enter your Name"
-            formControlName="name"            
-            autofocus
-             required>
-          <mat-error *ngIf="name.touched&&name.invalid">Name is <strong>required</strong>.</mat-error>
-        </mat-form-field>       
-      </div>
+    && signUp(registrationForm.value)" class="example-form" style="    padding-top: 12px;">
 
-      <div class="container"> 
-        <mat-form-field>
-          <input matInput 
-          placeholder="Enter your Email"
-          formControlName="email"
-             required>
-             <mat-error *ngIf="(email.dirty || email.touched)"> 
-          <mat-error *ngIf="email.errors?.required">Email is <strong>requird</strong>.</mat-error>
-          <mat-error *ngIf="email.invalid">Invalid email.</mat-error>
-        </mat-error>
-        </mat-form-field>       
-      </div>
+        <div class="container">
+          <mat-form-field>
+            <input matInput placeholder="Enter your Name" formControlName="name" autofocus required>
+            <mat-error *ngIf="name.touched&&name.invalid">Name is <strong>required</strong>.</mat-error>
+          </mat-form-field>
+        </div>
 
-      <div class="container">
-        <mat-form-field>
-          <input 
-          id="password"
-           matInput 
-           placeholder="Enter your Password"
-           
-           formControlName="password"
-           [formGroup]="registrationForm"
-            required           
-            minlength="6"
-            maxlength="15"
-             [type]="hide ? 'password' : 'text'"
-             >
-             <mat-error *ngIf="password.invalid &&(password.dirty || password.touched)"> 
-              <mat-error *ngIf="password.errors?.required">password is <strong>required</strong>.</mat-error>  
+        <div class="container">
+          <mat-form-field>
+            <input matInput placeholder="Enter your Email" formControlName="email" required>
+            <mat-error *ngIf="(email.dirty || email.touched)">
+              <mat-error *ngIf="email.errors?.required">Email is <strong>requird</strong>.</mat-error>
+              <mat-error *ngIf="email.invalid">Invalid email.</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="container">
+          <mat-form-field>
+            <input id="password" matInput placeholder="Enter your Password" formControlName="password"
+              [formGroup]="registrationForm" required minlength="6" maxlength="15" [type]="hide ? 'password' : 'text'">
+            <mat-error *ngIf="password.invalid &&(password.dirty || password.touched)">
+              <mat-error *ngIf="password.errors?.required">password is <strong>required</strong>.</mat-error>
               <mat-error *ngIf="password.errors?.minlength">Password should be minimum 6 charecter.</mat-error>
-              <mat-error *ngIf="password.errors.canNotContainSpace">Password can not contain space.</mat-error>  
-             </mat-error>  
+              <mat-error *ngIf="password.errors.canNotContainSpace">Password can not contain space.</mat-error>
+            </mat-error>
 
-            
-        </mat-form-field>
-      </div>
- 
 
-      <div class="container">
+          </mat-form-field>
+        </div>
 
-        <mat-form-field>
-          <input 
-          id="mobileNumber"
-           matInput
-           placeholder="Enter your Mobile Number"
-            formControlName="mobileNumber" 
-            >
-        </mat-form-field>
-          <button
-          mat-button type="submit" 
-        class="pointer"
-          [disabled]="!name.valid||!email.valid
-          ||!password.valid"
-          >submit
-        </button>
-    
-      </div>
 
-     
-      <!-- <div class="container">
+        <div class="container">
+
+          <mat-form-field>
+            <input id="mobileNumber" matInput placeholder="Enter your Mobile Number" formControlName="mobileNumber">
+          </mat-form-field>
+          <button mat-button type="submit" class="pointer btn btn-primary" [disabled]="!name.valid||!email.valid
+          ||!password.valid">submit
+          </button>
+
+        </div>
+
+
+        <!-- <div class="container">
         <mat-radio-group formControlName="gender">
           <mat-error *ngIf="(date.dirty || date.touched)&&gender.invalid">Gender is <strong>requird</strong>.</mat-error>
           <mat-radio-button  value="female"> Female </mat-radio-button>
@@ -99,10 +74,11 @@
         </button>
       </div> -->
 
-    </form>
+      </form>
 
-  </mat-card>
+    </mat-card>
+
+  </div>
 
 </div>
-
-</div>
+<app-footer></app-footer>

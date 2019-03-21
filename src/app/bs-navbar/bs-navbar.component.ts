@@ -57,8 +57,9 @@ export class BsNavbarComponent implements OnInit {
     var header = document.getElementById("fixtopbar");
     var header3 = document.getElementById("fixtopbar8");
     var header2 = document.getElementById("fixtop3");
-    var header5 = document.getElementById("shoppingid2")
-    //var header3 = document.getElementById("resizescreen");
+    var header5 = document.getElementById("shoppingid2");
+    
+
 
     var sticky = header.offsetTop;
 
@@ -70,6 +71,7 @@ export class BsNavbarComponent implements OnInit {
         header2.classList.add("sticky9");
         header3.classList.add("sticky3");
         header5.classList.add("showHeading");
+        
         //   header3.classList.add("sticky4");
       } else {
 
@@ -78,6 +80,7 @@ export class BsNavbarComponent implements OnInit {
         header2.classList.remove("sticky9");
         header3.classList.remove("sticky3");
         header5.classList.remove("showHeading");
+        //headerUser.classList.remove("stickyUSer");
         //    header3.classList.remove("sticky4");
       }
     }
