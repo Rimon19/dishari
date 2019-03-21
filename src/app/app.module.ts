@@ -63,7 +63,7 @@ import { UserInfoDetailsComponent } from './user-info-details/user-info-details.
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ViewPdfFilesComponent } from './view-pdf-files/view-pdf-files.component';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 //import { FooterComponent } from './footer/footer.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -113,6 +113,7 @@ import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimel
     PdfViewerModule,
     NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
+    MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
