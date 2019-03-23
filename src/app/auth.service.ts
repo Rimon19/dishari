@@ -60,4 +60,10 @@ export class AuthService {
         return Observable.of(null);
       });    
   }
+
+  resetPassword(email: string) {
+    return this.afAuth.auth.sendPasswordResetEmail('')
+      .then(() => console.log('sent Password Reset Email!'))
+      .catch((error) => console.log(error))
+  }
 }

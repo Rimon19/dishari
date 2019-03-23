@@ -15,6 +15,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../product.service';
 
 import { Subscription } from 'rxjs/Subscription';
+import {FormControl} from '@angular/forms';
+
+import {map, startWith} from 'rxjs/operators';
+declare var $:any;
 
 declare function MyMethod(): any;
 @Component({
@@ -23,11 +27,12 @@ declare function MyMethod(): any;
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent implements OnInit {
+  myControl = new FormControl();
+  options: string[] = [];
+  filteredOptions: Observable<string[]>;
 
 
   @Input() result: string = "";
-  @Output() clicked = new EventEmitter<string>();
-
   categories$;
   @Input('category') category;
 
@@ -52,12 +57,21 @@ export class BsNavbarComponent implements OnInit {
         this.filterClass.query = params.get('query');      
       });
     this.categories$ = categoryService.getAll();
-    this.productService.getAll().subscribe(p=>this.bsproducts=p);
+    this.productService.getAll().subscribe(p=>{
+      this.bsproducts=p;
+      this.bsproducts.forEach(i=>{ 
+        this.options.push(i.title);
+      });
+    });
+    
   }
 
   async ngOnInit() {
 
-
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ = await this.shoppingCartService.getCart();
@@ -109,18 +123,20 @@ export class BsNavbarComponent implements OnInit {
      
       this.router.navigate(['/'], { queryParams: { query: query } });
 
-      let filteredProducts = (query) ?
-      this.bsproducts.filter(p => p.title.toLowerCase()
-      .includes(query.toLowerCase())) :
-       this.bsproducts;      
-       this.bsfilteredProducts=filteredProducts;
-
     }
   }
+  
 
-  expandMenuBar(value){
-    console.log(value);
-    this.expandMenu=value;
+  _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    if (filterValue != null && filterValue != "") {
+     
+      this.router.navigate(['/'], { queryParams: { query: filterValue } });
+
+    }
+    
+    return this.options.filter(option => option.toLowerCase()
+    .indexOf(filterValue) === 0);
   }
 
 }

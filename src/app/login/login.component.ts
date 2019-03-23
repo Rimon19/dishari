@@ -69,11 +69,13 @@ error:any;
       }).catch(error=>{
         alert(error.message);
       });
-      
-       
-      
+    
     
   }
+  resetPassword(){
+    this.auth.resetPassword('');
+  }
+
 
  
 

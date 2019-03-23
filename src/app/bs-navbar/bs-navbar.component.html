@@ -150,15 +150,18 @@
 
                     <div class="input-group" style="margin-top:-6px">
 
-                        <input type="text" class="form-control" #query="ngModel" [(ngModel)]="filterClass.query" (keyup)="filter(filterClass.query)" placeholder="Search"
-                        aria-label="Search" style="border-color:#f04a09; height:40px;" matInput [matAutocomplete]="auto">
-
-                            <mat-autocomplete #auto="matAutocomplete">
-                                <mat-option *ngFor="let c of bsfilteredProducts" [value]="c.title">
-                                    {{c.title}}
-                                </mat-option>
-                              </mat-autocomplete>
-
+                        <!-- <input type="text" class="form-control" #query="ngModel" [(ngModel)]="filterClass.query" (keyup)="filter(filterClass.query)" placeholder="Search"
+                        aria-label="Search" style="border-color:#f04a09; height:40px;"> -->
+                               
+                                  <input type="text" class="form-control" placeholder="Search" aria-label="Search" style="border-color:#f04a09;height:40px;"
+                                   matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                   
+                                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                      {{option}}
+                                    </mat-option>
+                                  </mat-autocomplete>
+                                                                                        
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="button"><i class="icon-magnifier"
                                     style="color:#f04a09;"></i></button>
