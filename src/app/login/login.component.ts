@@ -72,9 +72,7 @@ error:any;
     
     
   }
-  resetPassword(){
-    this.auth.resetPassword('');
-  }
+ 
 
 
  

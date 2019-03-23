@@ -71,6 +71,7 @@ import { UserAllBooksComponent } from './user-all-books/user-all-books.component
 import { OrderSuccessFreeBooksComponent } from './order-success-free-books/order-success-free-books.component';
 import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimela-exclusive-books.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +106,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     UserAllBooksComponent,
     OrderSuccessFreeBooksComponent,
     BoimelaExclusiveBooksComponent,
+    ForgetPasswordComponent,
 
     // FooterComponent,
 
@@ -145,6 +147,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
       { path: 'products/:id', component: ProductsDetailsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
+      { path: 'forget-password', component: ForgetPasswordComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'view-pdf', component: ViewPdfFilesComponent },
 
