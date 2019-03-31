@@ -17,35 +17,32 @@
       </div>
     </div>
 
-    <div class="col-lg-2 col-md-2 col-sm-2">
+    <div class="col-lg-3 col-md-3 col-sm-3">
       <div class="input-group" style="margin-top:-6px">
 
-        <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category"
+        <select required #category="ngModel" [(ngModel)]="product.category" name="category" id="category"
           (change)="filterBooksByCategory(product.category)" class="form-control">
-          <option value="">All Category</option>
+          <option value="" selected>All Category</option>
           <option *ngFor="let c of categories$ | async" [value]="c.$key">
             {{ c.name }}
           </option>
         </select>
+
+
 
       </div>
     </div>
 
     <div class="col-lg-1 col-md-1 col-sm-4">
 
-      <p><b>books</b><br>
-        <span>100</span></p>
+      <p style="line-height: 16px;"><i style="color:#f04a09; font-size:23px" class="icon-book-open icons"></i><br>
+        <span style="font-size: 13px;font-weight: bold;">100</span></p>
 
     </div>
 
     <div class="col-lg-1 col-md-1 col-sm-4">
-      <p><b>Wishlist</b><br>
-        <span>5</span></p>
-
-    </div>
-    <div class="col-lg-1 col-md-1 col-sm-4">
-      <p><b>Uploads</b><br>
-        <span>5</span></p>
+      <p style="line-height: 16px;"><i style="color:#f04a09; font-size:23px" class="icon-cloud-upload icons"></i><br>
+        <span style="font-size: 13px;font-weight: bold;">5</span></p>
 
     </div>
     <hr>
@@ -59,9 +56,9 @@
           <div class="l_p_img">
             <img class="" [src]="book.imageUrl" style="height:150px" alt="">
           </div>
-          <div class="l_p_text">
-            <h4>{{book.title}}</h4>
-            <h6> <a [routerLink]="['/read/', book.title]" target="_blank">Read</a></h6>
+          <div style="width:100%; margin:0 auto; text-align:center">
+            <p>{{book.title}}</p>
+            <a [routerLink]="['/read/', book.title]" target="_blank" class="btn btn-primary">Read</a>
 
           </div>
         </div>

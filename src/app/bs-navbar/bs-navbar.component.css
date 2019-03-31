@@ -139,6 +139,18 @@
 
 }
 
+@media screen and (max-width:2000px) and (min-width:1441px){
+    .sticky{
+        width: 83%;
+    }
+    .sticky2{
+        margin-left: 110px;
+    }
+    .hideDesktopandTab{
+        display: none;
+    }
+}
+
 @media screen and (max-width:1440px) and (min-width:1367px){
     .sticky{
         width: 83%;

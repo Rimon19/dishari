@@ -6316,6 +6316,10 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
   display: inline-block;
 }
 
+.paginationcolor .ngx-pagination .current{
+  background: #f04a09;
+}
+
 .pagination_area .pagination li a {
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
@@ -6330,16 +6334,16 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 }
 
 .pagination_area .pagination li:first-child a {
-  border: 1px solid #000002;
+  border: 1px solid #f04a09;
 }
 
 .pagination_area .pagination li.next a {
-  background: #333333;
+  background: #f04a09;
   color: #fff;
 }
 
 .pagination_area .pagination li:hover a {
-  background: #333333;
+  background: #f04a09;
   color: #fff;
 }
 

@@ -1,208 +1,207 @@
-
 <bs-navbar></bs-navbar>
 
 <div *ngIf="bookSearched">
     <div class="container">
         <div class="two_column_product">
-    
+
             <div class="row ">
-    
+
                 <div class="col-lg-3 col-md-3 col-sm-6"
                     *ngFor="let product of filteredProducts| paginate: { itemsPerPage: 16, currentPage: p };index as i">
                     <div class="l_product_item">
                         <div class="l_p_img">
-                            <a [routerLink]="['products/', product.$key]" matTooltip="See Details" ><img class="img-fluid {{product.$key}}"
-                                [src]="product.imageUrl" alt=""></a>
+                            <a [routerLink]="['products/', product.$key]" matTooltip="See Details"><img
+                                    class="img-fluid {{product.$key}}" [src]="product.imageUrl" alt=""></a>
                             <h5 *ngIf="product.price==0" class="sale">Free</h5>
                         </div>
                         <div class="l_p_text">
                             <ul>
                                 <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
-                            <li><a class="add_cart_btn">Demo</a></li>
+                                <li><a class="add_cart_btn">Demo</a></li>
                             </ul>
-                            <h4  >{{product.title}}</h4>
-                              <h4 *ngIf="product.condition=='bangla'">{{product.titleInBangla}}</h4>
+                            <h4>{{product.title}}</h4>
+                            <h4 *ngIf="product.condition=='bangla'">{{product.titleInBangla}}</h4>
                             <h5> TK.{{product.price}}</h5>
                         </div>
                     </div>
                 </div>
-    
+
                 <div *ngIf="!searchItemFound">
                     <h2 style="color:#ab4a24">This book is not available yet!</h2>
                 </div>
             </div>
-    
+
             <nav aria-label="Page navigation example" class="pagination_area">
-                <ul class="pagination" >
+                <ul class="pagination">
                     <pagination-controls (pageChange)="p = $event"></pagination-controls>
                 </ul>
             </nav>
-    
+
         </div>
     </div>
-    </div>
-    <div *ngIf="!bookSearched">
-        <section class="main_slider_area" >
-            <div class="container" id="resizescreen">
-                <img class="img-fluid" src="assets/img/feature-add/3D-image.jpg" style="height:330px; width:100%" alt="">
-            </div>
-        </section>
-        <!--================End Slider Area =================-->
-        
-        <section class="feature_add_area" >
-            <div class="container">
-                <div class="row feature_inner">
-                    <div class="col-lg-5">
-                        <div class="f_add_item">
-                            <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-1.jpeg" alt="">
-                            </div>
-                            <div class="f_add_hover">
-                                <h4>Buy books at lowest possible price <br />possible price</h4>
-                                <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
-                            </div>
-                            <div  class="sale">Sale</div>
+</div>
+<div *ngIf="!bookSearched">
+    <section class="main_slider_area">
+        <div class="container" id="resizescreen">
+            <img class="img-fluid" src="assets/img/feature-add/3D-image.jpg" style="height:330px; width:100%" alt="">
+        </div>
+    </section>
+    <!--================End Slider Area =================-->
+
+    <section class="feature_add_area">
+        <div class="container">
+            <div class="row feature_inner">
+                <div class="col-lg-5">
+                    <div class="f_add_item">
+                        <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-1.jpeg" alt="">
                         </div>
+                        <div class="f_add_hover">
+                            <h4>Buy books at lowest possible price <br />possible price</h4>
+                            <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
+                        </div>
+                        <div class="sale">Sale</div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="f_add_item right_dir">
-                            <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-2.jpeg" alt="">
-                            </div>
-                            <div class="f_add_hover">
-                                <h4 style="color:white;     font-size: 25px;
+                </div>
+                <div class="col-lg-4">
+                    <div class="f_add_item right_dir">
+                        <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-2.jpeg" alt="">
+                        </div>
+                        <div class="f_add_hover">
+                            <h4 style="color:white;     font-size: 25px;
                                        -webkit-text-stroke: 1px black;
                                        font-weight: 800;">Select from <br />huge collection of books</h4>
-                                <a class="add_btn" style="color:white;" href="#">Shop Now <i class="arrow_right"></i></a>
-                            </div>
-                            <div class="off">10% off</div>
+                            <a class="add_btn" style="color:white;" href="#">Shop Now <i class="arrow_right"></i></a>
                         </div>
+                        <div class="off">10% off</div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="f_add_item">
-                            <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-3.jpeg" alt="">
-                            </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="f_add_item">
+                        <div class="f_add_img"><img class="img-fluid" src="assets/img/feature-add/f-add-3.jpeg" alt="">
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        
-        <div class="container">
-            <div class="two_column_product">
-        
-                <div class="row ">
-        
-                    <div class="col-lg-3 col-md-3 col-sm-6"
-                        *ngFor="let product of products| paginate: { itemsPerPage: 16, currentPage: p };index as i">
-                        <div class="l_product_item">
-                            <div class="l_p_img">
-                                <a [routerLink]="['products/', product.$key]" matTooltip="See Details"><img class="img-fluid {{product.$key}}"
-                                    [src]="product.imageUrl" alt=""></a>
-                                <h5 *ngIf="product.price==0" class="sale">Free</h5>
-                            </div>
-                            <div class="l_p_text">
-                                <ul>
-                                   
-                                    <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
-                                    <li><a class="add_cart_btn">Demo</a></li>
-                                </ul>
-                                <h4 >{{product.title}}</h4>
-                                <!-- <h4 *ngIf="product.condition==bangla">{{product.titleInBangla}}</h4> -->
-                                <h5>TK.{{product.price}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <nav aria-label="Page navigation example" class="pagination_area">
-                    <ul class="pagination">
-                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                    </ul>
-                </nav>
-        
             </div>
         </div>
-        
-        
-        
-        <!--================Product_listing Area =================-->
-        <section class="product_listing_area">
-            <div class="container">
-                <div class="row p_listing_inner">
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-8">
-                                <div class="p_list_text">
-                                    <h3>University Admission</h3>
-                                    <ul>
-                                        <li><a href="#">IBA MBA</a></li>
-                                        <li><a href="#">EMBA</a></li>
-                                        <li><a href="#">Engineering</a></li>
-                                        <li><a href="#">Medical</a></li>
-                                        <li><a href="#">Public</a></li>
-                                        <li><a href="#">Professional</a></li>
-                                    </ul>
-                                </div>
+    </section>
+
+
+    <div class="container">
+        <div class="two_column_product">
+
+            <div class="row ">
+
+                <div class="col-lg-3 col-md-3 col-sm-6"
+                    *ngFor="let product of products| paginate: { itemsPerPage: 16, currentPage: p };index as i">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <a [routerLink]="['products/', product.$key]" matTooltip="See Details"><img
+                                    class="img-fluid {{product.$key}}" [src]="product.imageUrl" alt=""></a>
+                            <h5 *ngIf="product.price==0" class="sale">Free</h5>
+                        </div>
+                        <div class="l_p_text">
+                            <ul>
+
+                                <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
+                                <li><a class="add_cart_btn">Demo</a></li>
+                            </ul>
+                            <h4>{{product.title}}</h4>
+                            <!-- <h4 *ngIf="product.condition==bangla">{{product.titleInBangla}}</h4> -->
+                            <h5>TK.{{product.price}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav aria-label="Page navigation example" class="pagination_area">
+                <ul class="pagination">
+                    <pagination-controls class="paginationcolor" (pageChange)="p = $event"></pagination-controls>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+
+
+    <!--================Product_listing Area =================-->
+    <section class="product_listing_area">
+        <div class="container">
+            <div class="row p_listing_inner">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-8">
+                            <div class="p_list_text">
+                                <h3>University Admission</h3>
+                                <ul>
+                                    <li><a href="#">IBA MBA</a></li>
+                                    <li><a href="#">EMBA</a></li>
+                                    <li><a href="#">Engineering</a></li>
+                                    <li><a href="#">Medical</a></li>
+                                    <li><a href="#">Public</a></li>
+                                    <li><a href="#">Professional</a></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-6 col-sm-4">
-                                <div class="p_list_img">
-                                    <img src="assets/img/product/p-categories-list/product-I-1.jpeg" alt="">
-                                </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-4">
+                            <div class="p_list_img">
+                                <img src="assets/img/product/p-categories-list/product-I-1.jpeg" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-8">
-                                <div class="p_list_text">
-                                    <h3>Job Recruitment</h3>
-                                    <ul>
-                                        <li><a href="#">Bank</a></li>
-                                        <li><a href="#">GOVT.</a></li>
-                                        <li><a href="#">Non-Cadre</a></li>
-                                        <li><a href="#">Ministry</a></li>
-                                        <li><a href="#">Teacher</a></li>
-                                        <li><a href="#">Other</a></li>
-                                    </ul>
-                                </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-8">
+                            <div class="p_list_text">
+                                <h3>Job Recruitment</h3>
+                                <ul>
+                                    <li><a href="#">Bank</a></li>
+                                    <li><a href="#">GOVT.</a></li>
+                                    <li><a href="#">Non-Cadre</a></li>
+                                    <li><a href="#">Ministry</a></li>
+                                    <li><a href="#">Teacher</a></li>
+                                    <li><a href="#">Other</a></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-6 col-sm-4">
-                                <div class="p_list_img">
-                                    <img src="assets/img/product/p-categories-list/product-I-2.jpeg" alt="">
-                                </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-4">
+                            <div class="p_list_img">
+                                <img src="assets/img/product/p-categories-list/product-I-2.jpeg" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-8">
-                                <div class="p_list_text">
-                                    <h3>Novel</h3>
-                                    <ul>
-                                        <li><a href="#">Humayun Ahmed</a></li>
-                                        <li><a href="#">Jafar Iqbal</a></li>
-                                        <li><a href="#">Abroad</a></li>
-                                        <li><a href="#">Poetry</a></li>
-                                        <li><a href="#">Sci-fi</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                    </ul>
-                                </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-8">
+                            <div class="p_list_text">
+                                <h3>Novel</h3>
+                                <ul>
+                                    <li><a href="#">Humayun Ahmed</a></li>
+                                    <li><a href="#">Jafar Iqbal</a></li>
+                                    <li><a href="#">Abroad</a></li>
+                                    <li><a href="#">Poetry</a></li>
+                                    <li><a href="#">Sci-fi</a></li>
+                                    <li><a href="#">Adventure</a></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-6 col-sm-4">
-                                <div class="p_list_img">
-                                    <img src="assets/img/product/p-categories-list/product-I-3.jpeg" alt="">
-                                </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-4">
+                            <div class="p_list_img">
+                                <img src="assets/img/product/p-categories-list/product-I-3.jpeg" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--================End Product_listing Area =================-->
-        
-        
-    </div>
-    
+        </div>
+    </section>
+    <!--================End Product_listing Area =================-->
+
+
+</div>
+
 
 
 <app-footer></app-footer>
