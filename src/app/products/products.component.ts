@@ -45,7 +45,7 @@ export class ProductsComponent implements OnInit  {
     private router:Router
     
   ) {
-     
+    
   }
 
   async ngOnInit() {

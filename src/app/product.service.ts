@@ -105,8 +105,8 @@ export class ProductService {
       .child(`uploads/Image/${product.imageUrlFile.name}`)
       .put(product.imageUrlFile);
     uploadTaskImageUrl.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      // (snapshot) => {
-      // },
+       (snapshot) => {
+      },
       (error) => {
         console.log(error)
       },
@@ -125,8 +125,8 @@ export class ProductService {
       .child(`uploads/Pdf/DemoPdf/${product.demoPdfFile.name}`)
       .put(product.demoPdfFile);
     uploadTaskDemoPdf.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      // (snapshot) => {
-      // },
+       (snapshot) => {
+       },
       (error) => {
         console.log(error)
       },
@@ -148,9 +148,9 @@ export class ProductService {
       .child(`uploads/Pdf/BooksPdfMain/${product.bookPdfFile.name}`)
       .put(product.bookPdfFile);
     uploadTaskBooksPdfMain.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      // (snapshot) => {
+       (snapshot) => {
         
-      // },
+       },
       (error) => {
         console.log(error)
       },

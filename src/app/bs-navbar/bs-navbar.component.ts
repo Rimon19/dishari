@@ -87,7 +87,7 @@ export class BsNavbarComponent implements OnInit {
 
     var sticky = header.offsetTop;
 
-    function MyMethod() {
+   function MyMethod() {
 
       if (window.pageYOffset > sticky) {
         header.classList.add("sticky");
@@ -96,18 +96,18 @@ export class BsNavbarComponent implements OnInit {
         header3.classList.add("sticky3");
         header5.classList.add("showHeading");
         
-        //   header3.classList.add("sticky4");
+          header3.classList.add("sticky4");
       } else {
 
         header.classList.remove("sticky");
         header2.classList.remove("sticky2");
         header2.classList.remove("sticky9");
         header3.classList.remove("sticky3");
-        header5.classList.remove("showHeading");
+       header5.classList.remove("showHeading");
         //headerUser.classList.remove("stickyUSer");
         //    header3.classList.remove("sticky4");
       }
-    }
+   }
 
 
   }

@@ -106,7 +106,7 @@
   >
     <ng-template #dataTableCell let-item="item">
       <a *ngIf="appUser.isAdmin" [routerLink]="['/admin/products/', item.$key]">Edit </a>
-      <a *ngIf="appUser.isAdmin" (click)="delete(item.$key)">delete</a>
+      <!-- <a *ngIf="appUser.isAdmin" (click)="delete(item.$key)">delete</a> -->
     </ng-template>
   </data-table-column>
 
