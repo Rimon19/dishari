@@ -25,26 +25,26 @@
           <label for="title">Author</label>
           <input #author="ngModel" [(ngModel)]="product.author" name="author" id="author" type="text" class="form-control"
             required>
-          <div class="alert alert-danger" *ngIf="author.touched && author.invalid">
+          <!-- <div class="alert alert-danger" *ngIf="author.touched && author.invalid">
             Author is required.
-          </div>
+          </div> -->
         </div>
         <div class="form-group">
           <label for="writter">Writter</label>
           <input #writter="ngModel" [(ngModel)]="product.writter" name="writter" id="writter" type="text"
-            class="form-control" required>
-          <div class="alert alert-danger" *ngIf="writter.touched && writter.invalid">
+            class="form-control" >
+          <!-- <div class="alert alert-danger" *ngIf="writter.touched && writter.invalid">
             Writter is required.
-          </div>
+          </div> -->
         </div>
 
         <div class="form-group">
           <label for="publication">Publication</label>
           <input #publication="ngModel" [(ngModel)]="product.publication" name="publication" id="publication"
-            type="text" class="form-control" required>
-          <div class="alert alert-danger" *ngIf="publication.touched && publication.invalid">
+            type="text" class="form-control">
+          <!-- <div class="alert alert-danger" *ngIf="publication.touched && publication.invalid">
             Publication is required.
-          </div>
+          </div> -->
         </div>
         <div class="form-group">
           <label for="price">Price</label>

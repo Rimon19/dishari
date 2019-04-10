@@ -70,6 +70,7 @@ export class ProductFormComponent implements OnInit {
 
         if (this.id) {
           this.productService.update(this.id, this.product);
+          this.router.navigate(['/admin/products']);
         }
         else {
 

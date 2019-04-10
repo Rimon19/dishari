@@ -60,15 +60,14 @@ export class AdminOrdersComponent {
       this.book.title=element.product.title;
       
       this.book.price =element.product.price;
-     //this.book.titleInBangla=element.product.titleInBangla;
+     this.book.titleInBangla=element.product.titleInBangla;
       this.book.imageUrl=element.product.imageUrl;
-      //this.book.imageUrl2=element.product.imageUrl2
-      //this.book.bookPdfUrl=element.product.bookPdfUrl;
-      //this.book.category=element.product.category;
+      this.book.bookPdfUrl=element.product.bookPdfUrl;
+      this.book.category=element.product.category;
      // this.book.writter=element.product.writter;
       //this.book.publication=element.product.publication;
-       //this.book.condition=element.product.condition;
-       //this.book.author=element.product.author;
+       this.book.condition=element.product.condition;
+       this.book.author=element.product.author;
 
        //serch and entry date will be added here
       

@@ -12,7 +12,7 @@ export class ShoppingCartItem {
   bookPdfUrl:string;
   category: string;
   author:string;
-  writter:string;
+  //writter:string;
   publication:string;
   condition:string;
 

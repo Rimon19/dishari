@@ -61,7 +61,6 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
     this.userSubscription.unsubscribe();
   }
   async checkOut(){
-    console.log("clicked Shoping cart");
 
       if(this.cart.totalPrice>0){
         this.router.navigate(['/check-out']);
@@ -72,21 +71,19 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
           order.status="approved";
         
         this.cart.items.forEach(element => {
-          console.log('element',element);
           this.book.key=element.$key;          
           this.book.title=element.title;
           this.book.price =element.price;
 
-         // this.book.titleInBangla=element.titleInBangla;
+          this.book.titleInBangla=element.titleInBangla;
           this.book.imageUrl=element.imageUrl;
-         // this.book.imageUrl2=element.imageUrl2
-        //  this.book.bookPdfUrl=element.bookPdfUrl;
-        //  this.book.category=element.category;
-
+          this.book.bookPdfUrl=element.bookPdfUrl;
+          this.book.category=element.category;
+          this.book.author=element.author;
+          this.book.condition=element.condition;
          // this.book.writter=element.writter;
         //  this.book.publication=element.publication;
-           //this.book.author=element.author;
-        //   this.book.condition=element.condition;
+           
        //serch and entry date will be added here
           let result = this.libraryService.addToLibrary( this.book,this.userId);
 

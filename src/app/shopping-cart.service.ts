@@ -63,22 +63,19 @@ export class ShoppingCartService {
      // let quantity = (item.quantity || 0) + change;
       let quantity = change;
      if (quantity === 0) item$.remove();
-      else item$.update({ 
-       
+      else item$.update({       
         title: product.title,
         price: product.price,
         quantity: quantity,
-
-      //   titleInBangla:product.titleInBangla,
-         imageUrl: product.imageUrl,
-      //   imageUrl2:product.imageUrl2,
-      //   bookPdfUrl:product.bookPdfUrl,
-
-      //  category: product.category,
+        titleInBangla:product.titleInBangla,
+        imageUrl: product.imageUrl,
+        bookPdfUrl:product.bookPdfUrl,
+        category: product.category,
+        author:product.author,
+        condition:product.condition
       //  writter:product.writter,
       //  publication:product.publication,
-      //   author:product.author,
-      //  condition:product.condition
+        
      
       
       

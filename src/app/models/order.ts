@@ -32,16 +32,15 @@ export class Order {
           title: i.title,
           price: i.price,
           key:i.$key,
-         // titleInBangla:i.titleInBangla,
-          imageUrl: i.imageUrl,
-         // imageUrl2:i.imageUrl2,
-          //bookPdfUrl:i.bookPdfUrl,
-
-         // category: i.category,      
+          titleInBangla:i.titleInBangla,
+          imageUrl: i.imageUrl,         
+          bookPdfUrl:i.bookPdfUrl,
+          category: i.category,  
+          condition:i.condition,
+          author:i.author,  
          // writter:i.writter,
          // publication:i.publication,
-       //  condition:i.condition,
-         // author:i.author,
+        
 
         },
         quantity: i.quantity,

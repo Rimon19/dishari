@@ -10,9 +10,7 @@ export class LibraryService {
 
    addToLibrary(books,userId){
     console.log(books);
-    console.log(userId);
    let result =  this.db.list(`library/${userId}`).push(books);
-   console.log("s result",result);
    return result;
  }
 
