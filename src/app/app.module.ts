@@ -142,6 +142,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
+      { path: 'boimela-exclusive', component: BoimelaExclusiveBooksComponent},
       { path: 'todo', component: TodosTestingPurposeComponent },
       // { path: 'TestProducts', component: TestProductsComponent },
       { path: 'products/:id', component: ProductsDetailsComponent },
@@ -152,7 +153,6 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
       { path: 'view-pdf', component: ViewPdfFilesComponent },
 
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
-      { path: 'boimela-exclusive', component: BoimelaExclusiveBooksComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'order-success-free-books/:id', component: OrderSuccessFreeBooksComponent, canActivate: [AuthGuard] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },

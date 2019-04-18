@@ -433,9 +433,12 @@
                     </li>
 
                     <li class="nav-item" ><a class="nav-link" routerLink="/boimela-exclusive" >Be a Member</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Publish Book</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Boimela Exclusive</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Best Selling Books</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive" 
+                        [queryParams]="{ extraCategory: 'PublishBooks' }" >Publish Book</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive"
+                        [queryParams]="{ extraCategory: 'BoimelaExclusive' }" >Boimela Exclusive</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive"
+                        [queryParams]="{ extraCategory: 'BestSellingBooks' }" >Best Selling Books</a></li>
 
                     <li class="nav-item"><a class="nav-link" routerLink="/boimela-exclusive">Donate</a></li>
 

@@ -1,6 +1,42 @@
   
 <bs-navbar></bs-navbar>
 
- <h2 style="margin-left:100px">Upcomming Feture!</h2> 
+<div *ngIf="filteredProducts">
+    <div class="container">
+        <div class="two_column_product">
+
+            <div class="row ">
+
+                <div class="col-lg-3 col-md-3 col-sm-6"
+                    *ngFor="let product of filteredProducts| paginate: { itemsPerPage: 16, currentPage: p };index as i">
+                    <div class="l_product_item">
+                        <div class="l_p_img">
+                            <a [routerLink]="['products/', product.$key]" matTooltip="See Details"><img
+                                    class="img-fluid {{product.$key}}" [src]="product.imageUrl" alt=""></a>
+                            <h5 *ngIf="product.price==0" class="sale">Free</h5>
+                        </div>
+                        <div class="l_p_text">
+                            <ul>
+                                <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
+                                <li><a [routerLink]="['/read/', product.demoPdfUrl]" target="_blank"  class="add_cart_btn">Demo</a></li>
+                            </ul>
+                            <h4>{{product.titleInBangla}}</h4>
+                            <!-- <h4 *ngIf="product.condition=='bangla'">{{product.titleInBangla}}</h4> -->
+                            <h5> TK.{{product.price}}</h5>
+                        </div>
+                    </div>
+                </div>
+         
+            </div>
+
+            <nav aria-label="Page navigation example" class="pagination_area">
+                <ul class="pagination">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
 
 <app-footer></app-footer>

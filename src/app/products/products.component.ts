@@ -61,6 +61,12 @@ export class ProductsComponent implements OnInit  {
       .getAll()
       .switchMap(products => {
         this.products = products;
+        console.log("before sorting",this.products);
+        this.products.sort((a:Product,b:Product)=>{
+          if(a.title>b.title) return 1;
+          if(a.title>b.title) return 0;
+        })
+        console.log("After sorting",this.products);
        
         return this.route.queryParamMap;
       })
@@ -95,7 +101,7 @@ export class ProductsComponent implements OnInit  {
     this.filteredProducts = (this.category) ? 
     this.products.filter(p => p.category === this.category) : 
     this.products;
-
+   
 
     if(this.category=="allCategory"){
       this.filteredProducts=this.products;

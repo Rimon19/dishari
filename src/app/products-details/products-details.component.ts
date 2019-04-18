@@ -1,3 +1,5 @@
+import { Category } from './../models/category';
+import { CategoryService } from './../category.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input } from '@angular/core';
@@ -17,15 +19,42 @@ export class ProductsDetailsComponent implements OnInit {
   @Input('shopping-cart') shoppingCart: ShoppingCart;
   id;
   cart$: Observable<ShoppingCart>;
+  categories:Category[]=[];
+  filteredCategories:Category[]=[];
+  categoryName:string;
 
   constructor(private route: ActivatedRoute,
    private productService: ProductService,
-   private cartService: ShoppingCartService
+   private cartService: ShoppingCartService,
+   private catergoryService:CategoryService
   ) {
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) this.productService.get(this.id)
-    .take(1).subscribe(p => this.product = p);
+    .take(1).subscribe(p => {
+      this.product = p;
+      
+      const catgry=this.catergoryService.getAll();
+      catgry.forEach(element => {
+        this.categories=element;
+        console.log(this.categories);
+
+        let filteredProducts = (this.product.category) ?
+        this.categories.filter(p => p.$key.toLowerCase()
+        .includes(this.product.category.toLowerCase())) :
+         this.categories;      
+         this.filteredCategories=filteredProducts;
+         console.log(this.filteredCategories);
+         this.filteredCategories.forEach(element => {
+          this.categoryName=element.name;
+         });
+         
+      });
+ 
+     
+
+    });
+    //console.log(this.product);
 
    }
 
@@ -35,6 +64,8 @@ export class ProductsDetailsComponent implements OnInit {
 
 async  ngOnInit() {
     this.cart$ = await this.cartService.getCart();
+     
+   
   }
 
 }
