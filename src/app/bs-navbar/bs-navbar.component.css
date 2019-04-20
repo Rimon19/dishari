@@ -56,6 +56,7 @@
         display: none;
     }
 
+
     .header_top_45{
         display: inline;
     }
@@ -119,6 +120,11 @@
         margin-top: 12px;
     }
     
+    .sticky2{
+        margin-left:0px;
+        margin-top: -15px;
+    }
+
     .sticky3{
         margin-right: 1px;
     }
@@ -141,25 +147,31 @@
 
 @media screen and (max-width:2000px) and (min-width:1441px){
     .sticky{
-        width: 83%;
+        width: 100%;
     }
     .sticky2{
-        margin-left: 110px;
+        margin-left: 144px;
     }
     .hideDesktopandTab{
         display: none;
+    }
+    .main_slider_area{
+        margin-top:-37px;
     }
 }
 
 @media screen and (max-width:1440px) and (min-width:1367px){
     .sticky{
-        width: 83%;
+        width: 100%;
     }
     .sticky2{
-        margin-left: 110px;
+        margin-left: 144px;
     }
     .hideDesktopandTab{
         display: none;
+    }
+    .main_slider_area{
+        margin-top:-37px;
     }
 }
 
@@ -201,6 +213,7 @@
     .header_top_44{
         display: none;
     }
+
 
     .header_top_45{
         display: inline;
@@ -366,7 +379,7 @@
     .sticky2{
         margin-left: 23px;
         top:49px;
-        margin-top: 8px;
+        margin-top: 18px;
     }
     .hideDesktopandTab{
         display: none;

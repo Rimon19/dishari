@@ -7,7 +7,8 @@
             <div class="row ">
 
                 <div class="col-lg-3 col-md-3 col-sm-6"
-                    *ngFor="let product of filteredProducts|  paginate: { itemsPerPage: 16, currentPage: p };index as i">
+                    *ngFor="let product of filteredProducts|  paginate: { itemsPerPage: 16, currentPage: p };index as i
+                    ">
                     <div class="l_product_item">
                         <div class="l_p_img">
                             <a [routerLink]="['products/', product.$key]" matTooltip="See Details"><img
@@ -43,8 +44,8 @@
 <div *ngIf="!bookSearched">
     <section class="main_slider_area">
         <div class="container" id="resizescreen">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1142px"
-                height="455.667px" viewBox="0 0 1142 455.667" enable-background="new 0 0 1142 455.667" xml:space="preserve">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="svgelement"
+                 viewBox="0 0 1142 455.667" enable-background="new 0 0 1142 455.667" xml:space="preserve">
            <g id="bg">
                <g id="background">
                    <g>

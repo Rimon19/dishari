@@ -75,40 +75,26 @@ export class BsNavbarComponent implements OnInit {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ = await this.shoppingCartService.getCart();
-
-    // window.onscroll = function () { MyMethod() };
-
-    // var header = document.getElementById("fixtopbar");
-    // var header3 = document.getElementById("fixtopbar8");
-    // var header2 = document.getElementById("fixtop3");
-    // var header5 = document.getElementById("shoppingid2");
     
+  var yourNavigation = $(".nav");
+  var anothernav = $(".fixtop3");
+  var anothernav2 = $(".fixtopbar8");
+  var stickyRes = "sticky3";
+  var stickymenu = "sticky2";
+  var stickyDiv = "sticky";
+  var yourHeader = $('.header').height();
 
-
-    // var sticky = header.offsetTop;
-
-   // function MyMethod() {
-
-      // if (window.pageYOffset > sticky) {
-      //   header.classList.add("sticky");
-      //   header2.classList.add("sticky2");
-      //   header2.classList.add("sticky9");
-      //   header3.classList.add("sticky3");
-      //   header5.classList.add("showHeading");
-        
-        //   header3.classList.add("sticky4");
-      // } else {
-
-      //   header.classList.remove("sticky");
-      //   header2.classList.remove("sticky2");
-      //   header2.classList.remove("sticky9");
-      //   header3.classList.remove("sticky3");
-      //  header5.classList.remove("showHeading");
-      //   //headerUser.classList.remove("stickyUSer");
-      //   //    header3.classList.remove("sticky4");
-      // }
-  //  }
-
+$(window).scroll(function() {
+if( $(this).scrollTop() > yourHeader ) {
+  yourNavigation.addClass(stickyDiv);
+  anothernav.addClass(stickymenu);
+  anothernav2.addClass(stickyRes);
+} else {
+  yourNavigation.removeClass(stickyDiv);
+  anothernav.removeClass(stickymenu);
+  anothernav2.removeClass(stickyRes);
+}
+});
 
   }
 
