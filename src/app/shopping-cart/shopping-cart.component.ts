@@ -53,7 +53,7 @@ export class ShoppingCartComponent implements OnInit,OnDestroy {
     this.cart$ .forEach(element => {
       this.cart=element;
     });
-    console.log(this.cart$);
+ 
     this.userSubscription = this.authService.user$
     .subscribe(user => this.userId = user.uid);
   }

@@ -1,3 +1,4 @@
+import { UserService } from './../../user.service';
 import { Product } from './../../models/product';
 import { AppUser } from './../../models/app-user';
 import { AuthService } from './../../auth.service';
@@ -22,6 +23,7 @@ export class ProductFormComponent implements OnInit {
   subCategory$;
   condition$;
   location$;
+  appusers$;
   product = new Product();
   id;
   appUser = new AppUser();
@@ -36,13 +38,24 @@ export class ProductFormComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthService,
     private categoryService: CategoryService,
-    private productService: ProductService) {
+    private productService: ProductService,
+    private userService:UserService) {
 
     this.categories$ = categoryService.getAll();
 
     this.subCategory$ = categoryService.getAllSubCategories();
     this.condition$ = categoryService.getAllcondition();
     this.location$ = categoryService.getAllLocation();
+    console.log(this.location$);
+    const users=userService.getAllUsers();
+    users.forEach(element => {
+      this.appusers$=element;
+      console.log(this.appusers$);
+    });
+      
+    
+
+   
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) this.productService.get(this.id).take(1)
@@ -188,7 +201,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    this.auth.appUser$.subscribe(appUser =>this.appUser = appUser);
   }
 
 

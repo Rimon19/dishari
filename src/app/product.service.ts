@@ -92,7 +92,7 @@ export class ProductService {
   getProducByUserId(userId: string) {
     return this.db.list('/products', {
       query: {
-        orderByChild: 'uid',
+        orderByChild: 'publishersUid',
         equalTo: userId
       }
     });

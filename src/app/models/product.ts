@@ -40,5 +40,6 @@ export class Product {
   location:string;
   description:string;
   quantity:string;
+  publishersUid:string;
 
 }

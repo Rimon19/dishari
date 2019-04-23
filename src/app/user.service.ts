@@ -14,6 +14,16 @@ export class UserService {
     this.userData=firebase.database().ref('/users');
    }
 
+   getAllUsers() { 
+    return this.db.list('/users', {
+      query: {
+        orderByChild: 'isMarchand',
+        equalTo: true
+      }
+    });
+  }
+  
+
   save(user: firebase.User) {
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,

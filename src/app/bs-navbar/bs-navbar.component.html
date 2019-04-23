@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="header_top_area header_top_44 nav" style="padding-bottom: 0px;">
+<div class="header_top_area header_top_44 nav2" style="padding-bottom: 0px;">
     <div class="container ">
         <div class="row" id="fixtopbar">
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 numberandSearchbox">
@@ -88,6 +88,7 @@
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">My
                                         Library</a>
 
+                                       
 
                                     <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
@@ -96,6 +97,13 @@
                                     <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
                                         Products</a>
+
+                                        <a routerLink="/marchand/products" *ngIf="appUser.isMarchand"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">My
+                                        Products</a>
+                                        <a routerLink="/marchand-dashboard" *ngIf="appUser.isMarchand"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">My
+                                        Dashboard</a>
 
                                     <a (click)="logout()" routerLink="/login"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>
@@ -183,6 +191,8 @@
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-top: 7px">My
                                         Library</a>
 
+                                       
+
                                     <a routerLink="/admin/orders" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; ">Manage
                                         Orders</a>
@@ -190,6 +200,13 @@
                                     <a routerLink="/admin/products" *ngIf="appUser.isAdmin"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none;">Manage
                                         Products</a>
+                                        
+                                        <a routerLink="/marchand/products" *ngIf="appUser.isMarchand"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">My
+                                        Products</a>
+                                        <a routerLink="/marchand-dashboard" *ngIf="appUser.isMarchand"
+                                        style="display:block;font-size: 14px;line-height: 40px; border: none;">My
+                                        Dashboard</a>
 
                                     <a (click)="logout()" routerLink="/login"
                                         style="display:block;font-size: 14px;line-height: 40px; border: none; margin-bottom: 7px">LogOut</a>

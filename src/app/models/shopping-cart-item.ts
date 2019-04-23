@@ -15,6 +15,7 @@ export class ShoppingCartItem {
   //writter:string;
   publication:string;
   condition:string;
+  publishersUid:string;
 
   constructor(init?: Partial<ShoppingCartItem>) {
     Object.assign(this, init);

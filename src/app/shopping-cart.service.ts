@@ -72,7 +72,8 @@ export class ShoppingCartService {
         bookPdfUrl:product.bookPdfUrl,
         category: product.category,
         author:product.author,
-        condition:product.condition
+        condition:product.condition,
+        publishersUid:product.publishersUid
       //  writter:product.writter,
       //  publication:product.publication,
         

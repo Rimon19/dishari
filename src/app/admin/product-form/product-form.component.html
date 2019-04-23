@@ -159,18 +159,16 @@
             type="text" class="form-control">
         </div>
 
-        <!-- <div class="form-group">
-          <label for="location">Location</label>
-          <select #location="ngModel" [(ngModel)]="product.location" name="location" id="location" class="form-control">
+        <div class="form-group">
+          <label for="publishersUid">Publication Name</label>
+          <select #publishersUid="ngModel" [(ngModel)]="product.publishersUid" name="publishersUid" id="publishersUid" class="form-control">
             <option value=""></option>
-            <option *ngFor="let c of location$ | async" [value]="c.$key">
-              {{ c.name }}
+            <option *ngFor="let c of appusers$" [value]="c.$key">
+              {{ c.fullName}}
             </option>
           </select>
-          <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
-            location is required.
-          </div>
-        </div> -->
+        
+        </div>
 
         <div class="form-group">
           <label for="description">Description</label>

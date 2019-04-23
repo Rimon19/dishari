@@ -38,6 +38,7 @@ export class Order {
           category: i.category,  
           condition:i.condition,
           author:i.author,  
+          publishersUid:i.publishersUid
          // writter:i.writter,
          // publication:i.publication,
         

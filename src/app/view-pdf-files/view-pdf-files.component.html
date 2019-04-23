@@ -9,14 +9,20 @@
 <!-- <p>src="'assets/img/Mominurcv.pdf'" </p> -->
 
 
-  <ngx-extended-pdf-viewer 
+  <ngx-extended-pdf-viewer class="designfordesktop"
   delayFirstView=10000;
   [src]="url"
     useBrowserLocale="false"
     [showDownloadButton]="false"
     [showOpenFileButton]="false"
     [showPrintButton]="false"
+    [showSidebarButton] = "false"
   >
   </ngx-extended-pdf-viewer>
+
+
+
+
+
 
 

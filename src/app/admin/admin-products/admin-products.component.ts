@@ -38,7 +38,7 @@ p=new Product();
             });
          } 
 
-         if(this.appUser.isMarchand&&this.appUser.isActive){
+         if(this.appUser.isMarchand){
 
           this.subscription = this.productService.getProducByUserId(this.appUser.$key)
           .subscribe(products => {
@@ -81,10 +81,8 @@ p=new Product();
   }
 
 getSpecificUserInfo(uid){
-  console.log(uid);
   this.userService.get(uid).forEach(element => {
    this.specificUser= element;
-    console.log(this.specificUser);
   }); 
  
 

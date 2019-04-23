@@ -76,7 +76,7 @@ export class BsNavbarComponent implements OnInit {
 
     this.cart$ = await this.shoppingCartService.getCart();
     
-  var yourNavigation = $(".nav");
+  var yourNavigation = $(".nav2");
   var anothernav = $(".fixtop3");
   var anothernav2 = $(".fixtopbar8");
   var stickyRes = "sticky3";

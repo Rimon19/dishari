@@ -1,3 +1,4 @@
+import { MarchandAuthGuardService } from './marchand-auth-guard.service';
 
 import { ValidatePassword } from './sign-up/validatePassword';
 import { OrderService } from './order.service';
@@ -72,6 +73,9 @@ import { OrderSuccessFreeBooksComponent } from './order-success-free-books/order
 import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimela-exclusive-books.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { MarchandDashboardComponent } from './marchand-dashboard/marchand-dashboard.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,6 +111,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     OrderSuccessFreeBooksComponent,
     BoimelaExclusiveBooksComponent,
     ForgetPasswordComponent,
+    MarchandDashboardComponent,
+   
 
     // FooterComponent,
 
@@ -182,6 +188,11 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
         canActivate: [AuthGuard, AdminAuthGuard]
       },
       {
+        path: 'marchand/products',
+        component: AdminProductsComponent,
+        canActivate: [AuthGuard,MarchandAuthGuardService]
+      },
+      {
         path: 'admin/orders',
         component: AdminOrdersComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
@@ -204,7 +215,12 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
         component: FileUploadComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
       },
-      
+      {
+        path: 'marchand-dashboard',
+        component: MarchandDashboardComponent,
+        canActivate: [AuthGuard, MarchandAuthGuardService]
+      }
+
 
     ])
   ],
