@@ -23,9 +23,7 @@ export class OrderService {
     return this.db.list('/orders');
   }
   
-  getAllCellRequest() { 
-    return this.db.list('/cellRequest');
-  }
+ 
   
   getOrdersByUser(userId: string) {
     return this.db.list('/orders', {
@@ -53,5 +51,6 @@ export class OrderService {
     });
   }
 
+ 
   
 }

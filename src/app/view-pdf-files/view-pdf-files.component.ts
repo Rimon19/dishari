@@ -16,7 +16,7 @@ export class ViewPdfFilesComponent implements OnInit {
     private fileUploadServic:FileUploadService,private route: ActivatedRoute) {
 
     this.url=this.route.snapshot.paramMap.get('url');
-      console.log(this.url);
+      
          
     }
 

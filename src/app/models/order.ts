@@ -1,6 +1,6 @@
 import { ShoppingCart } from './shopping-cart';
 
-export class Order { 
+export class Order { l
   datePlaced: number;
   searchDate; 
   items: any[];

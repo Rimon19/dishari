@@ -7,6 +7,7 @@
 }
 
 
+
 /**moves**/
 
 @keyframes appear{
@@ -231,7 +232,7 @@ width: 618px;
   @media screen and (max-width:1280px) and (min-width:880px){
     .svgelement{
       height:456px;
-      width:1142px;
+      width:1185px;
     }
   }
 
@@ -245,14 +246,14 @@ width: 618px;
   @media screen and (max-width:1440px) and (min-width:1367px){
     .svgelement{
       height:456px;
-      width:1142px;
+      width:1185px;
     }
   }
 
   @media screen and (max-width:2000px) and (min-width:1441px){
     .svgelement{
       height:456px;
-      width:1142px;
+      width:1185px;
     }
   }
 

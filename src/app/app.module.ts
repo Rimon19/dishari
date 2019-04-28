@@ -74,6 +74,7 @@ import { BoimelaExclusiveBooksComponent } from './boimela-exclusive-books/boimel
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { MarchandDashboardComponent } from './marchand-dashboard/marchand-dashboard.component';
+import { AudioBooksComponent } from './audio-books/audio-books.component';
 
 
 @NgModule({
@@ -112,6 +113,7 @@ import { MarchandDashboardComponent } from './marchand-dashboard/marchand-dashbo
     BoimelaExclusiveBooksComponent,
     ForgetPasswordComponent,
     MarchandDashboardComponent,
+    AudioBooksComponent,
    
 
     // FooterComponent,
@@ -149,6 +151,7 @@ import { MarchandDashboardComponent } from './marchand-dashboard/marchand-dashbo
       { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'boimela-exclusive', component: BoimelaExclusiveBooksComponent},
+      { path: 'audio-books', component: AudioBooksComponent},
       { path: 'todo', component: TodosTestingPurposeComponent },
       // { path: 'TestProducts', component: TestProductsComponent },
       { path: 'products/:id', component: ProductsDetailsComponent },

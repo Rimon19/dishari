@@ -100,7 +100,7 @@
     </ng-template>
   </data-table-column>
 
-  <data-table-column
+  <data-table-column *ngIf="appUser.isAdmin"
     [property]="'$key'"  
     [header]="'Action'"
   >
