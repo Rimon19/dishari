@@ -73,11 +73,11 @@ Table of Content:
 
 .sticky2 {
   position: fixed;
-  top: 75px;
+  top: 65px;
   width: 100%;
   z-index:7;
   background-color: white;
-  margin-left: 80px;
+  margin-left: 2px;
   
 }
 
@@ -410,7 +410,7 @@ i:before {
 }
 
 .top_header_left {
-  padding-top: 20px;
+  padding-top: 24px;
 }
 
 .top_header_left .selector {
