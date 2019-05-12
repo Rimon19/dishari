@@ -43,6 +43,7 @@ export class BsNavbarComponent implements OnInit {
   expandMenu:boolean;
   bsfilteredProducts: Product[] = [];
   bsproducts: Product[] = [];
+ 
 
   constructor(private router: Router,
     private auth: AuthService,
@@ -67,6 +68,19 @@ export class BsNavbarComponent implements OnInit {
   }
 
   async ngOnInit() {
+
+//     var i = 0;
+// var txt = 'Lorem ipsum dummy text blabla.';
+// var speed = 50;
+
+// function typeWriter() {
+//   if (i < txt.length) {
+//     this.searchingExapleText= txt.charAt(i);
+//     i++;
+//     setTimeout(typeWriter, speed);
+//   }
+// }
+
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -94,7 +108,10 @@ if( $(this).scrollTop() > yourHeader ) {
   anothernav.removeClass(stickymenu);
   anothernav2.removeClass(stickyRes);
 }
+
 });
+
+
 
   }
 
@@ -102,6 +119,7 @@ if( $(this).scrollTop() > yourHeader ) {
     this.auth.logout();
     this.shoppingCartService.clearCart();
   }
+  
 
   filter(query: string) {
    

@@ -34,10 +34,12 @@
             <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
             </div>
           </td>
-          <td>
+          <td *ngIf="item.condition=='english'">
             {{ item.title }}
           </td>
-
+          <td *ngIf="item.condition!='english'">
+            {{ item.titleInBangla }}
+          </td>
           <!-- <td>
           <product-quantity [product]="item" [shopping-cart]="cart">
           </product-quantity>

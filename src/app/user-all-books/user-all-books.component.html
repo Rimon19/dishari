@@ -57,7 +57,8 @@
             <img class="" [src]="book.imageUrl" style="height:150px" alt="">
           </div>
           <div style="width:100%; margin:0 auto; text-align:center">
-            <p>{{book.title}}</p>
+            <p *ngIf="book.condition=='english'">{{book.title}}</p>
+            <p *ngIf="book.condition !='english'">{{book.titleInBangla}}</p>
             <a [routerLink]="['/read/', book.bookPdfUrl]" target="_blank" class="btn btn-primary">Read</a>
 
           </div>
@@ -78,7 +79,8 @@
             <img class="" [src]="book.imageUrl" style="height:150px" alt="">
           </div>
           <div style="width:100%; margin:0 auto; text-align:center">
-            <p>{{book.title}}</p>
+            <p *ngIf="book.condition=='english'">{{book.title}}</p>
+            <p *ngIf="book.condition !='english'">{{book.titleInBangla}}</p>
             <a [routerLink]="['/read/', book.bookPdfUrl]" target="_blank" class="btn btn-primary">Read</a>
 
           </div>

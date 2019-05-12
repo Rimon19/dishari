@@ -20,7 +20,8 @@
                                 <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
                                 <li><a [routerLink]="['/read/', product.demoPdfUrl]" target="_blank"  class="add_cart_btn">Demo</a></li>
                             </ul>
-                            <h4>{{product.titleInBangla}}</h4>
+                            <h4 *ngIf="product.condition=='english'">{{product.title}}</h4>
+                            <h4 *ngIf="product.condition!='english'">{{product.titleInBangla}}</h4>
                             <!-- <h4 *ngIf="product.condition=='bangla'">{{product.titleInBangla}}</h4> -->
                             <h5> TK.{{product.price}}</h5>
                         </div>
@@ -548,7 +549,8 @@
                                 <li><a class="add_cart_btn" (click)="addToCart(product)">Add to Library</a></li>
                                 <li><a [routerLink]="['/read/', product.demoPdfUrl]" target="_blank" class="add_cart_btn">Demo</a></li>
                             </ul>
-                            <h4>{{product.titleInBangla}}</h4>
+                            <h4 *ngIf="product.condition=='english'">{{product.title}}</h4>
+                            <h4 *ngIf="product.condition!='english'">{{product.titleInBangla}}</h4>
                             <!-- <h4 *ngIf="product.condition==bangla">{{product.titleInBangla}}</h4> -->
                             <h5>TK.{{product.price}}</h5>
                         </div>

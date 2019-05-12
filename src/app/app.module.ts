@@ -75,6 +75,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { MarchandDashboardComponent } from './marchand-dashboard/marchand-dashboard.component';
 import { AudioBooksComponent } from './audio-books/audio-books.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -114,6 +115,7 @@ import { AudioBooksComponent } from './audio-books/audio-books.component';
     ForgetPasswordComponent,
     MarchandDashboardComponent,
     AudioBooksComponent,
+    AboutUsComponent,
    
 
     // FooterComponent,
@@ -160,7 +162,7 @@ import { AudioBooksComponent } from './audio-books/audio-books.component';
       { path: 'forget-password', component: ForgetPasswordComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'view-pdf', component: ViewPdfFilesComponent },
-
+      { path: 'about-us', component: AboutUsComponent },
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
       { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'order-success-free-books/:id', component: OrderSuccessFreeBooksComponent, canActivate: [AuthGuard] },
